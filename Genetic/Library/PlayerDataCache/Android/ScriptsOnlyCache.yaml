@@ -9,10 +9,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -304,7 +302,7 @@ ScriptsOnlyBuild:
     className: PageController
   - hash:
       serializedVersion: 2
-      Hash: 0b6a7afd3d0b6d4da485d52edaa9d3bf
+      Hash: ab2372fd2640b6cd37cd38a68d560b83
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FlyoutController
@@ -430,7 +428,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: 788ca6df45411e4b742cb8572da173d2
+      Hash: 628b7736d9a6fd19ba37cd92f3d62730
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NavbarButtonController
