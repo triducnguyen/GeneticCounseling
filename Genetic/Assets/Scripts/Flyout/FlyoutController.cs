@@ -17,12 +17,12 @@ public class FlyoutController : MonoBehaviour
 
     public void FlyoutTapped()
     {
-        visible = !visible;
+        
         var animInfo = animator.GetCurrentAnimatorStateInfo(0);
         float normT = animInfo.normalizedTime % 1f;
         //check if animation is playing
         float newNorm = playing ? 1f - normT : 0;
-        if (visible)
+        if (!visible)
         {
             animator.Play("FlyoutOpen", -1, newNorm);
             SelectCurrent();
@@ -32,6 +32,7 @@ public class FlyoutController : MonoBehaviour
         {
             animator.Play("FlyoutClose", -1, newNorm);
         }
+        visible = !visible;
     }
 
     void SelectCurrent()

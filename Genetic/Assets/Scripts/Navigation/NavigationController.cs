@@ -24,6 +24,8 @@ public class NavigationController : Singleton<NavigationController>
     protected override void Awake()
     {
         base.Awake();
+        //make sure all pages are disabled
+        DisableAllPages();
         //add flyout items to flyout
         foreach (var item in flyoutItems)
         {
@@ -42,7 +44,6 @@ public class NavigationController : Singleton<NavigationController>
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -122,6 +123,14 @@ public class NavigationController : Singleton<NavigationController>
         //disables current page
         DisablePage(currentPage);
     }
+    void DisableAllPages()
+    {
+        foreach (var page in pages)
+        {
+            page.gameObject.SetActive(false);
+        }
+    }
+
     bool FindPage(string name, out PageController page)
     {
         page = pages.Find(p => p.pageName == name);

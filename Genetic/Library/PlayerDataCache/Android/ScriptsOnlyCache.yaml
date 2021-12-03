@@ -1,19 +1,23 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FilterButtonController
     - FlyoutController
     - FlyoutItemController
     - HomePage
     - NavbarButtonController
     - NavigationController
     - PageController
+    - QuizPage
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -26,6 +30,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
     - UnityEngine.UI.Outline
@@ -93,7 +98,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3024}
     - Class: 114
+      Script: {instanceID: 3092}
+    - Class: 114
       Script: {instanceID: 3340}
+    - Class: 114
+      Script: {instanceID: 15242}
+    - Class: 114
+      Script: {instanceID: 15396}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -573,6 +584,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: fbf98eeee1ad7adf1fda4dbd0e6c96d0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: QuizPage
+  - hash:
+      serializedVersion: 2
+      Hash: ab2372fd2640b6cd37cd38a68d560b83
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FilterButtonController
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
