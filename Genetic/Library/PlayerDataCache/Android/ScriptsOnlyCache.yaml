@@ -12,10 +12,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -259,7 +257,7 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: c40bef308c25fe28dd8574844c0b4550
+      Hash: e99c96f58173a14184bc47ceef0dbfd7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FlyoutItemController
@@ -325,7 +323,7 @@ ScriptsOnlyBuild:
     className: PageController
   - hash:
       serializedVersion: 2
-      Hash: ab2372fd2640b6cd37cd38a68d560b83
+      Hash: 091ad6aec940a0b036d62a3df3dc0336
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FlyoutController

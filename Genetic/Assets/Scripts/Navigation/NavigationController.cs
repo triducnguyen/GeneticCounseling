@@ -31,6 +31,7 @@ public class NavigationController : Singleton<NavigationController>
             var listItem = Instantiate(flyoutItemPrefab, flyoutList.transform);
             FlyoutItemController itemController = listItem.GetComponent<FlyoutItemController>();
             itemController.title.text = item.pageTitle;
+            itemController.pageName = item.pageName;
             itemController.icon.sprite = item.icon;
             itemController.action = item.flyoutTapped;
         }

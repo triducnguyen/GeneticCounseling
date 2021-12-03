@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FlyoutController : MonoBehaviour
 {
     public Animator animator;
+    public GameObject itemList;
     public bool visible = false;
     public bool playing = false;
 
@@ -23,10 +25,24 @@ public class FlyoutController : MonoBehaviour
         if (visible)
         {
             animator.Play("FlyoutOpen", -1, newNorm);
+            SelectCurrent();
+            
         }
         else
         {
             animator.Play("FlyoutClose", -1, newNorm);
+        }
+    }
+
+    void SelectCurrent()
+    {
+        //select currently open page
+        var current = NavigationController.instance.currentPage;
+        List<FlyoutItemController> items = itemList.GetComponentsInChildren<FlyoutItemController>().ToList();
+        FlyoutItemController item = items.Find(i => i.pageName == current.pageName);
+        if (item != null)
+        {
+            item.button.Select();
         }
     }
 }
