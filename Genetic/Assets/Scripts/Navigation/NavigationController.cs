@@ -41,17 +41,6 @@ public class NavigationController : Singleton<NavigationController>
         SetPage(flyoutItems[0]);
     }
 
-
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetPage(PageController page)
     {
         EnablePage(page);
@@ -145,11 +134,12 @@ public class NavigationController : Singleton<NavigationController>
         }
     }
 
-    void CloseFlyout()
+    public void OpenFlyout()
     {
-        if (flyout.visible)
-        {
-            navButtonController.Tapped();
-        }
+        navButtonController.Open();
+    }
+    public void CloseFlyout()
+    {
+        navButtonController.Close();
     }
 }

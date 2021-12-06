@@ -25,34 +25,12 @@ public class FlyoutController : MonoBehaviour
         if (!visible)
         {
             animator.Play("FlyoutOpen", -1, newNorm);
-            SelectCurrent();
-            
-        }
+            SelectCurrent();        }
         else
         {
             animator.Play("FlyoutClose", -1, newNorm);
         }
         visible = !visible;
-    }
-
-    public void FlyoutTapped(bool open)
-    {
-
-        var animInfo = animator.GetCurrentAnimatorStateInfo(0);
-        float normT = animInfo.normalizedTime % 1f;
-        //check if animation is playing
-        float newNorm = playing ? 1f - normT : 0;
-        if (!open && !visible)
-        {
-            animator.Play("FlyoutOpen", -1, newNorm);
-            SelectCurrent();
-            visible = true;
-        }
-        else if(visible && open)
-        {
-            animator.Play("FlyoutClose", -1, newNorm);
-            visible = false;
-        }
     }
 
     void SelectCurrent()
