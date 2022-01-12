@@ -370,6 +370,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146559499}
   m_CullTransparentMesh: 1
+--- !u!1 &179612222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 179612223}
+  - component: {fileID: 179612224}
+  - component: {fileID: 179612225}
+  - component: {fileID: 179612226}
+  m_Layer: 0
+  m_Name: AppController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &179612223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179612222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 591.38556, y: 882.374, z: -73.22892}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179612224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179612222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9412fcb3b39820c4799181ef6f6892f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  question_bank:
+  - {fileID: 4900000, guid: fae65d8714d15fc489ba44272bbb0a4c, type: 3}
+  csvIngress: {fileID: 179612226}
+--- !u!114 &179612225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179612222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d476b5a1d3eaf488476228903648e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &179612226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179612222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f909935bf6898a6468c88761caec3516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &205176835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1120,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1671534723804747320, guid: 35060bcb41aee4c4aba4fdc4d093e220, type: 3}
       propertyPath: m_Name
-      value: DefaultPage (3)
+      value: SettingsPage
       objectReference: {fileID: 0}
     - target: {fileID: 1671534723804747320, guid: 35060bcb41aee4c4aba4fdc4d093e220, type: 3}
       propertyPath: m_IsActive
@@ -1278,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1671534723804747320, guid: 35060bcb41aee4c4aba4fdc4d093e220, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1671534723804747321, guid: 35060bcb41aee4c4aba4fdc4d093e220, type: 3}
       propertyPath: m_Pivot.x
@@ -1818,7 +1890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageTitle: Home
   pageName: HomePage
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 3}
 --- !u!222 &1280295911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2370,7 +2442,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1671534723804747320, guid: 35060bcb41aee4c4aba4fdc4d093e220, type: 3}
       propertyPath: m_Name
-      value: DefaultPage (2)
+      value: FlashcardsPage
       objectReference: {fileID: 0}
     - target: {fileID: 1671534723804747320, guid: 35060bcb41aee4c4aba4fdc4d093e220, type: 3}
       propertyPath: m_IsActive
@@ -2990,22 +3062,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e01863b55a9174e9bb6b207a0fcbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPage: {fileID: 0}
+  currentPage: {fileID: 1280295910}
+  navButtonController: {fileID: 260460249}
+  navTitle: {fileID: 1681184413}
+  navButton: {fileID: 260460247}
   pages:
   - {fileID: 1280295910}
   - {fileID: 1671534724650787768}
   - {fileID: 1666024738}
   - {fileID: 657208086}
   - {fileID: 811395609}
-  navTitle: {fileID: 1681184413}
-  navButton: {fileID: 260460247}
-  navButtonController: {fileID: 260460249}
-  flyout: {fileID: 1126690783}
+  flyoutCntroller: {fileID: 0}
   flyoutItems:
   - {fileID: 1280295910}
   - {fileID: 1671534724650787768}
   - {fileID: 1666024738}
   - {fileID: 657208086}
+  - {fileID: 811395609}
   flyoutList: {fileID: 490616278}
   flyoutItemPrefab: {fileID: 9037881342466416924, guid: 3d1132d87f629d54ca0437539a140410, type: 3}
 --- !u!222 &1955469414
@@ -3436,7 +3509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pageTitle: Quizzes
   pageName: QuizPage
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 3}
 --- !u!222 &1671534724769918785
 CanvasRenderer:
   m_ObjectHideFlags: 0

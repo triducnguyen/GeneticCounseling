@@ -5,15 +5,13 @@ using UnityEngine.UI;
 
 public class NavigationController : Singleton<NavigationController>
 {
+    
     public PageController currentPage;
-
-    public List<PageController> pages;
-
+    public NavbarButtonController navButtonController;
     public Text navTitle;
     public Image navButton;
-    public NavbarButtonController navButtonController;
-
-    public FlyoutController flyout;
+    public List<PageController> pages;
+    public FlyoutController flyoutCntroller;
     public List<PageController> flyoutItems;
     public GameObject flyoutList;
     public GameObject flyoutItemPrefab;
@@ -26,7 +24,7 @@ public class NavigationController : Singleton<NavigationController>
         base.Awake();
         //make sure all pages are disabled
         DisableAllPages();
-        //add flyout items to flyout
+        //add flyout pages to flyout. We use an aditional list for flyout items so that not all pages are added to the flyout.
         foreach (var item in flyoutItems)
         {
             Debug.Log($"Adding {item.pageName} to flyout");
