@@ -22,9 +22,8 @@ public class CSVIngress : Singleton<CSVIngress>
             List<Answer> answers;
             List<Tag> tags = new List<Tag>();
 
-            var csvpath = AssetDatabase.GetAssetPath(csvfile);
-            using(var reader = new StreamReader(csvpath))
-            using(var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            using (var reader = new StringReader(csvfile.text))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 questions = csv.GetRecords<QuestionCSV>().ToList();
                 //convert QuestionCSV to DB Records
@@ -48,7 +47,7 @@ public class CSVIngress : Singleton<CSVIngress>
                     //remove all null and empty answers
                     answers.RemoveAll(a => a == null);
                     //get all tags
-                    tags = q.Tags.Split(',').Select(t => new Tag() { tag = t}).ToList();
+                    tags = q.Tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
 
                     //check if question, answers, and tags already exist
                     var existingQuestion = manager.GetItem<Question>(q => q.text == question.text);
@@ -62,7 +61,7 @@ public class CSVIngress : Singleton<CSVIngress>
                         //make current question the existing one
                         question = existingQuestion;
                     }
-                    for (var i = answers.Count-1; i>=0; i--)
+                    for (var i = answers.Count - 1; i >= 0; i--)
                     {
                         Answer answ = answers[i];
                         var existingAnsw = manager.GetItem<Answer>(a => a.text == answ.text);
@@ -77,7 +76,7 @@ public class CSVIngress : Singleton<CSVIngress>
                             answers[i] = existingAnsw;
                         }
                     }
-                    for(var i = tags.Count-1; i>=0; i--)
+                    for (var i = tags.Count - 1; i >= 0; i--)
                     {
                         Tag t = tags[i];
                         var existingT = manager.GetItem<Tag>(tg => tg.tag.Equals(t.tag));
@@ -111,7 +110,7 @@ public class CSVIngress : Singleton<CSVIngress>
                         if (existingIAnswer == null)
                         {
                             //add new relation
-                            manager.AddItem(new IncorrectAnswer() { questionID = question.id, answerID = a.id});
+                            manager.AddItem(new IncorrectAnswer() { questionID = question.id, answerID = a.id });
                         }
                     }
                     //check if question and answers have relations to tags
@@ -136,7 +135,7 @@ public class CSVIngress : Singleton<CSVIngress>
                             }
                         }
                     }
-                    
+
                 }
             }
             Debug.Log("Successfully imported CSV Quesitons");

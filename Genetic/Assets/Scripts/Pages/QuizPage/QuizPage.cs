@@ -13,6 +13,6 @@ public class QuizPage : PageController
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("DB path: "+DBManager.instance.dbPath);
     }
 }

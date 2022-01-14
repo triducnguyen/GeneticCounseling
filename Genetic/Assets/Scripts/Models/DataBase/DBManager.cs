@@ -18,7 +18,8 @@ public class DBManager : Singleton<DBManager>
     {
         get
         {
-            var path = new Uri(Application.dataPath+@"/Scripts/Models/DataBase/"+dbName);
+            var path = new Uri(Path.Combine(Application.persistentDataPath, dbName));
+            
             return path.AbsolutePath;
         }
     }
@@ -30,7 +31,6 @@ public class DBManager : Singleton<DBManager>
         base.Awake();
         ConnectDB();
     }
-
 
     public void ConnectDB()
     {

@@ -1279,7 +1279,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2338, y: 1766}
+  m_SizeDelta: {x: 1080, y: 1766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &418212419
 GameObject:
@@ -4513,13 +4513,13 @@ MonoBehaviour:
   navButton: {fileID: 260460247}
   pages:
   - {fileID: 1280295910}
-  - {fileID: 1671534723538631725}
+  - {fileID: 1671534723538631728}
   - {fileID: 1666024738}
   - {fileID: 657208086}
   flyoutCntroller: {fileID: 0}
   flyoutItems:
   - {fileID: 1280295910}
-  - {fileID: 1671534723538631725}
+  - {fileID: 1671534723538631728}
   - {fileID: 1666024738}
   - {fileID: 657208086}
   flyoutList: {fileID: 490616278}
@@ -4884,21 +4884,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671534723538631727}
   m_CullTransparentMesh: 1
---- !u!114 &1671534723538631725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671534723538631727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8274a0e00692ac644b2985f1c5e38694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pageTitle: Quiz
-  pageName: QuizPage
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!224 &1671534723538631726
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4930,7 +4915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671534723538631726}
   - component: {fileID: 1671534723538631724}
-  - component: {fileID: 1671534723538631725}
+  - component: {fileID: 1671534723538631728}
   m_Layer: 5
   m_Name: QuizPage
   m_TagString: Untagged
@@ -4938,6 +4923,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1671534723538631728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671534723538631727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e6200ca9d53a3419718be02c921a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pageTitle: Quiz
+  pageName: QuizPage
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1671534723726209220
 GameObject:
   m_ObjectHideFlags: 0
