@@ -42,7 +42,7 @@ public class QuizMaster : MonoBehaviour
                 {
                     btn.text = answers[i].text;
                 }
-                catch(IndexOutOfRangeException e)
+                catch(ArgumentOutOfRangeException e)
                 {
                     btn.text = "";
                 }
