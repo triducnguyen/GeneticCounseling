@@ -4,15 +4,4 @@ using UnityEngine;
 
 public class QuizPage : PageController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("DB path: "+DBManager.instance.dbPath);
-    }
 }

@@ -9,6 +9,7 @@ public class AppController : Singleton<AppController>
     public CSVIngress csvIngress;
 
     public List<QuestionCSV> questionList;
+    public PaletteController controller;
     protected override void Awake()
     {
         base.Awake();

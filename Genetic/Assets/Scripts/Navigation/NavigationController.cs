@@ -8,20 +8,30 @@ public class NavigationController : Singleton<NavigationController>
     
     public PageController currentPage;
     public NavbarButtonController navButtonController;
-    public Text navTitle;
-    public Image navButton;
     public List<PageController> pages;
     public FlyoutController flyoutCntroller;
     public List<PageController> flyoutItems;
     public GameObject flyoutList;
     public GameObject flyoutItemPrefab;
+    public PaletteController controller { get => AppController.instance.controller; }
 
+    public Image flyoutTouchBackground;
+    public Image navBackground;
+    public Text navTitle;
+    public Image navButton;
+
+    public Image flyoutHeaderBackground;
+    public Image flyoutBackground;
+    public Image flyoutFooterBackground;
+    public List<Text> PrimaryTexts;
+    
 
     // Start is called before the first frame update
 
     protected override void Awake()
     {
         base.Awake();
+        controller.ColorsChanged += ColorsChanged;
         //make sure all pages are disabled
         DisableAllPages();
         //add flyout pages to flyout. We use an aditional list for flyout items so that not all pages are added to the flyout.
@@ -37,6 +47,8 @@ public class NavigationController : Singleton<NavigationController>
         }
         //set default page (Home)
         SetPage(flyoutItems[0]);
+        //set colors
+        ColorsChanged(new ColorPaletteChangedEventArgs(controller.currentPalette));
     }
 
     public void SetPage(PageController page)
@@ -139,5 +151,21 @@ public class NavigationController : Singleton<NavigationController>
     public void CloseFlyout()
     {
         navButtonController.Close();
+    }
+
+    public void ColorsChanged(ColorPaletteChangedEventArgs args)
+    {
+        var palette = args.palette;
+        navTitle.color = palette.PrimaryText;
+        navBackground.color = palette.Navbar;
+        navButton.color = palette.FlyoutBtn;
+        flyoutTouchBackground.color = palette.FlyoutTouchBackground;
+        flyoutHeaderBackground.color = palette.FlyoutHeaderBackground;
+        flyoutBackground.color = palette.FlyoutBackground;
+        flyoutFooterBackground.color = palette.FlyoutFooterBackground;
+        foreach(var t in PrimaryTexts)
+        {
+            t.color = palette.PrimaryText;
+        }
     }
 }

@@ -141,6 +141,20 @@ MonoBehaviour:
   pageTitle: Setting
   pageName: SettingPage
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  foreground: {fileID: 1671534725228260395}
+  background: {fileID: 1671534723990723283}
+  backgroundImage: {fileID: 1671534723990723277}
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts:
+  - {fileID: 1671534723439901472}
+  SecondaryTexts: []
+  Titles: []
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
 --- !u!1 &1671534723990723283
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class FlashCardPage : PageController
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         questionList = new List<Question>();
         questionSet = new HashSet<Question>();
 

@@ -23,6 +23,9 @@ public class Converter : MonoBehaviour
             }
             else
             {
+                //Debug.Log("Word: "+wordDefinition[0]);
+                //Debug.Log("Definition: "+wordDefinition[1]);
+                //Debug.Log("-----------");
                 //check if card already exists
                     //if card does exist, update it with new information
                     //if card doesnt exist, create a new one and save it
