@@ -198,6 +198,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2326936}
   m_CullTransparentMesh: 1
+--- !u!1 &5062849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5062850}
+  - component: {fileID: 5062851}
+  m_Layer: 0
+  m_Name: Black/Pink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5062850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1229125079}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5062851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5668b334fcc980f49be15a9f3f77173a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Primary: {r: 0.19607843, g: 0.19607843, b: 0.24705882, a: 1}
+  Secondary: {r: 0.8666667, g: 0.7411765, b: 0.8352941, a: 1}
+  Tertiary: {r: 0, g: 0, b: 0, a: 1}
+  Quaternary: {r: 0, g: 0, b: 0, a: 1}
+  Navbar: {r: 0.19607843, g: 0.19607843, b: 0.24705882, a: 1}
+  FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutTouchBackground: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutHeaderBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
+  FlyoutBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
+  FlyoutItemBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
+  FlyoutText: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutFooterBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
+  PageBackground: {r: 0.8666667, g: 0.7411765, b: 0.8352941, a: 1}
+  PageForeground: {r: 0, g: 0, b: 0, a: 1}
+  PrimaryText: {r: 1, g: 1, b: 1, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
+  Title: {r: 1, g: 1, b: 1, a: 1}
+  Header: {r: 0, g: 0, b: 0, a: 1}
+  Span: {r: 0, g: 0, b: 0, a: 1}
+  Caption: {r: 0, g: 0, b: 0, a: 1}
+  Subtitle: {r: 0, g: 0, b: 0, a: 1}
+  Hint: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &63399904
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +769,75 @@ MonoBehaviour:
   - {fileID: 2059610354}
   - {fileID: 516859593}
   - {fileID: 1489005999}
+  - {fileID: 5062851}
+  - {fileID: 2137770336}
+  - {fileID: 180170963}
+--- !u!1 &180170961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 180170962}
+  - component: {fileID: 180170963}
+  m_Layer: 0
+  m_Name: Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &180170962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180170961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1229125079}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180170963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180170961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5668b334fcc980f49be15a9f3f77173a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Primary: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  Secondary: {r: 1, g: 1, b: 1, a: 1}
+  Tertiary: {r: 0, g: 0, b: 0, a: 1}
+  Quaternary: {r: 0, g: 0, b: 0, a: 1}
+  Navbar: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutTouchBackground: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutHeaderBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  FlyoutBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  FlyoutItemBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  FlyoutText: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutFooterBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  PageBackground: {r: 1, g: 1, b: 1, a: 1}
+  PageForeground: {r: 0, g: 0, b: 0, a: 1}
+  PrimaryText: {r: 1, g: 1, b: 1, a: 1}
+  SecondaryText: {r: 0, g: 0, b: 0, a: 1}
+  Title: {r: 0, g: 0, b: 0, a: 1}
+  Header: {r: 0, g: 0, b: 0, a: 1}
+  Span: {r: 0, g: 0, b: 0, a: 1}
+  Caption: {r: 0, g: 0, b: 0, a: 1}
+  Subtitle: {r: 0, g: 0, b: 0, a: 1}
+  Hint: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &204605242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,7 +2331,7 @@ GameObject:
   - component: {fileID: 516859592}
   - component: {fileID: 516859593}
   m_Layer: 0
-  m_Name: White
+  m_Name: Green/Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2228,29 +2363,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5668b334fcc980f49be15a9f3f77173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Primary: {r: 1, g: 1, b: 1, a: 1}
-  Secondary: {r: 1, g: 1, b: 1, a: 1}
-  Tertiary: {r: 1, g: 1, b: 1, a: 1}
-  Quaternary: {r: 1, g: 1, b: 1, a: 1}
-  Navbar: {r: 1, g: 1, b: 1, a: 1}
+  Primary: {r: 0.36078432, g: 0.3019608, b: 0.3647059, a: 1}
+  Secondary: {r: 0.5372549, g: 0.7137255, b: 0.64705884, a: 1}
+  Tertiary: {r: 0, g: 0, b: 0, a: 1}
+  Quaternary: {r: 0, g: 0, b: 0, a: 1}
+  Navbar: {r: 0.36078432, g: 0.3019608, b: 0.3647059, a: 1}
   FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
   FlyoutTouchBackground: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutHeaderBackground: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutBackground: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutItemBackground: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutHeaderBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
+  FlyoutBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
+  FlyoutItemBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
   FlyoutText: {r: 1, g: 1, b: 1, a: 1}
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutFooterBackground: {r: 1, g: 1, b: 1, a: 1}
-  PageBackground: {r: 1, g: 1, b: 1, a: 1}
-  PageForeground: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutFooterBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
+  PageBackground: {r: 0.5372549, g: 0.7137255, b: 0.64705884, a: 1}
+  PageForeground: {r: 0, g: 0, b: 0, a: 1}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
-  Header: {r: 1, g: 1, b: 1, a: 1}
-  Span: {r: 1, g: 1, b: 1, a: 1}
-  Caption: {r: 1, g: 1, b: 1, a: 1}
-  Subtitle: {r: 1, g: 1, b: 1, a: 1}
-  Hint: {r: 1, g: 1, b: 1, a: 1}
+  Header: {r: 0, g: 0, b: 0, a: 1}
+  Span: {r: 0, g: 0, b: 0, a: 1}
+  Caption: {r: 0, g: 0, b: 0, a: 1}
+  Subtitle: {r: 0, g: 0, b: 0, a: 1}
+  Hint: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &618352313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3883,9 @@ Transform:
   - {fileID: 2059610353}
   - {fileID: 1489005998}
   - {fileID: 516859592}
+  - {fileID: 5062850}
+  - {fileID: 2137770335}
+  - {fileID: 180170962}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4517,7 +4655,7 @@ GameObject:
   - component: {fileID: 1489005998}
   - component: {fileID: 1489005999}
   m_Layer: 0
-  m_Name: Black
+  m_Name: Blue/Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4549,24 +4687,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5668b334fcc980f49be15a9f3f77173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Primary: {r: 0, g: 0, b: 0, a: 1}
-  Secondary: {r: 0, g: 0, b: 0, a: 1}
+  Primary: {r: 0.24705882, g: 0.28627452, b: 0.8, a: 1}
+  Secondary: {r: 0, g: 0.5294118, b: 0.52156866, a: 1}
   Tertiary: {r: 0, g: 0, b: 0, a: 1}
   Quaternary: {r: 0, g: 0, b: 0, a: 1}
-  Navbar: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutBtn: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutTouchBackground: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutHeaderBackground: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutBackground: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutItemBackground: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutText: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutIcon: {r: 0, g: 0, b: 0, a: 1}
-  FlyoutFooterBackground: {r: 0, g: 0, b: 0, a: 1}
-  PageBackground: {r: 0, g: 0, b: 0, a: 1}
+  Navbar: {r: 0.24705882, g: 0.28627452, b: 0.8, a: 1}
+  FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutTouchBackground: {r: 0.019607844, g: 0.61960787, b: 0.6117647, a: 1}
+  FlyoutHeaderBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
+  FlyoutBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
+  FlyoutItemBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
+  FlyoutText: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutFooterBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
+  PageBackground: {r: 0, g: 0.5283019, b: 0.5213959, a: 1}
   PageForeground: {r: 0, g: 0, b: 0, a: 1}
-  PrimaryText: {r: 0, g: 0, b: 0, a: 1}
-  SecondaryText: {r: 0, g: 0, b: 0, a: 1}
-  Title: {r: 0, g: 0, b: 0, a: 1}
+  PrimaryText: {r: 1, g: 1, b: 1, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
+  Title: {r: 1, g: 1, b: 1, a: 1}
   Header: {r: 0, g: 0, b: 0, a: 1}
   Span: {r: 0, g: 0, b: 0, a: 1}
   Caption: {r: 0, g: 0, b: 0, a: 1}
@@ -6262,24 +6400,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5668b334fcc980f49be15a9f3f77173a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Primary: {r: 0, g: 0.44705883, b: 0.9137255, a: 1}
-  Secondary: {r: 1, g: 0.6156863, b: 0.19215687, a: 1}
+  Primary: {r: 0, g: 0.3647059, b: 0.74509805, a: 1}
+  Secondary: {r: 0.9056604, g: 0.688204, b: 0.4485582, a: 1}
   Tertiary: {r: 0, g: 0, b: 0, a: 0}
   Quaternary: {r: 0, g: 0, b: 0, a: 0}
   Navbar: {r: 0, g: 0.3647059, b: 0.74509805, a: 1}
   FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutTouchBackground: {r: 0.14509805, g: 0.5568628, b: 1, a: 0.25490198}
-  FlyoutHeaderBackground: {r: 0, g: 0.44705883, b: 0.9137255, a: 1}
-  FlyoutBackground: {r: 0.015686275, g: 0.49803922, b: 1, a: 1}
-  FlyoutItemBackground: {r: 0, g: 0.44705883, b: 0.9137255, a: 1}
+  FlyoutTouchBackground: {r: 1, g: 1, b: 1, a: 0.25490198}
+  FlyoutHeaderBackground: {r: 0.81960785, g: 0.54901963, b: 0.24313726, a: 1}
+  FlyoutBackground: {r: 0.81960785, g: 0.54901963, b: 0.24313726, a: 1}
+  FlyoutItemBackground: {r: 0.81960785, g: 0.54901963, b: 0.24313726, a: 1}
   FlyoutText: {r: 1, g: 1, b: 1, a: 1}
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutFooterBackground: {r: 0, g: 0.44705883, b: 0.9137255, a: 1}
-  PageBackground: {r: 1, g: 0.6156863, b: 0.19215687, a: 1}
+  FlyoutFooterBackground: {r: 0.8207547, g: 0.5471624, b: 0.24390352, a: 1}
+  PageBackground: {r: 0.90588236, g: 0.6862745, b: 0.44705883, a: 1}
   PageForeground: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
-  SecondaryText: {r: 0, g: 0, b: 0, a: 0}
-  Title: {r: 0, g: 0, b: 0, a: 0}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 0}
+  Title: {r: 1, g: 1, b: 1, a: 0}
   Header: {r: 0, g: 0, b: 0, a: 0}
   Span: {r: 0, g: 0, b: 0, a: 0}
   Caption: {r: 0, g: 0, b: 0, a: 0}
@@ -6540,6 +6678,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &2137770334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2137770335}
+  - component: {fileID: 2137770336}
+  m_Layer: 0
+  m_Name: Dark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2137770335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137770334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1229125079}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2137770336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137770334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5668b334fcc980f49be15a9f3f77173a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Primary: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
+  Secondary: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  Tertiary: {r: 0, g: 0, b: 0, a: 1}
+  Quaternary: {r: 0, g: 0, b: 0, a: 1}
+  Navbar: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 1}
+  FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutTouchBackground: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 1}
+  FlyoutHeaderBackground: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  FlyoutBackground: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  FlyoutItemBackground: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  FlyoutText: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
+  FlyoutFooterBackground: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  PageBackground: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  PageForeground: {r: 0, g: 0, b: 0, a: 1}
+  PrimaryText: {r: 1, g: 1, b: 1, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
+  Title: {r: 1, g: 1, b: 1, a: 1}
+  Header: {r: 0, g: 0, b: 0, a: 1}
+  Span: {r: 0, g: 0, b: 0, a: 1}
+  Caption: {r: 0, g: 0, b: 0, a: 1}
+  Subtitle: {r: 0, g: 0, b: 0, a: 1}
+  Hint: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &1011228264573103397
 MonoBehaviour:
   m_ObjectHideFlags: 0
