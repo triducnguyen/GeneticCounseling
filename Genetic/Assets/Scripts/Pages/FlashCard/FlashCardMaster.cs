@@ -10,50 +10,34 @@ public class FlashCardMaster : MonoBehaviour
     public Text flashCardText;
 
     //Temp String hold answer
-    private string temp;
+    private string flashcard;
+    private string definition;
     
     //Check if answer is revealing
     private bool isReveal;
-    public Question currentQuestion
+
+    public string FlashCard
     {
-        get
-        {
-            return _question;
-        }
+        get => flashcard;
         set
         {
-            _question = value;
-            //set question text
-            flashCardText.text = value.text;
-            temp = GetAnswer().text;
-            
+            flashcard = value;
         }
     }
 
-    Question _question;
-
-    Answer correctAnswer
+    public string Definition
     {
-        get => GetAnswer();
-    }
-
-    Answer GetAnswer()
-    {
-        if (currentQuestion == null)
+        get => definition;
+        set
         {
-            return null;
-        }
-        else
-        {
-            var aRelation = manager.GetItem<CorrectAnswer>(ca => ca.questionID == currentQuestion.id);
-            return manager.GetItem<Answer>(a => a.id == aRelation.answerID);
+            definition = value;
         }
     }
     
     public void RevealAnswer()
     {
         string new_title = (!isReveal) ? "Answer: " : "Question: ";
-        string currentText = (!isReveal) ? temp : currentQuestion.text;
+        string currentText = (!isReveal) ? flashcard : definition;
         flashCardText.text = currentText;
         title.text = new_title;
         isReveal = !isReveal;

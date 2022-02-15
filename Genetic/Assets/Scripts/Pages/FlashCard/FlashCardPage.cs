@@ -1,65 +1,92 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FlashCardPage : PageController
 {
     static DBManager manager { get => DBManager.instance; }
-    public int numFlashCard;
     public GameObject flashCardPrefab;
-    public List<Question> questionList;
+
     public GameObject contentView;
+    public TMP_InputField inputSearch;
 
-    private HashSet<Question> questionSet;
-
+    private List<Tag> tag_list;
+    private List<FlashcardTag> flashcardTag_list;
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
-        questionList = new List<Question>();
-        questionSet = new HashSet<Question>();
-
-        for(int i = 0; i < numFlashCard; i++)
-        {
-            Question new_question = GetNewQuestion();
-            if(new_question != null && !questionSet.Contains(new_question))
-            {
-                questionList.Add(new_question);
-                questionSet.Add(new_question);
-                SetNewFlashCard(new_question);
-            }
-        }
-
+        flashcardTag_list = new List<FlashcardTag>();
         ExpandContenView();
     }
 
     public void ExpandContenView()
     {
         RectTransform rect = contentView.GetComponent<RectTransform>();
-        if(numFlashCard * 400 > rect.sizeDelta.y)
+        if(flashcardTag_list.Count * 400 > rect.sizeDelta.y)
         {
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, (numFlashCard + 1) * 400);
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, (flashcardTag_list.Count + 1) * 400);
         }
     }
 
-    public void SetNewFlashCard(Question question)
+    public bool SetNewFlashCard(Flashcard flashcard, Definition definition)
     {
-        if (question == null) return;
+        if (flashcard == null || definition == null) return false;
 
         GameObject obj = Instantiate(flashCardPrefab);
         obj.transform.SetParent(contentView.gameObject.transform);
         obj.transform.localScale = new Vector3(1, 1, 1);
-        FlashCardMaster flashCard = obj.GetComponent<FlashCardMaster>();
-        flashCard.currentQuestion = question;
-
+        FlashCardMaster flashCardMaster = obj.GetComponent<FlashCardMaster>();
+        flashCardMaster.FlashCard = flashcard.text;
+        flashCardMaster.Definition = definition.text;
+        return true;
     }
 
-    public Question GetNewQuestion()
+    public List<Tag> SearchTag(string tag) {
+        List<Tag> currTag = new List<Tag>();
+        currTag = manager.GetItems<Tag>(q => q.tag == tag);
+        return currTag;
+    }
+
+    public List<FlashcardTag> getFlashCardTags(Tag tag)
     {
-        Question curr = new Question();
-        int count = manager.db.Table<Question>().Count();
-        int id = UnityEngine.Random.Range(1, count + 1);
-        curr = manager.GetItem<Question>(q => q.id == id);
-        return curr;
+        return manager.GetItems<FlashcardTag>(q => q.tag_id == tag.id);
+    }
+
+    public FlashcardDefinition getFlashcardDefinition(FlashcardTag flashCardTag)
+    {
+        return manager.GetItem<FlashcardDefinition>(q => q.id == flashCardTag.flashCardDefinition_id);
+    }
+
+    public Flashcard getFlashcard(FlashcardDefinition flashcardDefinition)
+    {
+        return manager.GetItem<Flashcard>(q => q.id == flashcardDefinition.flashCard_id);
+    }
+
+    public Definition getDefinition(FlashcardDefinition flashcardDefinition)
+    {
+        return manager.GetItem<Definition>(q => q.id == flashcardDefinition.definition_id);
+    }
+    public void Search()
+    {
+        string input = inputSearch.text;
+        tag_list = SearchTag(input);
+        Intialize(tag_list);
+    }
+    public void Intialize(List<Tag> tag_list)
+    {
+        foreach (Tag tag in tag_list)
+        {
+            flashcardTag_list = getFlashCardTags(tag);
+        }
+
+        foreach(FlashcardTag flashcardTag in flashcardTag_list)
+        {
+            FlashcardDefinition flashcardDefinition = getFlashcardDefinition(flashcardTag);
+            Flashcard flashcard = getFlashcard(flashcardDefinition);
+            Definition definition = getDefinition(flashcardDefinition);
+            SetNewFlashCard(flashcard, definition);
+        }
     }
 }
