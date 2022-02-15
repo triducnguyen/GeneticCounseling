@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class FlashcardDefinition : MonoBehaviour
+using SQLite;
+public class FlashcardDefinition 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [AutoIncrement, PrimaryKey]
+    public int id { get; set; }
+    [Unique]
+    public int flashCard_id { get; set; }
+    [Unique]
+    public int definition_id { get; set; }
 }

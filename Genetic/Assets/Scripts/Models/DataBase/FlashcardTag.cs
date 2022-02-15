@@ -1,18 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class FlashcardTag : MonoBehaviour
+using SQLite;
+public class FlashcardTag
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [AutoIncrement, PrimaryKey]
+    public int id { get; set; }
+    [Unique]
+    public int flashCardDefinition_id { get; set; }
 }
