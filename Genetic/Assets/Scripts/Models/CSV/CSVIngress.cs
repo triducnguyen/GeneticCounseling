@@ -11,9 +11,9 @@ using System;
 
 public class CSVIngress : Singleton<CSVIngress>
 {
-    public static DBManager manager { get => DBManager.instance; }
+    public static DBManager manager { get => AppController.instance.manager; }
 
-    public void Import(TextAsset csvfile)
+    public void ImportAnswerSheet(TextAsset csvfile)
     {
         try
         {
@@ -142,6 +142,91 @@ public class CSVIngress : Singleton<CSVIngress>
         }
         catch(Exception e){
             //could not parse questions
+            Debug.Log($"{e.Message}\nStackTrace:\n{e.StackTrace}\nInncerException:\n{e.InnerException}");
+        }
+    }
+
+    public void ImportFlashcardSheet(TextAsset csvfile)
+    {
+        try
+        {
+            List<FlashcardCSV> flashcards;
+            Flashcard flashcard;
+            Definition definition;
+            FlashcardDefinition fd;
+            List<Tag> tags;
+
+
+            using (var reader = new StringReader(csvfile.text))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                flashcards = csv.GetRecords<FlashcardCSV>().ToList();
+                //convert csv into db entries
+                foreach (var f in flashcards)
+                {
+                    //create flashcard
+                    flashcard = new Flashcard() { text = f.front };
+                    //create definition
+                    definition = new Definition() { text = f.back };
+                    //create tags
+                    tags = f.tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
+
+                    //check if card, definition, and tags already exist
+                    var card = manager.GetItem<Flashcard>(fc => fc.text == f.front);
+                    var def = manager.GetItem<Definition>(d => d.text == f.back);
+
+                    if (card != null) 
+                    {
+                        flashcard = card;
+                        //update flashcard
+                        manager.UpdateItem(flashcard);
+                    }
+                    else
+                    {
+                        //save new flashcard
+                        manager.AddItem(flashcard);
+                    }
+
+                    if (def != null)
+                    {
+                        definition = def;
+                        //update definition
+                        manager.UpdateItem(definition);
+                    }
+                    else
+                    {
+                        manager.AddItem(definition);
+                    }
+                   
+                    
+
+                    //create relations
+                    fd = manager.GetItem<FlashcardDefinition>(fd => fd.flashCard_id == flashcard.id && fd.definition_id == definition.id);
+                    if (fd == null)
+                    {
+                        //save new relation
+                        fd = new FlashcardDefinition() { flashCard_id = flashcard.id, definition_id = definition.id };
+                        manager.AddItem(fd);
+                    }
+
+                    for (int x = 0; x < tags.Count; x++)
+                    {
+                        var currentTag = tags[x];
+                        var tg = manager.GetItem<Tag>(t => t.tag == currentTag.tag);
+                        if (tg == null)
+                        {
+                            //save new tag
+                            manager.AddItem(tags[x]);
+                            //create new relation
+                            manager.AddItem(new FlashcardTag() { flashCardDefinition_id = fd.id, tag_id = currentTag.id });
+                        }
+                    }
+
+                }
+            }
+        }
+        catch (Exception e)
+        {
             Debug.Log($"{e.Message}\nStackTrace:\n{e.StackTrace}\nInncerException:\n{e.InnerException}");
         }
     }

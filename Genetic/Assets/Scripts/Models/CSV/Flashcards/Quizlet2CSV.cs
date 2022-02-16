@@ -1,15 +1,19 @@
+using CsvHelper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
-public class Converter : MonoBehaviour
+public class Quizlet2CSV : MonoBehaviour
 {
     public TextAsset quizlet_formatted_flashcards;
-    // Start is called before the first frame update
-    void Start()
+
+    void CSVfromQuizlet()
     {
+        List<FlashcardCSV> cards = new List<FlashcardCSV>();
         string[] separator = { "%*%" };
         //turn contents of string into flashcards
         List<string> flashcards = quizlet_formatted_flashcards.text.Split(separator, System.StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -23,13 +27,21 @@ public class Converter : MonoBehaviour
             }
             else
             {
-                //Debug.Log("Word: "+wordDefinition[0]);
-                //Debug.Log("Definition: "+wordDefinition[1]);
-                //Debug.Log("-----------");
-                //check if card already exists
-                    //if card does exist, update it with new information
-                    //if card doesnt exist, create a new one and save it
+                cards.Add(new FlashcardCSV() { front = wordDefinition[0], back = wordDefinition[1] });
             }
         }
+        ExportCSV(cards);
+    }
+
+    void ExportCSV(List<FlashcardCSV> cards)
+    {
+        var path = new Uri(Path.Combine(Application.persistentDataPath, "exported_cards.csv"));
+        Debug.Log("Saving flashcards to "+path.AbsoluteUri);
+        using (var writer = new StreamWriter(path.AbsolutePath))
+        using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+        {
+            csv.WriteRecords(cards);
+        }
+        Debug.Log("Saved flashcards to "+path.AbsolutePath);
     }
 }

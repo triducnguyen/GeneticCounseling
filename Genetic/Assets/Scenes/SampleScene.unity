@@ -708,12 +708,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9412fcb3b39820c4799181ef6f6892f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 179612225}
   question_bank:
   - {fileID: 4900000, guid: 9518f781a8ef06541b4d5e653bcec53a, type: 3}
   - {fileID: 4900000, guid: 8594047e290abb04d9d6872e804ec488, type: 3}
   - {fileID: 4900000, guid: ed361d2cdc72adf44ae4f3b17c42e51a, type: 3}
   - {fileID: 4900000, guid: 35bf4fb648faf5d4589774adda9310ad, type: 3}
   - {fileID: 4900000, guid: acdebbcfc6a684541adbcdcce4714c9e, type: 3}
+  flashcard_bank:
+  - {fileID: 4900000, guid: 7754a0b03559ffd4ea9b60457c68f4cd, type: 3}
   csvIngress: {fileID: 179612226}
   controller: {fileID: 179612228}
 --- !u!114 &179612225
@@ -5633,8 +5636,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 450820411}
   m_HandleRect: {fileID: 450820410}
   m_Direction: 2
-  m_Value: 0.9999998
-  m_Size: 0.5333333
+  m_Value: 1
+  m_Size: 0.53333336
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

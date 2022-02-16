@@ -7,6 +7,5 @@ public class Definition
 {
     [AutoIncrement, PrimaryKey]
     public int id { get; set; }
-    [Unique]
     public string text { get; set; }
 }

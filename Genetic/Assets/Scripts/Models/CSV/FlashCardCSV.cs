@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlashCardCSV : MonoBehaviour
+public class FlashcardCSV
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int ID { get; set; }
+    public string front { get; set; }
+    public string back { get; set; }
+    public string imageURL { get; set; }
+    public string tags { get; set; }
 }

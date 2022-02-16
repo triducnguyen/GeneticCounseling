@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class AppController : Singleton<AppController>
 {
+    public DBManager manager;
+
+
     public TextAsset[] question_bank;
+    public TextAsset[] flashcard_bank;
     public CSVIngress csvIngress;
 
     public List<QuestionCSV> questionList;
@@ -18,13 +22,11 @@ public class AppController : Singleton<AppController>
         //Load questions
         foreach (var csv in question_bank)
         {
-            csvIngress.Import(csv);
+            csvIngress.ImportAnswerSheet(csv);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach(var csv in flashcard_bank)
+        {
+            csvIngress.ImportFlashcardSheet(csv);
+        }
     }
 }
