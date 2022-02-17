@@ -9,5 +9,5 @@ public class FlashcardTag
     [Indexed]
     public int tag_id { get; set; }
     [Indexed]
-    public int flashCardDefinition_id { get; set; }
+    public int flashCard_id { get; set; }
 }

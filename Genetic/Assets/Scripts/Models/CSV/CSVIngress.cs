@@ -222,7 +222,7 @@ public class CSVIngress : Singleton<CSVIngress>
                             //save new tag
                             manager.AddItem(tags[x]);
                             //create new relation
-                            manager.AddItem(new FlashcardTag() { flashCardDefinition_id = fd.id, tag_id = currentTag.id });
+                            manager.AddItem(new FlashcardTag() { flashCard_id = fd.id, tag_id = currentTag.id });
                         }
                     }
 

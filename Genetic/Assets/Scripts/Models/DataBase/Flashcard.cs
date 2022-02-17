@@ -7,4 +7,6 @@ public class Flashcard
     [AutoIncrement, PrimaryKey]
     public int id { get; set; }
     public string text { get; set; }
+    public string definition { get; set; }
+    
 }

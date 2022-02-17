@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class FlashCardPage : PageController
 {
@@ -30,7 +31,7 @@ public class FlashCardPage : PageController
         }
     }
 
-    public bool SetNewFlashCard(Flashcard flashcard, Definition definition)
+    public bool SetNewFlashCard(string flashcard, string definition)
     {
         if (flashcard == null || definition == null) return false;
 
@@ -38,14 +39,14 @@ public class FlashCardPage : PageController
         obj.transform.SetParent(contentView.gameObject.transform);
         obj.transform.localScale = new Vector3(1, 1, 1);
         FlashCardMaster flashCardMaster = obj.GetComponent<FlashCardMaster>();
-        flashCardMaster.FlashCard = flashcard.text;
-        flashCardMaster.Definition = definition.text;
+        flashCardMaster.FlashCard = flashcard;
+        flashCardMaster.Definition = definition;
         return true;
     }
 
-    public List<Tag> SearchTag(string tag) {
-        List<Tag> currTag = new List<Tag>();
-        currTag = manager.GetItems<Tag>(q => q.tag == tag);
+    public Tag SearchTag(string tag) {
+        Tag currTag = new Tag();
+        currTag = manager.GetItem<Tag>(q => q.tag == tag);
         return currTag;
     }
 
@@ -54,24 +55,19 @@ public class FlashCardPage : PageController
         return manager.GetItems<FlashcardTag>(q => q.tag_id == tag.id);
     }
 
-    public FlashcardDefinition getFlashcardDefinition(FlashcardTag flashCardTag)
+    public Flashcard getFlashcard(FlashcardTag flashcardTag)
     {
-        return manager.GetItem<FlashcardDefinition>(q => q.id == flashCardTag.flashCardDefinition_id);
-    }
-
-    public Flashcard getFlashcard(FlashcardDefinition flashcardDefinition)
-    {
-        return manager.GetItem<Flashcard>(q => q.id == flashcardDefinition.flashCard_id);
-    }
-
-    public Definition getDefinition(FlashcardDefinition flashcardDefinition)
-    {
-        return manager.GetItem<Definition>(q => q.id == flashcardDefinition.definition_id);
+        return manager.GetItem<Flashcard>(q => q.id == flashcardTag.flashCard_id);
     }
     public void Search()
     {
-        string input = inputSearch.text;
-        tag_list = SearchTag(input);
+        string input = inputSearch.text.ToLower();
+
+        List<string> inputAr = input.Split(',').ToList();
+        foreach(string user_input in inputAr)
+        {
+            tag_list.Add(SearchTag(user_input));
+        }
         Intialize(tag_list);
     }
     public void Intialize(List<Tag> tag_list)
@@ -83,10 +79,8 @@ public class FlashCardPage : PageController
 
         foreach(FlashcardTag flashcardTag in flashcardTag_list)
         {
-            FlashcardDefinition flashcardDefinition = getFlashcardDefinition(flashcardTag);
-            Flashcard flashcard = getFlashcard(flashcardDefinition);
-            Definition definition = getDefinition(flashcardDefinition);
-            SetNewFlashCard(flashcard, definition);
+            Flashcard flashCard = getFlashcard(flashcardTag);
+            SetNewFlashCard(flashCard.text, flashCard.definition);
         }
     }
 }
