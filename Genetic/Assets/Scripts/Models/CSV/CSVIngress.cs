@@ -48,7 +48,10 @@ public class CSVIngress : Singleton<CSVIngress>
                     answers.RemoveAll(a => a == null);
                     //get all tags
                     tags = q.Tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
-
+                    foreach (var t in tags)
+                    {
+                        t.tag = t.tag.ToLower();
+                    }
                     //check if question, answers, and tags already exist
                     var existingQuestion = manager.GetItem<Question>(q => q.text == question.text);
                     if (existingQuestion == null)
@@ -212,6 +215,7 @@ public class CSVIngress : Singleton<CSVIngress>
                     for (int x = 0; x < tags.Count; x++)
                     {
                         var currentTag = tags[x];
+                        currentTag.tag = tag.ToLower();
                         var tg = manager.GetItem<Tag>(t => t.tag == currentTag.tag);
                         if (tg == null)
                         {
