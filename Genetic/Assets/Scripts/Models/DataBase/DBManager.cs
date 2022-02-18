@@ -62,8 +62,6 @@ public class DBManager : Singleton<DBManager>
             db.CreateTable<AnswerTag>();
             db.CreateTable<Hint>();
             db.CreateTable<Flashcard>();
-            db.CreateTable<Definition>();
-            db.CreateTable<FlashcardDefinition>();
             db.CreateTable<FlashcardTag>();
             Debug.Log("Tables Created/Present");
         }

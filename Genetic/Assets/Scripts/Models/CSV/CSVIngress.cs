@@ -155,8 +155,6 @@ public class CSVIngress : Singleton<CSVIngress>
         {
             List<FlashcardCSV> flashcards;
             Flashcard flashcard;
-            Definition definition;
-            FlashcardDefinition fd;
             List<Tag> tags;
 
 
@@ -168,15 +166,12 @@ public class CSVIngress : Singleton<CSVIngress>
                 foreach (var f in flashcards)
                 {
                     //create flashcard
-                    flashcard = new Flashcard() { text = f.front };
-                    //create definition
-                    definition = new Definition() { text = f.back };
+                    flashcard = new Flashcard() { text = f.front, definition= f.back };
                     //create tags
                     tags = f.tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
 
                     //check if card, definition, and tags already exist
                     var card = manager.GetItem<Flashcard>(fc => fc.text == f.front);
-                    var def = manager.GetItem<Definition>(d => d.text == f.back);
 
                     if (card != null) 
                     {
@@ -190,28 +185,6 @@ public class CSVIngress : Singleton<CSVIngress>
                         manager.AddItem(flashcard);
                     }
 
-                    if (def != null)
-                    {
-                        definition = def;
-                        //update definition
-                        manager.UpdateItem(definition);
-                    }
-                    else
-                    {
-                        manager.AddItem(definition);
-                    }
-                   
-                    
-
-                    //create relations
-                    fd = manager.GetItem<FlashcardDefinition>(fd => fd.flashCard_id == flashcard.id && fd.definition_id == definition.id);
-                    if (fd == null)
-                    {
-                        //save new relation
-                        fd = new FlashcardDefinition() { flashCard_id = flashcard.id, definition_id = definition.id };
-                        manager.AddItem(fd);
-                    }
-
                     for (int x = 0; x < tags.Count; x++)
                     {
                         var currentTag = tags[x];
@@ -222,7 +195,7 @@ public class CSVIngress : Singleton<CSVIngress>
                             //save new tag
                             manager.AddItem(tags[x]);
                             //create new relation
-                            manager.AddItem(new FlashcardTag() { flashCard_id = fd.id, tag_id = currentTag.id });
+                            manager.AddItem(new FlashcardTag() { flashCard_id = flashcard.id, tag_id = currentTag.id });
                         }
                     }
 
