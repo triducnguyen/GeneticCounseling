@@ -35,6 +35,14 @@ public class ColorPalette : MonoBehaviour
     public Color Subtitle;
     public Color Hint;
 
+    public Color QuestionBackground;
+    public Color QuestionText;
+    public Color AnswerBackground;
+    public Color AnswerText;
+
+    public Color FlashcardBackground;
+    public Color FlashcardText;
+
     public static Color Highlight(Color color)
     {
         //add small amount to each channel
