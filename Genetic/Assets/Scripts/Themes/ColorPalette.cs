@@ -25,7 +25,9 @@ public class ColorPalette : MonoBehaviour
     
     public Color PageBackground;
     public Color PageForeground;
-    
+
+    public Color SelectedItem;
+
     public Color PrimaryText;
     public Color SecondaryText;
     public Color Title;

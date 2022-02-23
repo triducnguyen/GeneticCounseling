@@ -63,6 +63,7 @@ public class DBManager : Singleton<DBManager>
             db.CreateTable<Hint>();
             db.CreateTable<Flashcard>();
             db.CreateTable<FlashcardTag>();
+            db.CreateTable<SavedQuiz>();
             Debug.Log("Tables Created/Present");
         }
         catch (Exception e)

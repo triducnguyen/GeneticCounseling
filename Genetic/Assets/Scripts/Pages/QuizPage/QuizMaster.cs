@@ -9,6 +9,8 @@ public class QuizMaster : MonoBehaviour
 {
     static DBManager manager { get => DBManager.instance; }
 
+    public SavedQuiz currentQuiz;
+
     public Text questionText;
     public Text[] buttonTexts;
 
@@ -19,7 +21,7 @@ public class QuizMaster : MonoBehaviour
     //list of question ids to use
     public int[] questionList;
     //list of tags to use
-    public string[] tagList;
+    public List<string> tagList;
 
     //current question being displayed
     Question currentQuestion
@@ -69,11 +71,11 @@ public class QuizMaster : MonoBehaviour
         return currentQuestion == null ? false : true;
     }
 
-    //Finds a random question that has any of the tags provided. Returns true if successful, fals if not.
-    public bool GetNewQuestionAnyMatch(List<string> newTags)
+    //Finds a random question that has any of the tags provided. Returns true if successful, false if not.
+    public bool GetNewQuestionAnyMatch()
     {
         //get all tags in list
-        var tags = manager.GetItems<Tag>(t => newTags.Contains(t.tag));
+        var tags = manager.GetItems<Tag>(t => tagList.Contains(t.tag));
         var ids = tags.Select(t => t.id);
         //get all questions that share this tag
         var qtRelations = manager.GetItems<QuestionTag>(qt => ids.Contains(qt.tagID));
@@ -162,10 +164,16 @@ public class QuizMaster : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void NewQuiz(SavedQuiz quiz = null)
     {
-        //get a random question
-        GetNewQuestion();
+        currentQuiz = quiz;
+        isCustomList = true;
+        tagList = quiz.tags.Split(',').ToList();
+        GetNewQuestionAnyMatch();
+    }
+    public void NewQuiz()
+    {
+        isCustomList = false;
     }
     public void Answer1()
     {

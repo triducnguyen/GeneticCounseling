@@ -20,6 +20,7 @@ public class PageController : MonoBehaviour
 
     public GameObject foreground;
     public GameObject background;
+    public List<GameObject> views;
     public Image backgroundImage;
     public List<Image> PrimaryColors;
     public List<Image> SecondaryColors;
@@ -82,5 +83,17 @@ public class PageController : MonoBehaviour
         {
             s.color = args.palette.Secondary;
         }
+    }
+
+    public void ShowView(GameObject view)
+    {
+        //disable all views except given
+        foreach (var v in views)
+        {
+            if (v == view) continue;
+            v.SetActive(false);
+        }
+        //enable selected view
+        view.SetActive(true);
     }
 }
