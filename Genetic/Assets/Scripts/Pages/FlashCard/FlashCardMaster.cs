@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FlashCardMaster : MonoBehaviour
 {
     static DBManager manager { get => DBManager.instance; }
-    public Text title;
-    public Text flashCardText;
+    public TMP_Text title;
+    public TMP_Text flashCardText;
 
     //Temp String hold answer
     private string flashcard;
@@ -15,6 +16,11 @@ public class FlashCardMaster : MonoBehaviour
     
     //Check if answer is revealing
     private bool isReveal;
+    public void Start()
+    {
+        flashCardText.text = flashcard;
+        
+    }
 
     public string FlashCard
     {
@@ -33,11 +39,13 @@ public class FlashCardMaster : MonoBehaviour
             definition = value;
         }
     }
+
+
     
     public void RevealAnswer()
     {
-        string new_title = (!isReveal) ? "Answer: " : "Question: ";
-        string currentText = (!isReveal) ? flashcard : definition;
+        string new_title = (!isReveal) ? "Definition: " : "Term: ";
+        string currentText = (!isReveal) ? definition : flashcard;
         flashCardText.text = currentText;
         title.text = new_title;
         isReveal = !isReveal;
