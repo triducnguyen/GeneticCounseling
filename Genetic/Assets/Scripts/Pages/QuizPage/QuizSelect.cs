@@ -24,7 +24,7 @@ public class QuizSelect : MonoBehaviour
 
     public List<Button> buttons;
 
-    public SavedQuiz selected => GetSeleceted();
+    public SavedQuiz selected => GetSelecetedQuiz();
 
     public ToggleGroup group;
 
@@ -42,10 +42,37 @@ public class QuizSelect : MonoBehaviour
     private void OnEnable()
     {
         //reload all quiz items
+        //manager.DeleteAll<SavedQuiz>();
+
         LoadItems();
     }
+    
 
-    SavedQuiz GetSeleceted()
+    Toggle GetSelectedToggle()
+    {
+        if (group.ActiveToggles().ToList().Count == 1)
+        {
+            return group.ActiveToggles().ToList()[0];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    GameObject GetSelectedObject()
+    {
+        if (group.ActiveToggles().ToList().Count == 1)
+        {
+            return group.ActiveToggles().ToList()[0].gameObject;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    SavedQuiz GetSelecetedQuiz()
     {
         if (group.ActiveToggles().ToList().Count == 1)
         {
@@ -82,6 +109,17 @@ public class QuizSelect : MonoBehaviour
             UnregisterToggle(t.GetComponent<QuizItem>().toggle);
             Destroy(t.gameObject);
         }
+    }
+
+    public void RemoveItem()
+    {
+        var item = GetSelectedObject();
+        var toggle = GetSelectedToggle();
+        var quiz = GetSelecetedQuiz();
+        UnregisterToggle(toggle);
+        Debug.Log("Delteted quiz "+quiz.name+": "+manager.DeleteItem(quiz));
+        Destroy(item);
+        OnSelectedChanged();
     }
 
     private void LoadItems()

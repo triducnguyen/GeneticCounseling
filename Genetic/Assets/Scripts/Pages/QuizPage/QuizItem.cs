@@ -5,8 +5,18 @@ using UnityEngine.UI;
 
 public class QuizItem : MonoBehaviour
 {
+    public Text name;
     public Toggle toggle;
-    public SavedQuiz quiz;
+    public SavedQuiz quiz
+    {
+        get => _q;
+        set
+        {
+            _q = value;
+            name.text = _q.name;
+        }
+    }
+    SavedQuiz _q;
     public Image image;
     public Color original;
 

@@ -42,6 +42,13 @@ public class ColorPalette : MonoBehaviour
     public Color AnswerBackground;
     public Color AnswerText;
 
+    //right colors
+    public Color QuestionBackgroundCorrect;
+    public Color QuestionTextCorrect;
+    //wrong colors
+    public Color QuestionBackgroundIncorrect;
+    public Color QuestionTextIncorrect;
+
     public Color FlashcardBackground;
     public Color FlashcardText;
 

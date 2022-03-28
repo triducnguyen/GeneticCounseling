@@ -2,17 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class QuizMaster : MonoBehaviour
 {
+    static PaletteController controller { get => AppController.instance.controller; }
     static DBManager manager { get => DBManager.instance; }
 
     public SavedQuiz currentQuiz;
 
     public Text questionText;
     public Text[] buttonTexts;
+
+    //list of buttons
+    public GameObject[] buttons;
+    //feedback for answer
+    public GameObject feedbackFrame;
+    public Text feedbackText;
 
     //determines whether to use random questions or a list of tags/questions
     public bool isCustomList = false;
@@ -22,6 +30,9 @@ public class QuizMaster : MonoBehaviour
     public int[] questionList;
     //list of tags to use
     public List<string> tagList;
+
+    //keeps track of whether this question has been answered already. Prevents multiple answers from being pressed
+    bool answered = false;
 
     //current question being displayed
     Question currentQuestion
@@ -63,11 +74,17 @@ public class QuizMaster : MonoBehaviour
     }
 
     //Finds a random question
-    public bool GetNewQuestion()
+    public bool GetNewQuestion(int lastPressed = -1)
     {
+        if (lastPressed != -1)
+        {
+            var img = buttons[lastPressed].GetComponent<Image>();
+
+        }
         int count = manager.db.Table<Question>().Count();
         int id = UnityEngine.Random.Range(1, count + 1);
         currentQuestion = manager.GetItem<Question>(q => q.id == id);
+        answered = false;
         return currentQuestion == null ? false : true;
     }
 
@@ -178,42 +195,71 @@ public class QuizMaster : MonoBehaviour
     public void Answer1()
     {
         //user chose answer 1, check if it is correct
-        CheckAnswer(answers[0]);
+        CheckAnswer(0);
     }
 
     public void Answer2()
     {
         //user chose answer 2, check if it is correct
-        CheckAnswer(answers[1]);
+        CheckAnswer(1);
     }
 
     public void Answer3()
     {
         //user chose answer 3, check if it is correct
-        CheckAnswer(answers[2]);
+        CheckAnswer(2);
     }
 
     public void Answer4()
     {
         //user chose answer 4, check if it is correct
-        CheckAnswer(answers[3]);
+        CheckAnswer(3);
     }
 
-    public bool CheckAnswer(Answer choice)
+    public async void CheckAnswer(int answer)
     {
-        bool correct = choice.id == correctAnswer.id;
-        if (correct)
+        if (answer <= answers.Count-1)
         {
-            //correct
-            Debug.Log("Correct!");
+            Answer choice = answers[answer];
+            GameObject button = buttons[answer];
+
+            if (answered != true)
+            {
+                answered = true;
+                bool correct = choice.id == correctAnswer.id;
+                var img = button.GetComponent<Image>();
+                var txt = button.transform.GetChild(0).GetComponentInChildren<Text>();
+                if (correct)
+                {
+                    //correct
+                    Debug.Log("Correct!");
+                    //highlight button positively momentarily
+                    img.color = controller.currentPalette.QuestionBackgroundCorrect;
+                    //Show feedback
+                    feedbackText.text = "Correct";
+                    feedbackText.color = Color.green;
+                    feedbackFrame.SetActive(true);
+                }
+                else
+                {
+                    //incorrect
+                    Debug.Log("Incorrect!");
+                    //highlight button negatively momentarily
+                    img.color = controller.currentPalette.QuestionBackgroundIncorrect;
+                    //show feedback
+                    feedbackText.text = "Incorrect";
+                    feedbackText.color = Color.red;
+                    feedbackFrame.SetActive(true);
+                }
+                await Task.Delay(2000);
+                //remove feedback and switch to next question
+                GetNewQuestion();
+                feedbackFrame.SetActive(false);
+                img.color = controller.currentPalette.QuestionBackground;
+            }
         }
-        else
-        {
-            //incorrect
-            Debug.Log("Incorrect!");
-        }
-        //get new question
-        GetNewQuestion();
-        return correct;
+        
     }
+
+    
 }

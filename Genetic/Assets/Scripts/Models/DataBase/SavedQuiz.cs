@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SavedQuiz
 {
-    [PrimaryKey, AutoIncrement]
-    public int ID { get; set; }
+    [AutoIncrement, PrimaryKey]
+    public int id { get; set; }
     public string name { get; set; }
     public string tags { get; set; }
 

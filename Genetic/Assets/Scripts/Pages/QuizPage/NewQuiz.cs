@@ -31,7 +31,7 @@ public class NewQuiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Debug.Log("Deleted all saved quizes: "+manager.DeleteAll<SavedQuiz>());
     }
 
     // Update is called once per frame
@@ -93,6 +93,7 @@ public class NewQuiz : MonoBehaviour
         //check if quiz info is valid
         if (ValidateInfo())
         {
+            Debug.Log("");
             string allTags = "";
             foreach (var s in selected)
             {

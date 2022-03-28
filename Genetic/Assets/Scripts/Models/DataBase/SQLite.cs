@@ -1961,7 +1961,8 @@ namespace SQLite
 				throw new NotSupportedException ("Cannot delete " + map.TableName + ": it has no PK");
 			}
 			var q = string.Format ("delete from \"{0}\" where \"{1}\" = ?", map.TableName, pk.Name);
-			var count = Execute (q, pk.GetValue (objectToDelete));
+			var indx = pk.GetValue(objectToDelete);
+			var count = Execute (q, indx);
 			if (count > 0)
 				OnTableChanged (map, NotifyTableChangedAction.Delete);
 			return count;
