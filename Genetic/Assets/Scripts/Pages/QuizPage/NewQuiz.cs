@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class NewQuiz : MonoBehaviour
+public class NewQuiz : View
 {
     [System.Serializable]
     public class ToggleEvent : UnityEvent { }
@@ -42,7 +42,7 @@ public class NewQuiz : MonoBehaviour
 
     private void OnEnable()
     {
-        //clear text input
+        //clear text input only when enabled again
         quizName.text = "";
         search.text = "";
         //load tags
@@ -105,7 +105,7 @@ public class NewQuiz : MonoBehaviour
             //save new quiz to db
             manager.AddItem(quiz);
             //go back to quiz select
-            page.ShowView(quizSelect);
+            page.GotoView(quizSelect);
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class QuizSelect : MonoBehaviour
+public class QuizSelect : View
 {
     [System.Serializable]
     public class ToggleEvent : UnityEvent { }
@@ -146,7 +146,7 @@ public class QuizSelect : MonoBehaviour
             //set up quiz master
             qmaster.NewQuiz(selected);
             //start selected quiz
-            page.ShowView(quizTest);
+            page.GotoView(quizTest);
         }
     }
     

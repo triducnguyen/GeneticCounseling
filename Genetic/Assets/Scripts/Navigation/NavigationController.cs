@@ -85,23 +85,22 @@ public class NavigationController : Singleton<NavigationController>
 
     void EnablePage(PageController page)
     {
+        page.OnAppearing();
         page.gameObject.SetActive(true);
     }
     void EnablePage(string name)
     {
         PageController page;
         if(FindPage(name, out page)){
+            page.OnAppearing();
             page.gameObject.SetActive(true);
         }
-    }
-    void EnablePage(int index)
-    {
-        pages[index].gameObject.SetActive(true);
     }
 
     void DisablePage(PageController page)
     {
         //disables page by object
+        page.OnDisappearing();
         page.gameObject.SetActive(false);
     }
     void DisablePage(string name)
@@ -109,13 +108,9 @@ public class NavigationController : Singleton<NavigationController>
         PageController page;
         if (FindPage(name, out page))
         {
+            page.OnDisappearing();
             page.gameObject.SetActive(false);
         }
-    }
-    void DisablePage(int index)
-    {
-        //disables page by index
-        pages[index].gameObject.SetActive(false);
     }
     void DisableCurrentPage()
     {
@@ -126,7 +121,7 @@ public class NavigationController : Singleton<NavigationController>
     {
         foreach (var page in pages)
         {
-            page.gameObject.SetActive(false);
+            DisablePage(page);
         }
     }
 

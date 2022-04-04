@@ -48,9 +48,26 @@ public class CSVIngress : Singleton<CSVIngress>
                     answers.RemoveAll(a => a == null);
                     //get all tags
                     tags = q.Tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
-                    foreach (var t in tags)
+                    for (int i = tags.Count-1; i > -1; i--)
                     {
-                        t.tag = t.tag.ToLower();
+                        if (tags[i].tag == "")
+                        {
+                            tags.RemoveAt(i);
+                        }
+                        else if (tags[i].tag == "untagged")
+                        {
+                            tags.RemoveAt(i);
+                        }
+                        else
+                        {
+                            var tagtxt = tags[i].tag;
+                            //make sure only first letter is capitalized
+                            tagtxt = tagtxt.ToLower();
+                            char firstChar = Char.ToUpper(tagtxt[0]);
+                            tagtxt = firstChar + tagtxt.Substring(1);
+                            //update tag's text
+                            tags[i].tag = tagtxt;
+                        }
                     }
                     //check if question, answers, and tags already exist
                     var existingQuestion = manager.GetItem<Question>(q => q.text == question.text);
@@ -169,7 +186,28 @@ public class CSVIngress : Singleton<CSVIngress>
                     flashcard = new Flashcard() { text = f.front, definition= f.back };
                     //create tags
                     tags = f.tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
-
+                    //remove empty tags and ensure all tags are lowercase
+                    for (int i = tags.Count - 1; i > -1; i--)
+                    {
+                        if (tags[i].tag == "")
+                        {
+                            tags.RemoveAt(i);
+                        }
+                        else if (tags[i].tag == "untagged")
+                        {
+                            tags.RemoveAt(i);
+                        }
+                        else
+                        {
+                            var tagtxt = tags[i].tag;
+                            //make sure only first letter is capitalized
+                            tagtxt = tagtxt.ToLower();
+                            char firstChar = Char.ToUpper(tagtxt[0]);
+                            tagtxt = firstChar + tagtxt.Substring(1);
+                            //update tag's text
+                            tags[i].tag = tagtxt;
+                        }
+                    }
                     //check if card, definition, and tags already exist
                     var card = manager.GetItem<Flashcard>(fc => fc.text == f.front);
 

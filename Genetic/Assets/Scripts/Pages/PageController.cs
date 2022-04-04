@@ -16,9 +16,22 @@ public class PageController : MonoBehaviour
     public string pageName = "";
     public Sprite icon;
     public Action flyoutTapped { get => () => navigation.GotoPage(this); }
-    
 
-    public GameObject foreground;
+    //event handlers
+    public Action OnAppearing { get => () => PageAppearing() ; }
+    public Action OnDisappearing { get => () => PageDisappearing(); }
+
+    public Action<GameObject> OnViewAppearing { get => (GameObject view) => ViewAppearing(view); }
+    public Action<GameObject> OnViewDisappearing { get => (GameObject view) => ViewDisappearing(view); }
+
+    //subnavigation
+    //tells page which view it should start on
+    public View startView;
+    //tells page which view is currently visible
+    public View currentView;
+
+
+    public GameObject viewContainer;
     public GameObject background;
     public List<GameObject> views;
     public Image backgroundImage;
@@ -35,8 +48,20 @@ public class PageController : MonoBehaviour
 
     protected virtual void Start()
     {
+        //subscribe to colorschanged event
         controller.ColorsChanged += ColorsChanged;
+        //set current colors
         ColorsChanged(new ColorPaletteChangedEventArgs(controller.currentPalette));
+        //ensure all views are disabled
+        foreach(var v in views)
+        {
+            v.SetActive(false);
+        }
+        //set current view to starting view if it exists
+        if (startView != null)
+        {
+            GotoView(startView);
+        }
     }
 
     public virtual void ColorsChanged(ColorPaletteChangedEventArgs args)
@@ -55,11 +80,11 @@ public class PageController : MonoBehaviour
         {
             t.color = args.palette.Title;
         }
-        foreach(var h in Headers)
+        foreach (var h in Headers)
         {
             h.color = args.palette.Header;
         }
-        foreach(var s in Spans)
+        foreach (var s in Spans)
         {
             s.color = args.palette.Span;
         }
@@ -67,33 +92,131 @@ public class PageController : MonoBehaviour
         {
             c.color = args.palette.Caption;
         }
-        foreach(var su in Subtitles)
+        foreach (var su in Subtitles)
         {
             su.color = args.palette.Subtitle;
         }
-        foreach(var h in Hints)
+        foreach (var h in Hints)
         {
             h.color = args.palette.Hint;
         }
-        foreach(var p in PrimaryColors)
+        foreach (var p in PrimaryColors)
         {
             p.color = args.palette.Primary;
         }
-        foreach(var s in SecondaryColors)
+        foreach (var s in SecondaryColors)
         {
             s.color = args.palette.Secondary;
         }
     }
 
-    public void ShowView(GameObject view)
+    public void GotoView(GameObject view)
     {
-        //disable all views except given
-        foreach (var v in views)
+        //only execute if the view given is in this page
+        if (views.Contains(view))
         {
-            if (v == view) continue;
-            v.SetActive(false);
+            //disable all views except given
+            foreach (var v in views)
+            {
+                if (v == view) continue;
+                if (v.activeInHierarchy)
+                {
+                    //let the view know it is disappearing
+                    ViewDisappearing(v);
+                    //deactivate view
+                    v.SetActive(false);
+                }
+            }
+            //let view know it is about to appear
+            ViewAppearing(view);
+            //enable selected view
+            view.SetActive(true);
+            //set view as current view
+            currentView = view.GetComponent<View>();
         }
-        //enable selected view
-        view.SetActive(true);
+    }
+    public void GotoView(View view)
+    {
+        //only execute if the view given is in this page
+        if (views.Contains(view.gameObject))
+        {
+            //disable all views except given
+            foreach (var v in views)
+            {
+                if (v == view.gameObject) continue;
+                if (v.activeInHierarchy)
+                {
+                    ViewDisappearing(v);
+                    v.SetActive(false);
+                }
+            }
+            //let view know it is about to appear
+            ViewAppearing(view);
+            //enable selected view
+            view.gameObject.SetActive(true);
+            //set view as current
+            currentView = view;
+        }
+    }
+
+    //executed when this page is going to appear, or is going to disappear (navigated to or away from)
+    protected virtual void PageAppearing()
+    {
+        //tell current view it is about to appear if it exists
+        if (currentView != null)
+        {
+            ViewAppearing(currentView);
+        }
+    }
+
+    protected virtual void PageDisappearing()
+    {
+        //tell current view it is about to disappear if it exists
+        if (currentView != null)
+        {
+            ViewDisappearing(currentView);
+        }
+    }
+
+    //executed when a view in this page is going to appear or dissapear (navigating away or to view, or navigating away or to a page)
+
+    protected virtual void ViewAppearing(GameObject view)
+    {
+        //check if view is in this page
+        if (views.Contains(view))
+        {
+            View viewComponent = view.GetComponent<View>();
+            //run view specific code
+            viewComponent.OnAppearing();
+        }
+    }
+
+    protected virtual void ViewAppearing(View view)
+    {
+        //check if view is in this page
+        if (views.Contains(view.gameObject))
+        {
+            //run view specific code
+            view.OnAppearing();
+        }
+    }
+
+    protected virtual void ViewDisappearing(GameObject view)
+    {
+        //check if view is in this page
+        if (views.Contains(view))
+        {
+            View viewComponent = view.GetComponent<View>();
+            viewComponent.OnDisappearing();
+        }
+    }
+
+    protected virtual void ViewDisappearing(View view)
+    {
+        //check if view is in this page
+        if (views.Contains(view.gameObject))
+        {
+            view.OnDisappearing();
+        }
     }
 }

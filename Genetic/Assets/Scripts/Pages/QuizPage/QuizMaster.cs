@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizMaster : MonoBehaviour
+public class QuizMaster : View
 {
     static PaletteController controller { get => AppController.instance.controller; }
     static DBManager manager { get => DBManager.instance; }
