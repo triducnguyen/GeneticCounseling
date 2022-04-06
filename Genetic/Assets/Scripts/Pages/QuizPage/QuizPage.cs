@@ -7,6 +7,7 @@ public class QuizPage : PageController
 {
     static DBManager manager { get => DBManager.instance; }
 
+    public View quizView;
     public View newQuizView;
     public View quizSelectView;
 

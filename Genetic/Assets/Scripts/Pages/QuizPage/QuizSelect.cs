@@ -15,8 +15,6 @@ public class QuizSelect : View
     DBManager manager => AppController.instance.manager;
 
     public QuizPage page;
-
-    public GameObject quizTest;
     public QuizMaster qmaster;
 
     public GameObject quizList;
@@ -146,8 +144,18 @@ public class QuizSelect : View
             //set up quiz master
             qmaster.NewQuiz(selected);
             //start selected quiz
-            page.GotoView(quizTest);
+            page.GotoView(page.quizView);
         }
+    }
+
+    public void NewQuiz()
+    {
+        page.GotoView(page.newQuizView);
+    }
+
+    public void Select()
+    {
+        page.GotoView(page.quizSelectView);
     }
     
     public void OnSelectedChanged()

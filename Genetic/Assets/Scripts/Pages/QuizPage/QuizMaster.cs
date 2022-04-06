@@ -93,16 +93,19 @@ public class QuizMaster : View
     {
         //get all tags in list
         var tags = manager.GetItems<Tag>(t => tagList.Contains(t.tag));
+        //get ids of tags
         var ids = tags.Select(t => t.id);
-        //get all questions that share this tag
+        //get all questions that have this tag id
         var qtRelations = manager.GetItems<QuestionTag>(qt => ids.Contains(qt.tagID));
+        //replace tag ids with question ids that have this tag
         ids = qtRelations.Select(qtr => qtr.questionID);
-        //find all questions that are related to the tags
+        //get all questions with given ids
         var questions = manager.GetItems<Question>(q => ids.Contains(q.id));
         if (questions != null && questions.Count > 0)
         {
             //select random question if there are any
             currentQuestion = questions[UnityEngine.Random.Range(0, questions.Count)];
+            answered = false;
             return true;
         }
         else
@@ -186,6 +189,7 @@ public class QuizMaster : View
         currentQuiz = quiz;
         isCustomList = true;
         tagList = quiz.tags.Split(',').ToList();
+        tagList.Remove("");
         GetNewQuestionAnyMatch();
     }
     public void NewQuiz()
@@ -253,7 +257,7 @@ public class QuizMaster : View
                 }
                 await Task.Delay(2000);
                 //remove feedback and switch to next question
-                GetNewQuestion();
+                GetNewQuestionAnyMatch();
                 feedbackFrame.SetActive(false);
                 img.color = controller.currentPalette.QuestionBackground;
             }
