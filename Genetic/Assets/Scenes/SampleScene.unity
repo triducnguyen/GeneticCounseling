@@ -255,12 +255,6 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
   PageBackground: {r: 0.8666667, g: 0.7411765, b: 0.8352941, a: 1}
-  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -269,16 +263,26 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ItemBase: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
   ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
   ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
   ButtonHover: {r: 0, g: 0, b: 0, a: 0}
   ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
   ButtonText: {r: 0, g: 0, b: 0, a: 0}
   scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
   scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
   scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
   scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
   scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
   scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
@@ -571,7 +575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &102260601
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1218,12 +1222,6 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
   PageBackground: {r: 1, g: 1, b: 1, a: 1}
-  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 0, g: 0, b: 0, a: 1}
   Title: {r: 0, g: 0, b: 0, a: 1}
@@ -1232,16 +1230,26 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ItemBase: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
   ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
   ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
   ButtonHover: {r: 0, g: 0, b: 0, a: 0}
   ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
   ButtonText: {r: 0, g: 0, b: 0, a: 0}
   scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
   scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
   scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
   scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
   scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
   scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
@@ -2398,10 +2406,10 @@ RectTransform:
   m_Father: {fileID: 1106407670}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 389.99997, y: -419.7995}
+  m_SizeDelta: {x: 779.99994, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341720062
 MonoBehaviour:
@@ -3795,12 +3803,6 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
   PageBackground: {r: 0.5372549, g: 0.7137255, b: 0.64705884, a: 1}
-  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -3809,16 +3811,26 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ItemBase: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
   ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
   ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
   ButtonHover: {r: 0, g: 0, b: 0, a: 0}
   ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
   ButtonText: {r: 0, g: 0, b: 0, a: 0}
   scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
   scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
   scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
   scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
   scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
   scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
@@ -3913,7 +3925,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 693389590}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999969
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4629,7 +4641,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.9999969}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5518,10 +5530,10 @@ RectTransform:
   m_Father: {fileID: 1106407670}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 389.99997, y: -296.53302}
+  m_SizeDelta: {x: 779.99994, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844643381
 MonoBehaviour:
@@ -5674,15 +5686,20 @@ MonoBehaviour:
   SecondaryColors: []
   PrimaryTexts: []
   SecondaryTexts: []
-  Titles: []
-  Headers: []
+  Titles:
+  - {fileID: 180698820}
+  Headers:
+  - {fileID: 558149707}
   Spans: []
   Captions: []
   Subtitles: []
   Hints: []
-  Buttons: []
-  ScrollBars: []
-  ScrollViewBackground: []
+  Buttons:
+  - {fileID: 369181043}
+  ScrollBars:
+  - {fileID: 1724906346}
+  ScrollViewBackground:
+  - {fileID: 1278296183}
   onActiveTogglesChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5843,10 +5860,10 @@ RectTransform:
   m_Father: {fileID: 1106407670}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 389.99997, y: -173.26651}
+  m_SizeDelta: {x: 779.99994, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &947531363
 MonoBehaviour:
@@ -6281,10 +6298,10 @@ RectTransform:
   m_Father: {fileID: 1106407670}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 389.99997, y: -50}
+  m_SizeDelta: {x: 779.99994, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032381710
 MonoBehaviour:
@@ -7185,7 +7202,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0.97973186}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7488,7 +7505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00023327788, y: -0.000057085726}
+  m_AnchoredPosition: {x: -0.00023327788, y: -0.000060467206}
   m_SizeDelta: {x: 0, y: 70.1573}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1331339567
@@ -8441,12 +8458,6 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
   PageBackground: {r: 0, g: 0.5283019, b: 0.5213959, a: 1}
-  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -8455,16 +8466,26 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ItemBase: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
   ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
   ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
   ButtonHover: {r: 0, g: 0, b: 0, a: 0}
   ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
   ButtonText: {r: 0, g: 0, b: 0, a: 0}
   scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
   scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
   scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
   scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
   scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
   scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 1, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
@@ -9199,9 +9220,11 @@ MonoBehaviour:
   Subtitles: []
   Hints: []
   Buttons: []
-  ScrollBars: []
+  ScrollBars:
+  - {fileID: 1496501392}
   ScrollViewBackground: []
   questionText: {fileID: 254867219}
+  QuestionBackground: {fileID: 393403929}
   buttonTexts:
   - {fileID: 367987051}
   - {fileID: 461603728}
@@ -9968,7 +9991,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1283989249}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.97973186
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10260,7 +10283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00004215808}
+  m_AnchoredPosition: {x: 0, y: -0.000048931863}
   m_SizeDelta: {x: 0, y: 1059.9}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1830162030
@@ -11162,7 +11185,7 @@ MonoBehaviour:
   Quaternary: {r: 0, g: 0, b: 0, a: 0}
   Navbar: {r: 0, g: 0.3647059, b: 0.74509805, a: 1}
   FlyoutBtn: {r: 1, g: 1, b: 1, a: 1}
-  FlyoutTouchBackground: {r: 0, g: 0.44705883, b: 0.9137255, a: 1}
+  FlyoutTouchBackground: {r: 0, g: 0.44705883, b: 0.9137255, a: 0.2509804}
   FlyoutHeaderBackground: {r: 0, g: 0.44705886, b: 0.91372555, a: 1}
   FlyoutBackground: {r: 0.015686275, g: 0.49803925, b: 1, a: 1}
   FlyoutItemBackground: {r: 0, g: 0.44705886, b: 0.91372555, a: 1}
@@ -11170,31 +11193,35 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0, g: 0.44705886, b: 0.91372555, a: 1}
   PageBackground: {r: 0.90588236, g: 0.6862745, b: 0.44705883, a: 1}
-  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 0}
   Title: {r: 1, g: 1, b: 1, a: 0}
-  Header: {r: 0, g: 0, b: 0, a: 0}
-  Span: {r: 0, g: 0, b: 0, a: 0}
-  Caption: {r: 0, g: 0, b: 0, a: 0}
-  Subtitle: {r: 0, g: 0, b: 0, a: 0}
-  Hint: {r: 0, g: 0, b: 0, a: 0}
-  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
-  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
-  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
-  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
-  ButtonText: {r: 0, g: 0, b: 0, a: 0}
-  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
+  Header: {r: 1, g: 1, b: 1, a: 1}
+  Span: {r: 1, g: 1, b: 1, a: 1}
+  Caption: {r: 0, g: 0, b: 0, a: 1}
+  Subtitle: {r: 0, g: 0, b: 0, a: 1}
+  Hint: {r: 0, g: 0, b: 0, a: 1}
+  ItemBase: {r: 1, g: 1, b: 1, a: 1}
+  ItemNormal: {r: 0.8980393, g: 0.8980393, b: 0.8980393, a: 1}
+  ItemSelected: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  ItemText: {r: 0, g: 0, b: 0, a: 1}
+  CheckboxBackground: {r: 1, g: 1, b: 1, a: 1}
+  CheckColor: {r: 0, g: 0, b: 0, a: 1}
+  ButtonBase: {r: 1, g: 1, b: 1, a: 1}
+  ButtonNormal: {r: 1, g: 1, b: 1, a: 1}
+  ButtonDisabled: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 0.5019608}
+  ButtonHover: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  ButtonPressed: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 1}
+  ButtonSelected: {r: 1, g: 1, b: 1, a: 1}
+  ButtonText: {r: 0, g: 0, b: 0, a: 1}
+  scrollViewBackground: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0.5019608}
+  scrollBarBase: {r: 1, g: 0.6156863, b: 0.19215688, a: 1}
+  scrollBarNormal: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarDisabled: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 0.5019608}
+  scrollBarHover: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+  scrollBarPressed: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 1}
+  scrollBarSelected: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarBackground: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 0.5019608}
   QuestionBackground: {r: 0.03529412, g: 0.14117648, b: 0.87843144, a: 1}
   QuestionText: {r: 1, g: 1, b: 1, a: 1}
   AnswerBackground: {r: 0.03529412, g: 0.14117648, b: 0.87843144, a: 1}
@@ -11240,9 +11267,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -40.2047, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2067597995
 MonoBehaviour:
@@ -11607,12 +11634,6 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   PageBackground: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
-  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -11621,16 +11642,26 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ItemBase: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
+  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
   ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
   ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
   ButtonHover: {r: 0, g: 0, b: 0, a: 0}
   ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
   ButtonText: {r: 0, g: 0, b: 0, a: 0}
   scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
   scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
   scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
   scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
   scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
   scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
@@ -11779,7 +11810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1671534723538631728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11820,18 +11851,6 @@ MonoBehaviour:
   quizView: {fileID: 1639591175}
   newQuizView: {fileID: 882072753}
   quizSelectView: {fileID: 102260603}
-  QuestionBackground: {fileID: 393403929}
-  AnswersBackground:
-  - {fileID: 1836505015}
-  - {fileID: 1625429601}
-  - {fileID: 359165079}
-  - {fileID: 1347134680}
-  QuestionText: {fileID: 254867219}
-  AnswersText:
-  - {fileID: 367987051}
-  - {fileID: 461603728}
-  - {fileID: 1900338953}
-  - {fileID: 1863633482}
 --- !u!224 &1671534723596839172
 RectTransform:
   m_ObjectHideFlags: 0

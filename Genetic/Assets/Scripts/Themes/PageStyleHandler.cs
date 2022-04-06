@@ -10,6 +10,5 @@ public class PageStyleHandler : StyleHandler
     public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
         backgroundImage.color = args.palette.PageBackground;
-        base.ColorsChanged(args);
     }
 }

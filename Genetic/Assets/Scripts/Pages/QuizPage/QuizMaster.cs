@@ -8,12 +8,12 @@ using UnityEngine.UI;
 
 public class QuizMaster : View
 {
-    static PaletteController controller { get => AppController.instance.controller; }
     static DBManager manager { get => DBManager.instance; }
 
     public SavedQuiz currentQuiz;
 
     public Text questionText;
+    public Image QuestionBackground;
     public Text[] buttonTexts;
 
     //list of buttons
@@ -21,6 +21,7 @@ public class QuizMaster : View
     //feedback for answer
     public GameObject feedbackFrame;
     public Text feedbackText;
+
 
     //determines whether to use random questions or a list of tags/questions
     public bool isCustomList = false;
@@ -265,5 +266,16 @@ public class QuizMaster : View
         
     }
 
-    
+    public override void ColorsChanged(ColorPaletteChangedEventArgs args)
+    {
+        base.ColorsChanged(args);
+        QuestionBackground.color = args.palette.QuestionBackground;
+        questionText.color = args.palette.QuestionText;
+        foreach (var b in buttons)
+        {
+            b.GetComponent<Image>().color = args.palette.AnswerBackground;
+            b.GetComponentInChildren<Text>().color = args.palette.AnswerText;
+        }
+
+    }
 }

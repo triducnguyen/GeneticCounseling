@@ -29,13 +29,6 @@ public class ThemeEditor : Editor
     SerializedProperty PageBackground;
     SerializedProperty PageForeground;
 
-    //toggle items
-    SerializedProperty ItemNormal;
-    SerializedProperty ItemSelected;
-    SerializedProperty ItemText;
-    SerializedProperty CheckboxBackground;
-    SerializedProperty CheckColor;
-
     //text
     SerializedProperty PrimaryText;
     SerializedProperty SecondaryText;
@@ -46,19 +39,31 @@ public class ThemeEditor : Editor
     SerializedProperty Subtitle;
     SerializedProperty Hint;
 
+    //toggle items
+    SerializedProperty ItemBase;
+    SerializedProperty ItemNormal;
+    SerializedProperty ItemSelected;
+    SerializedProperty ItemText;
+    SerializedProperty CheckboxBackground;
+    SerializedProperty CheckColor;
+
     //buttons
+    SerializedProperty ButtonBase;
     SerializedProperty ButtonNormal;
     SerializedProperty ButtonDisabled;
     SerializedProperty ButtonHover;
     SerializedProperty ButtonPressed;
+    SerializedProperty ButtonSelected;
     SerializedProperty ButtonText;
 
     //scrollbar
     SerializedProperty scrollViewBackground;
+    SerializedProperty scrollBarBase;
     SerializedProperty scrollBarNormal;
     SerializedProperty scrollBarDisabled;
     SerializedProperty scrollBarHover;
     SerializedProperty scrollBarPressed;
+    SerializedProperty scrollBarSelected;
     SerializedProperty scrollBarBackground;
 
     //question colors
@@ -106,13 +111,6 @@ public class ThemeEditor : Editor
          PageBackground = serializedObject.FindProperty("PageBackground");
          PageForeground = serializedObject.FindProperty("PageBackground");
 
-        //toggle items
-         ItemNormal = serializedObject.FindProperty("ItemNormal");
-         ItemSelected = serializedObject.FindProperty("ItemSelected");
-         ItemText = serializedObject.FindProperty("ItemText");
-         CheckboxBackground = serializedObject.FindProperty("CheckboxBackground");
-         CheckColor = serializedObject.FindProperty("CheckColor");
-
         //text
          PrimaryText = serializedObject.FindProperty("PrimaryText");
          SecondaryText = serializedObject.FindProperty("SecondaryText");
@@ -123,19 +121,31 @@ public class ThemeEditor : Editor
          Subtitle = serializedObject.FindProperty("Subtitle");
          Hint = serializedObject.FindProperty("Hint");
 
+        //toggle items
+         ItemBase = serializedObject.FindProperty("ItemBase");
+         ItemNormal = serializedObject.FindProperty("ItemNormal");
+         ItemSelected = serializedObject.FindProperty("ItemSelected");
+         ItemText = serializedObject.FindProperty("ItemText");
+         CheckboxBackground = serializedObject.FindProperty("CheckboxBackground");
+         CheckColor = serializedObject.FindProperty("CheckColor");
+
         //button
+        ButtonBase = serializedObject.FindProperty("ButtonBase");
         ButtonNormal = serializedObject.FindProperty("ButtonNormal");
         ButtonDisabled = serializedObject.FindProperty("ButtonDisabled");
         ButtonHover = serializedObject.FindProperty("ButtonHover");
         ButtonPressed = serializedObject.FindProperty("ButtonPressed");
+        ButtonSelected = serializedObject.FindProperty("ButtonSelected");
         ButtonText = serializedObject.FindProperty("ButtonText");
 
         //scrollbar
         scrollViewBackground = serializedObject.FindProperty("scrollViewBackground");
+        scrollBarBase = serializedObject.FindProperty("scrollBarBase");
         scrollBarNormal = serializedObject.FindProperty("scrollBarNormal");
         scrollBarDisabled = serializedObject.FindProperty("scrollBarDisabled");
         scrollBarHover = serializedObject.FindProperty("scrollBarHover");
         scrollBarPressed = serializedObject.FindProperty("scrollBarPressed");
+        scrollBarSelected = serializedObject.FindProperty("scrollBarSelected");
         scrollBarBackground = serializedObject.FindProperty("scrollBarBackground");
 
         //question colors
@@ -194,16 +204,6 @@ public class ThemeEditor : Editor
             EditorGUILayout.PropertyField(PageBackground);
         }
 
-        toggle = EditorGUILayout.Foldout(toggle, "Toggle");
-        if (toggle)
-        {
-            EditorGUILayout.PropertyField(ItemNormal);
-            EditorGUILayout.PropertyField(ItemSelected);
-            EditorGUILayout.PropertyField(ItemText);
-            EditorGUILayout.PropertyField(CheckboxBackground);
-            EditorGUILayout.PropertyField(CheckColor);
-        }
-
         text = EditorGUILayout.Foldout(text, "Text");
         if (text)
         {
@@ -217,13 +217,26 @@ public class ThemeEditor : Editor
             EditorGUILayout.PropertyField(Hint);
         }
 
+        toggle = EditorGUILayout.Foldout(toggle, "Toggle");
+        if (toggle)
+        {
+            EditorGUILayout.PropertyField(ItemBase);
+            EditorGUILayout.PropertyField(ItemNormal);
+            EditorGUILayout.PropertyField(ItemSelected);
+            EditorGUILayout.PropertyField(ItemText);
+            EditorGUILayout.PropertyField(CheckboxBackground);
+            EditorGUILayout.PropertyField(CheckColor);
+        }
+
         button = EditorGUILayout.Foldout(button, "Button");
         if (button)
         {
+            EditorGUILayout.PropertyField(ButtonBase);
             EditorGUILayout.PropertyField(ButtonNormal);
             EditorGUILayout.PropertyField(ButtonDisabled);
             EditorGUILayout.PropertyField(ButtonHover);
             EditorGUILayout.PropertyField(ButtonPressed);
+            EditorGUILayout.PropertyField(ButtonSelected);
             EditorGUILayout.PropertyField(ButtonText);
         }
 
@@ -231,10 +244,12 @@ public class ThemeEditor : Editor
         if (scroll)
         {
             EditorGUILayout.PropertyField(scrollViewBackground);
+            EditorGUILayout.PropertyField(scrollBarBase);
             EditorGUILayout.PropertyField(scrollBarNormal);
             EditorGUILayout.PropertyField(scrollBarDisabled);
             EditorGUILayout.PropertyField(scrollBarHover);
             EditorGUILayout.PropertyField(scrollBarPressed);
+            EditorGUILayout.PropertyField(scrollBarSelected);
             EditorGUILayout.PropertyField(scrollBarBackground);
         }
 
@@ -262,5 +277,7 @@ public class ThemeEditor : Editor
             EditorGUILayout.PropertyField(FlashcardBackground);
             EditorGUILayout.PropertyField(FlashcardText);
         }
+
+        serializedObject.ApplyModifiedProperties();
     }
 }

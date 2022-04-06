@@ -15,20 +15,13 @@ public class TagItem : StyleHandler
 
     public void OnChange()
     {
-        if (toggle.isOn)
-        {
-            //set selected
-            background.color = controller.currentPalette.ItemSelected;
-        }
-        else
-        {
-            //unset selected
-            background.color = controller.currentPalette.ItemNormal;
-        }
+        
     }
 
     public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
+        background.color = args.palette.ItemBase;
+        checkBackground.color = args.palette.CheckboxBackground;
         toggle.colors = new ColorBlock()
         {
             normalColor = args.palette.ItemNormal,
@@ -36,18 +29,11 @@ public class TagItem : StyleHandler
             highlightedColor = ColorPalette.Highlight(args.palette.ItemNormal),
             pressedColor = ColorPalette.Shadow(args.palette.ItemNormal),
             selectedColor = args.palette.ItemSelected,
+            colorMultiplier = toggle.colors.colorMultiplier,
+            fadeDuration = toggle.colors.fadeDuration
         };
-        if (toggle.isOn)
-        {
-            background.color = args.palette.ItemSelected;
-        }
-        else
-        {
-            background.color = args.palette.ItemNormal;
-        }
         tagText.color = args.palette.ItemText;
         check.color = args.palette.CheckColor;
-        checkBackground.color = args.palette.CheckboxBackground;
     }
 
 }

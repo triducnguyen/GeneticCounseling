@@ -29,13 +29,6 @@ public class ColorPalette : MonoBehaviour
     //pages
     public Color PageBackground;
 
-    //Toggle items
-    public Color ItemNormal;
-    public Color ItemSelected;
-    public Color ItemText;
-    public Color CheckboxBackground;
-    public Color CheckColor;
-
     //text
     public Color PrimaryText;
     public Color SecondaryText;
@@ -46,19 +39,31 @@ public class ColorPalette : MonoBehaviour
     public Color Subtitle;
     public Color Hint;
 
+    //Toggle items
+    public Color ItemBase;
+    public Color ItemNormal;
+    public Color ItemSelected;
+    public Color ItemText;
+    public Color CheckboxBackground;
+    public Color CheckColor;
+
     //buttons
+    public Color ButtonBase;
     public Color ButtonNormal;
     public Color ButtonDisabled;
     public Color ButtonHover;
     public Color ButtonPressed;
+    public Color ButtonSelected;
     public Color ButtonText;
 
     //scrollbar
     public Color scrollViewBackground;
+    public Color scrollBarBase;
     public Color scrollBarNormal;
     public Color scrollBarDisabled;
     public Color scrollBarHover;
     public Color scrollBarPressed;
+    public Color scrollBarSelected;
     public Color scrollBarBackground;
 
     //question colors

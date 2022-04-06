@@ -83,12 +83,14 @@ public class StyleHandler : MonoBehaviour
 
         foreach(var b in Buttons)
         {
+            b.GetComponent<Image>().color = args.palette.ButtonBase;
             b.colors = new ColorBlock()
             {
                 normalColor = args.palette.ButtonNormal,
                 disabledColor = args.palette.ButtonDisabled,
                 highlightedColor = args.palette.ButtonHover,
                 pressedColor = args.palette.ButtonPressed,
+                selectedColor = args.palette.ButtonSelected,
                 fadeDuration = b.colors.fadeDuration,
                 colorMultiplier = b.colors.colorMultiplier
             };
@@ -98,12 +100,14 @@ public class StyleHandler : MonoBehaviour
         foreach(var s in ScrollBars)
         {
             s.GetComponent<Image>().color = args.palette.scrollBarBackground;
+            s.targetGraphic.color = args.palette.scrollBarBase;
             s.colors = new ColorBlock()
             {
                 normalColor = args.palette.ButtonNormal,
                 disabledColor = args.palette.ButtonDisabled,
                 highlightedColor = args.palette.ButtonHover,
                 pressedColor = args.palette.ButtonPressed,
+                selectedColor = args.palette.ButtonSelected,
                 fadeDuration = s.colors.fadeDuration,
                 colorMultiplier = s.colors.colorMultiplier
             };

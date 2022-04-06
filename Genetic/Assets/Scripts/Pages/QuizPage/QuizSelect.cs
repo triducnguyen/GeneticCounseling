@@ -126,10 +126,10 @@ public class QuizSelect : View
         RemoveItems();
         //get all quizes
         var quizes = manager.GetAll<SavedQuiz>();
-        //add them to quizlist
         foreach (var t in quizes)
         {
             var item = Instantiate(quizItem, quizList.transform);
+            //add item to list
             var qItem = item.GetComponent<QuizItem>();
             qItem.quiz = t;
             RegisterToggle(qItem.toggle);

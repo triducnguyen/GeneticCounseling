@@ -20,10 +20,9 @@ public class QuizItem : StyleHandler
     SavedQuiz _q;
     public Image image;
 
-    
-
     public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
+        image.color = args.palette.ItemBase;
         toggle.colors = new ColorBlock()
         {
             normalColor = args.palette.ItemNormal,
@@ -31,18 +30,9 @@ public class QuizItem : StyleHandler
             highlightedColor = ColorPalette.Highlight(args.palette.ItemNormal),
             pressedColor = ColorPalette.Shadow(args.palette.ItemNormal),
             selectedColor = args.palette.ItemSelected,
-
+            colorMultiplier = toggle.colors.colorMultiplier,
+            fadeDuration = toggle.colors.fadeDuration
         };
-        if (toggle.isOn)
-        {
-            //set selected
-            image.color = args.palette.ItemSelected;
-        }
-        else
-        {
-            //unset selected
-            image.color = args.palette.ItemNormal;
-        }
         name.color = args.palette.ItemText;
     }
 }
