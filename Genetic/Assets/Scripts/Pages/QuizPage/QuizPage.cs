@@ -19,6 +19,7 @@ public class QuizPage : PageController
 
     private void Awake()
     {
+        base.Awake();
         if (manager.GetAll<SavedQuiz>().Count > 0)
         {
             //make start view quiz select

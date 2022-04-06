@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizItem : MonoBehaviour
+public class QuizItem : StyleHandler
 {
+
     public Text name;
     public Toggle toggle;
     public SavedQuiz quiz
@@ -18,19 +19,30 @@ public class QuizItem : MonoBehaviour
     }
     SavedQuiz _q;
     public Image image;
-    public Color original;
 
-    public void OnChange()
+    
+
+    public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
+        toggle.colors = new ColorBlock()
+        {
+            normalColor = args.palette.ItemNormal,
+            disabledColor = ColorPalette.Shadow(args.palette.ItemNormal),
+            highlightedColor = ColorPalette.Highlight(args.palette.ItemNormal),
+            pressedColor = ColorPalette.Shadow(args.palette.ItemNormal),
+            selectedColor = args.palette.ItemSelected,
+
+        };
         if (toggle.isOn)
         {
             //set selected
-            image.color = AppController.instance.controller.currentPalette.SelectedItem;
+            image.color = args.palette.ItemSelected;
         }
         else
         {
             //unset selected
-            image.color = original;
+            image.color = args.palette.ItemNormal;
         }
+        name.color = args.palette.ItemText;
     }
 }

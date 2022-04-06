@@ -23,7 +23,6 @@ public class FlashCardPage : PageController
     {
         tag_list = new List<Tag>();
         flashcardTag_list = new List<FlashcardTag>();
-        base.Start();
         flashcardTag_list = new List<FlashcardTag>();
         searchTree = new Trie();
         ExpandContenView(10);

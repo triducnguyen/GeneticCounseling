@@ -238,7 +238,7 @@ public class QuizMaster : View
                     //correct
                     Debug.Log("Correct!");
                     //highlight button positively momentarily
-                    img.color = controller.currentPalette.QuestionBackgroundCorrect;
+                    img.color = controller.currentPalette.AnswerBackgroundCorrect;
                     //Show feedback
                     feedbackText.text = "Correct";
                     feedbackText.color = Color.green;
@@ -249,7 +249,7 @@ public class QuizMaster : View
                     //incorrect
                     Debug.Log("Incorrect!");
                     //highlight button negatively momentarily
-                    img.color = controller.currentPalette.QuestionBackgroundIncorrect;
+                    img.color = controller.currentPalette.AnswerBackgroundIncorrect;
                     //show feedback
                     feedbackText.text = "Incorrect";
                     feedbackText.color = Color.red;

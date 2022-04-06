@@ -7,10 +7,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class PageController : MonoBehaviour
+public class PageController : PageStyleHandler
 {
     public NavigationController navigation { get => NavigationController.instance; }
-    public PaletteController controller { get => AppController.instance.controller; }
+    
     public Image swipeImage { get => GetComponent<Image>(); }
     public string pageTitle = "";
     public string pageName = "";
@@ -34,26 +34,13 @@ public class PageController : MonoBehaviour
     public GameObject viewContainer;
     public GameObject background;
     public List<GameObject> views;
-    public Image backgroundImage;
-    public List<Image> PrimaryColors;
-    public List<Image> SecondaryColors;
-    public List<Text> PrimaryTexts;
-    public List<Text> SecondaryTexts;
-    public List<Text> Titles;
-    public List<Text> Headers;
-    public List<Text> Spans;
-    public List<Text> Captions;
-    public List<Text> Subtitles;
-    public List<Text> Hints;
+    
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        //subscribe to colorschanged event
-        controller.ColorsChanged += ColorsChanged;
-        //set current colors
-        ColorsChanged(new ColorPaletteChangedEventArgs(controller.currentPalette));
+        base.Awake();
         //ensure all views are disabled
-        foreach(var v in views)
+        foreach (var v in views)
         {
             v.SetActive(false);
         }
@@ -64,51 +51,7 @@ public class PageController : MonoBehaviour
         }
     }
 
-    public virtual void ColorsChanged(ColorPaletteChangedEventArgs args)
-    {
-        backgroundImage.color = args.palette.PageBackground;
-        //set all colors
-        foreach (var pt in PrimaryTexts)
-        {
-            pt.color = args.palette.PrimaryText;
-        }
-        foreach (var pt in SecondaryTexts)
-        {
-            pt.color = args.palette.SecondaryText;
-        }
-        foreach (var t in Titles)
-        {
-            t.color = args.palette.Title;
-        }
-        foreach (var h in Headers)
-        {
-            h.color = args.palette.Header;
-        }
-        foreach (var s in Spans)
-        {
-            s.color = args.palette.Span;
-        }
-        foreach (var c in Captions)
-        {
-            c.color = args.palette.Caption;
-        }
-        foreach (var su in Subtitles)
-        {
-            su.color = args.palette.Subtitle;
-        }
-        foreach (var h in Hints)
-        {
-            h.color = args.palette.Hint;
-        }
-        foreach (var p in PrimaryColors)
-        {
-            p.color = args.palette.Primary;
-        }
-        foreach (var s in SecondaryColors)
-        {
-            s.color = args.palette.Secondary;
-        }
-    }
+    
 
     public void GotoView(GameObject view)
     {

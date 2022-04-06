@@ -7,13 +7,16 @@ public class ColorPalette : MonoBehaviour
 {
     public PaletteController controller { get => PaletteController.instance; }
 
+    //main colors
     public Color Primary;
     public Color Secondary;
     public Color Tertiary;
     public Color Quaternary;
     
+    //navigation bar
     public Color Navbar;
     
+    //flyout menu
     public Color FlyoutBtn;
     public Color FlyoutTouchBackground;
     public Color FlyoutHeaderBackground;
@@ -23,11 +26,17 @@ public class ColorPalette : MonoBehaviour
     public Color FlyoutIcon;
     public Color FlyoutFooterBackground;
     
+    //pages
     public Color PageBackground;
-    public Color PageForeground;
 
-    public Color SelectedItem;
+    //Toggle items
+    public Color ItemNormal;
+    public Color ItemSelected;
+    public Color ItemText;
+    public Color CheckboxBackground;
+    public Color CheckColor;
 
+    //text
     public Color PrimaryText;
     public Color SecondaryText;
     public Color Title;
@@ -37,18 +46,36 @@ public class ColorPalette : MonoBehaviour
     public Color Subtitle;
     public Color Hint;
 
+    //buttons
+    public Color ButtonNormal;
+    public Color ButtonDisabled;
+    public Color ButtonHover;
+    public Color ButtonPressed;
+    public Color ButtonText;
+
+    //scrollbar
+    public Color scrollViewBackground;
+    public Color scrollBarNormal;
+    public Color scrollBarDisabled;
+    public Color scrollBarHover;
+    public Color scrollBarPressed;
+    public Color scrollBarBackground;
+
+    //question colors
     public Color QuestionBackground;
     public Color QuestionText;
+
+    //answer colors
     public Color AnswerBackground;
     public Color AnswerText;
+    //correct answer
+    public Color AnswerBackgroundCorrect;
+    public Color AnswerTextCorrect;
+    //wrong answer
+    public Color AnswerBackgroundIncorrect;
+    public Color AnswerTextIncorrect;
 
-    //right colors
-    public Color QuestionBackgroundCorrect;
-    public Color QuestionTextCorrect;
-    //wrong colors
-    public Color QuestionBackgroundIncorrect;
-    public Color QuestionTextIncorrect;
-
+    //flashcards
     public Color FlashcardBackground;
     public Color FlashcardText;
 

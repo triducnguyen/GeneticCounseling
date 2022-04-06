@@ -255,8 +255,12 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
   PageBackground: {r: 0.8666667, g: 0.7411765, b: 0.8352941, a: 1}
-  PageForeground: {r: 0, g: 0, b: 0, a: 1}
-  SelectedItem: {r: 0, g: 0, b: 0, a: 0}
+  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -265,14 +269,25 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
+  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
+  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonText: {r: 0, g: 0, b: 0, a: 0}
+  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
   AnswerText: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
   FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
   FlashcardText: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &14043043
@@ -479,7 +494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.61953425}
   m_AnchorMax: {x: 1, y: 0.93237907}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -138.48}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63399906
@@ -605,6 +620,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c1f353f36ee1a438de6a3b504c9292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts: []
+  SecondaryTexts: []
+  Titles:
+  - {fileID: 1291284210}
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
+  Buttons:
+  - {fileID: 1032381710}
+  - {fileID: 947531363}
+  - {fileID: 844643381}
+  - {fileID: 341720062}
+  ScrollBars:
+  - {fileID: 539127904}
+  ScrollViewBackground:
+  - {fileID: 811788529}
   onActiveTogglesChanged:
     m_PersistentCalls:
       m_Calls:
@@ -884,7 +919,7 @@ RectTransform:
   m_Children:
   - {fileID: 1681184412}
   - {fileID: 260460245}
-  - {fileID: 301359458}
+  - {fileID: 1318763441}
   m_Father: {fileID: 1955469409}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1183,8 +1218,12 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
   PageBackground: {r: 1, g: 1, b: 1, a: 1}
-  PageForeground: {r: 0, g: 0, b: 0, a: 1}
-  SelectedItem: {r: 0, g: 0, b: 0, a: 0}
+  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 0, g: 0, b: 0, a: 1}
   Title: {r: 0, g: 0, b: 0, a: 1}
@@ -1193,14 +1232,25 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
+  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
+  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonText: {r: 0, g: 0, b: 0, a: 0}
+  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
   AnswerText: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
   FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
   FlashcardText: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &180698817
@@ -1491,6 +1541,87 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221510805}
+  m_CullTransparentMesh: 1
+--- !u!1 &239952323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 239952324}
+  - component: {fileID: 239952326}
+  - component: {fileID: 239952325}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &239952324
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239952323}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1318763441}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &239952325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239952323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 21
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Stop
+
+    Session'
+--- !u!222 &239952326
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239952323}
   m_CullTransparentMesh: 1
 --- !u!1 &254867216
 GameObject:
@@ -1998,19 +2129,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301359457}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 204605243}
-  m_Father: {fileID: 146559500}
+  m_Father: {fileID: 2045007345}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -120, y: -0.000061035156}
+  m_AnchoredPosition: {x: -324.09, y: 91}
   m_SizeDelta: {x: 160, y: 60.075}
-  m_Pivot: {x: 0.5, y: 0.49999997}
+  m_Pivot: {x: 0.50000006, y: 0.49999997}
 --- !u!114 &301359459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2117,16 +2248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ff8cdfd6364864ea669c5f67dbc3de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pageTitle: Flashcards
-  pageName: CardPage
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  startView: {fileID: 1510247155}
-  currentView: {fileID: 0}
-  viewContainer: {fileID: 1671534723596839179}
-  background: {fileID: 1671534724549386227}
-  views:
-  - {fileID: 1510247153}
-  backgroundImage: {fileID: 1671534724549386221}
   PrimaryColors: []
   SecondaryColors: []
   PrimaryTexts: []
@@ -2137,6 +2258,19 @@ MonoBehaviour:
   Captions: []
   Subtitles: []
   Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
+  backgroundImage: {fileID: 1671534724549386221}
+  pageTitle: Flashcards
+  pageName: CardPage
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  startView: {fileID: 1510247155}
+  currentView: {fileID: 0}
+  viewContainer: {fileID: 1671534723596839179}
+  background: {fileID: 1671534724549386227}
+  views:
+  - {fileID: 1510247153}
   flashCardPrefab: {fileID: 2377956141843874712, guid: 5bf215b2f1a77284a83270a928b3daaf, type: 3}
   contentView: {fileID: 1551480433}
   inputSearch: {fileID: 742143489}
@@ -3595,7 +3729,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start Quiz
+  m_Text: Start Set
 --- !u!222 &516328871
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3661,8 +3795,12 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
   PageBackground: {r: 0.5372549, g: 0.7137255, b: 0.64705884, a: 1}
-  PageForeground: {r: 0, g: 0, b: 0, a: 1}
-  SelectedItem: {r: 0, g: 0, b: 0, a: 0}
+  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -3671,14 +3809,25 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
+  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
+  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonText: {r: 0, g: 0, b: 0, a: 0}
+  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
   AnswerText: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
   FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
   FlashcardText: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &539127902
@@ -4205,7 +4354,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Quiz
+  m_Text: New Set
 --- !u!222 &637853216
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4482,7 +4631,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693389591
 MonoBehaviour:
@@ -5521,6 +5670,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f0a025982ebed4ab9a6cb3feaf8dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts: []
+  SecondaryTexts: []
+  Titles: []
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
   onActiveTogglesChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6958,16 +7120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d76fc61db952264796acbe6fb8b8b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pageTitle: Home
-  pageName: HomePage
-  icon: {fileID: 21300000, guid: d48baf7e81f607446848f7d2f22cfa61, type: 3}
-  startView: {fileID: 0}
-  currentView: {fileID: 0}
-  viewContainer: {fileID: 413596151}
-  background: {fileID: 1130467087}
-  views:
-  - {fileID: 1645129466}
-  backgroundImage: {fileID: 1130467089}
   PrimaryColors: []
   SecondaryColors: []
   PrimaryTexts:
@@ -6979,6 +7131,19 @@ MonoBehaviour:
   Captions: []
   Subtitles: []
   Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
+  backgroundImage: {fileID: 1130467089}
+  pageTitle: Home
+  pageName: HomePage
+  icon: {fileID: 21300000, guid: d48baf7e81f607446848f7d2f22cfa61, type: 3}
+  startView: {fileID: 0}
+  currentView: {fileID: 0}
+  viewContainer: {fileID: 413596151}
+  background: {fileID: 1130467087}
+  views:
+  - {fileID: 1645129466}
 --- !u!222 &1280295911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7097,8 +7262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -48}
-  m_SizeDelta: {x: 591.2203, y: 61.455627}
+  m_AnchoredPosition: {x: 0.00045824, y: -48}
+  m_SizeDelta: {x: 780, y: 61.4556}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1291284209
 MonoBehaviour:
@@ -7148,7 +7313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select Or Create A Quiz
+  m_Text: Select Or Create A Question Set
 --- !u!222 &1291284211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7156,6 +7321,139 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291284207}
+  m_CullTransparentMesh: 1
+--- !u!1 &1318763440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318763441}
+  - component: {fileID: 1318763444}
+  - component: {fileID: 1318763443}
+  - component: {fileID: 1318763442}
+  m_Layer: 5
+  m_Name: NextThemeButton (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1318763441
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318763440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 239952324}
+  m_Father: {fileID: 146559500}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -120, y: -0.000013351}
+  m_SizeDelta: {x: 160, y: 60.075}
+  m_Pivot: {x: 0.5, y: 0.49999997}
+--- !u!114 &1318763442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318763440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1318763443}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 179612228}
+        m_TargetAssemblyTypeName: PaletteController, Assembly-CSharp
+        m_MethodName: NextPalette
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1318763443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318763440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1318763444
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318763440}
   m_CullTransparentMesh: 1
 --- !u!1 &1331339565
 GameObject:
@@ -7190,7 +7488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00023327788, y: 0}
+  m_AnchoredPosition: {x: -0.00023327788, y: -0.000057085726}
   m_SizeDelta: {x: 0, y: 70.1573}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1331339567
@@ -8143,8 +8441,12 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
   PageBackground: {r: 0, g: 0.5283019, b: 0.5213959, a: 1}
-  PageForeground: {r: 0, g: 0, b: 0, a: 1}
-  SelectedItem: {r: 0, g: 0, b: 0, a: 0}
+  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -8153,14 +8455,25 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
+  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
+  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonText: {r: 0, g: 0, b: 0, a: 0}
+  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 1, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackground: {r: 1, g: 0, b: 0, a: 0}
   AnswerText: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
   FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
   FlashcardText: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1496501390
@@ -8377,6 +8690,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecfeaedb764c5144a5a7a58be98db22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts: []
+  SecondaryTexts: []
+  Titles: []
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
 --- !u!1 &1551480433
 GameObject:
   m_ObjectHideFlags: 0
@@ -8862,6 +9188,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63d62f91fe401f40b2864de66493a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts: []
+  SecondaryTexts: []
+  Titles: []
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
   questionText: {fileID: 254867219}
   buttonTexts:
   - {fileID: 367987051}
@@ -9199,7 +9538,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Delete Quiz
+  m_Text: Delete Set
 --- !u!222 &1674026850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10727,6 +11066,7 @@ RectTransform:
   m_Children:
   - {fileID: 63399905}
   - {fileID: 1275350038}
+  - {fileID: 301359458}
   m_Father: {fileID: 2091469907}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10830,8 +11170,12 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0, g: 0.44705886, b: 0.91372555, a: 1}
   PageBackground: {r: 0.90588236, g: 0.6862745, b: 0.44705883, a: 1}
-  PageForeground: {r: 0, g: 0, b: 0, a: 0}
-  SelectedItem: {r: 0, g: 0, b: 0, a: 0}
+  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 0}
   Title: {r: 1, g: 1, b: 1, a: 0}
@@ -10840,14 +11184,25 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 0}
   Subtitle: {r: 0, g: 0, b: 0, a: 0}
   Hint: {r: 0, g: 0, b: 0, a: 0}
+  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
+  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
+  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonText: {r: 0, g: 0, b: 0, a: 0}
+  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0.03529412, g: 0.14117648, b: 0.87843144, a: 1}
   QuestionText: {r: 1, g: 1, b: 1, a: 1}
   AnswerBackground: {r: 0.03529412, g: 0.14117648, b: 0.87843144, a: 1}
   AnswerText: {r: 1, g: 1, b: 1, a: 1}
-  QuestionBackgroundCorrect: {r: 0, g: 1, b: 0, a: 1}
-  QuestionTextCorrect: {r: 1, g: 1, b: 1, a: 1}
-  QuestionBackgroundIncorrect: {r: 1, g: 0, b: 0, a: 1}
-  QuestionTextIncorrect: {r: 1, g: 1, b: 1, a: 1}
+  AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
   FlashcardBackground: {r: 0.03529412, g: 0.14117648, b: 0.8784314, a: 1}
   FlashcardText: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2067597993
@@ -10922,7 +11277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11252,8 +11607,12 @@ MonoBehaviour:
   FlyoutIcon: {r: 1, g: 1, b: 1, a: 1}
   FlyoutFooterBackground: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   PageBackground: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
-  PageForeground: {r: 0, g: 0, b: 0, a: 1}
-  SelectedItem: {r: 0, g: 0, b: 0, a: 0}
+  ItemBackground: {r: 0, g: 0, b: 0, a: 0}
+  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
+  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
+  ItemText: {r: 0, g: 0, b: 0, a: 0}
+  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
+  CheckColor: {r: 0, g: 0, b: 0, a: 0}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
   SecondaryText: {r: 1, g: 1, b: 1, a: 1}
   Title: {r: 1, g: 1, b: 1, a: 1}
@@ -11262,14 +11621,25 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
+  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
+  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
+  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
+  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
+  ButtonText: {r: 0, g: 0, b: 0, a: 0}
+  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
+  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
   QuestionText: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
   AnswerText: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextCorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  QuestionTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
+  AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
   FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
   FlashcardText: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &2145323772
@@ -11342,7 +11712,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Edit Quiz
+  m_Text: Edit Set
 --- !u!222 &2145323775
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11422,6 +11792,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e6200ca9d53a3419718be02c921a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts: []
+  SecondaryTexts: []
+  Titles: []
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
+  backgroundImage: {fileID: 338959008}
   pageTitle: Study Questions
   pageName: QuizPage
   icon: {fileID: 21300000, guid: 26473988b3d25b64ebd956c7a34d3950, type: 3}
@@ -11433,17 +11817,6 @@ MonoBehaviour:
   - {fileID: 1639591173}
   - {fileID: 102260600}
   - {fileID: 882072751}
-  backgroundImage: {fileID: 338959008}
-  PrimaryColors: []
-  SecondaryColors: []
-  PrimaryTexts: []
-  SecondaryTexts: []
-  Titles: []
-  Headers: []
-  Spans: []
-  Captions: []
-  Subtitles: []
-  Hints: []
   quizView: {fileID: 1639591175}
   newQuizView: {fileID: 882072753}
   quizSelectView: {fileID: 102260603}

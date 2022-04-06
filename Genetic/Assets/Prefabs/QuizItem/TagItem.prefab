@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 5193013767062457891}
   - component: {fileID: 5362680245649200965}
   - component: {fileID: 1147249378206238579}
-  - component: {fileID: 146821185671541996}
   m_Layer: 5
   m_Name: Label
   m_TagString: Untagged
@@ -271,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -292,21 +291,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Tag
---- !u!114 &146821185671541996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5587988809456771077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!1 &8710254511226299204
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,10 +343,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a3860f8fd43624ea09c6e84368168b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PrimaryColors: []
+  SecondaryColors: []
+  PrimaryTexts: []
+  SecondaryTexts: []
+  Titles: []
+  Headers: []
+  Spans: []
+  Captions: []
+  Subtitles: []
+  Hints: []
+  Buttons: []
+  ScrollBars: []
+  ScrollViewBackground: []
+  background: {fileID: 22926779765763611}
+  check: {fileID: 3519729529922479935}
+  checkBackground: {fileID: 5628234238121338741}
   tagText: {fileID: 1147249378206238579}
   toggle: {fileID: 5204730796685528674}
-  image: {fileID: 22926779765763611}
-  original: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
 --- !u!222 &7030593271263590514
 CanvasRenderer:
   m_ObjectHideFlags: 0
