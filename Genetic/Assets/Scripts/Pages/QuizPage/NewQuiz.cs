@@ -12,7 +12,6 @@ public class NewQuiz : View
     [SerializeField]
     public ToggleEvent onActiveTogglesChanged;
     DBManager manager => AppController.instance.manager;
-    public QuizPage page;
     public GameObject quizSelect;
 
     public GameObject tagList;
@@ -101,7 +100,7 @@ public class NewQuiz : View
             }
             //remove trailing comma
             allTags.Substring(0, allTags.Length-1);
-            SavedQuiz quiz = new SavedQuiz() { name = quizName.text, tags=allTags};
+            SavedQuiz quiz = new SavedQuiz() { name = quizName.text, tags=allTags, currentAttempt=0, currentQuestion=0, inProgress=false, questionOrder="", givenAnswers=""};
             //save new quiz to db
             manager.AddItem(quiz);
             //go back to quiz select

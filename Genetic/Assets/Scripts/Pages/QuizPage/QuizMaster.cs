@@ -18,17 +18,12 @@ public class QuizMaster : View
 
     //list of buttons
     public GameObject[] buttons;
+    //exit button
+    public Button StopBtn;
     //feedback for answer
     public GameObject feedbackFrame;
     public Text feedbackText;
 
-
-    //determines whether to use random questions or a list of tags/questions
-    public bool isCustomList = false;
-    //determines whether to get questions by id or by tag
-    public bool useQuestionList = false;
-    //list of question ids to use
-    public int[] questionList;
     //list of tags to use
     public List<string> tagList;
 
@@ -56,7 +51,7 @@ public class QuizMaster : View
                 {
                     btn.text = answers[i].text;
                 }
-                catch(ArgumentOutOfRangeException e)
+                catch (ArgumentOutOfRangeException e)
                 {
                     btn.text = "";
                 }
@@ -64,6 +59,13 @@ public class QuizMaster : View
         }
     }
     Question _question;
+
+    //list of shuffled questions
+    List<int> QuestionOrder = new List<int>();
+    //current question in list
+    int questionIndex = 0;
+    //list of answers given by user for this question list
+    List<int> givenAnswers = new List<int>();
 
     //list of shuffled answers
     List<Answer> answers = new List<Answer>();
@@ -74,46 +76,48 @@ public class QuizMaster : View
         get => GetAnswer();
     }
 
-    //Finds a random question
-    public bool GetNewQuestion(int lastPressed = -1)
-    {
-        if (lastPressed != -1)
-        {
-            var img = buttons[lastPressed].GetComponent<Image>();
+    int currentAttempt = 0;
 
-        }
-        int count = manager.db.Table<Question>().Count();
-        int id = UnityEngine.Random.Range(1, count + 1);
-        currentQuestion = manager.GetItem<Question>(q => q.id == id);
-        answered = false;
-        return currentQuestion == null ? false : true;
-    }
+    //Finds a random question
+    //public bool GetNewQuestion(int lastPressed = -1)
+    //{
+    //    if (lastPressed != -1)
+    //    {
+    //        var img = buttons[lastPressed].GetComponent<Image>();
+
+    //    }
+    //    int count = manager.db.Table<Question>().Count();
+    //    int id = UnityEngine.Random.Range(1, count + 1);
+    //    currentQuestion = manager.GetItem<Question>(q => q.id == id);
+    //    answered = false;
+    //    return currentQuestion == null ? false : true;
+    //}
 
     //Finds a random question that has any of the tags provided. Returns true if successful, false if not.
-    public bool GetNewQuestionAnyMatch()
-    {
-        //get all tags in list
-        var tags = manager.GetItems<Tag>(t => tagList.Contains(t.tag));
-        //get ids of tags
-        var ids = tags.Select(t => t.id);
-        //get all questions that have this tag id
-        var qtRelations = manager.GetItems<QuestionTag>(qt => ids.Contains(qt.tagID));
-        //replace tag ids with question ids that have this tag
-        ids = qtRelations.Select(qtr => qtr.questionID);
-        //get all questions with given ids
-        var questions = manager.GetItems<Question>(q => ids.Contains(q.id));
-        if (questions != null && questions.Count > 0)
-        {
-            //select random question if there are any
-            currentQuestion = questions[UnityEngine.Random.Range(0, questions.Count)];
-            answered = false;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    //public bool GetNewQuestionAnyMatch()
+    //{
+    //    //get all tags in list
+    //    var tags = manager.GetItems<Tag>(t => tagList.Contains(t.tag));
+    //    //get ids of tags
+    //    var ids = tags.Select(t => t.id);
+    //    //get all questions that have this tag id
+    //    var qtRelations = manager.GetItems<QuestionTag>(qt => ids.Contains(qt.tagID));
+    //    //replace tag ids with question ids that have this tag
+    //    ids = qtRelations.Select(qtr => qtr.questionID);
+    //    //get all questions with given ids
+    //    var questions = manager.GetItems<Question>(q => ids.Contains(q.id));
+    //    if (questions != null && questions.Count > 0)
+    //    {
+    //        //select random question if there are any
+    //        currentQuestion = questions[UnityEngine.Random.Range(0, questions.Count)];
+    //        answered = false;
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
     //Finds a random question that has all of the tags provided. Returns true if successful, false if not.
     //public bool GetNewQuestionAllMatch(List<string> tags)
     //{
@@ -121,9 +125,20 @@ public class QuizMaster : View
     //}
     //Finds a random question that has only the tags provided. Returns true if succesful, false if not.
 
+
+
     public void SetQuestion(int id)
     {
         currentQuestion = manager.GetItem<Question>(q => q.id == id);
+    }
+
+    public void NextQuestion()
+    {
+        questionIndex++;
+        currentAttempt = 0;
+        var nextQuestion = QuestionOrder[questionIndex];
+        currentQuestion = manager.GetItem<Question>(q => q.id == nextQuestion);
+        answered = false;
     }
 
     Answer GetAnswer()
@@ -153,7 +168,7 @@ public class QuizMaster : View
             return badAnswers;
         }
     }
-    
+
     //returns a list of 3 random incorrect answers
     List<Answer> GetIncorrectAnswers()
     {
@@ -185,18 +200,77 @@ public class QuizMaster : View
         }
     }
 
-    public void NewQuiz(SavedQuiz quiz = null)
+    public void StartQuiz(SavedQuiz quiz)
     {
         currentQuiz = quiz;
-        isCustomList = true;
         tagList = quiz.tags.Split(',').ToList();
         tagList.Remove("");
-        GetNewQuestionAnyMatch();
+        if (quiz.inProgress)
+        {
+            LoadQuiz(quiz);
+        }
+        else
+        {
+            GenerateQuestionOrder();
+        }
     }
-    public void NewQuiz()
+
+    void LoadQuiz(SavedQuiz quiz)
     {
-        isCustomList = false;
+        List<int> order = JsonHandler.Deserialize<List<int>>(quiz.questionOrder);
+        QuestionOrder = order == null ? new List<int>() : order;
+        answered = false;
+        questionIndex = quiz.currentQuestion;
+        int question = QuestionOrder[quiz.currentQuestion];
+        currentQuestion = manager.GetItem<Question>((q) => q.id == question);
+        currentAttempt = quiz.currentAttempt;
+        List<int> given = JsonHandler.Deserialize<List<int>>(quiz.givenAnswers);
+        givenAnswers = given == null ? new List<int>() : given;
     }
+
+    void GenerateQuestionOrder()
+    {
+        
+        //get all tags in list
+        var tags = manager.GetItems<Tag>(t => tagList.Contains(t.tag));
+        //get ids of tags
+        var ids = tags.Select(t => t.id);
+        //get all questions that have this tag id
+        var qtRelations = manager.GetItems<QuestionTag>(qt => ids.Contains(qt.tagID));
+        //replace tag ids with question ids that have this tag
+        ids = qtRelations.Select(qtr => qtr.questionID);
+        //get all questions with given ids
+        var questions = manager.GetItems<Question>(q => ids.Contains(q.id));
+        List<Question> shuffled = new List<Question>();
+        //shuffle question list
+        while (questions.Count >= 1)
+        {
+            int idx = UnityEngine.Random.Range(0, questions.Count);
+            shuffled.Add(questions[idx]);
+            questions.RemoveAt(idx);
+        }
+        //set question order
+        QuestionOrder = shuffled.Select((i) => i.id).ToList();
+        answered = false;
+        //set current question to first question
+        var first = QuestionOrder[0];
+        currentQuestion = manager.GetItem<Question>((q) => q.id == first);
+        //set quiz as in progress
+        currentQuiz.inProgress = true;
+        //update quiz info
+        
+        manager.UpdateItem(currentQuiz);
+    }
+
+    void UpdateQuiz()
+    {
+        currentQuiz.questionOrder = JsonHandler.Serialize(QuestionOrder);
+        currentQuiz.currentQuestion = questionIndex;
+        currentQuiz.currentAttempt = currentAttempt;
+        currentQuiz.givenAnswers = JsonHandler.Serialize(givenAnswers);
+        manager.UpdateItem(currentQuiz);
+    }
+
     public void Answer1()
     {
         //user chose answer 1, check if it is correct
@@ -230,6 +304,8 @@ public class QuizMaster : View
 
             if (answered != true)
             {
+                currentAttempt++;
+                
                 answered = true;
                 bool correct = choice.id == correctAnswer.id;
                 var img = button.GetComponent<Image>();
@@ -258,12 +334,40 @@ public class QuizMaster : View
                 }
                 await Task.Delay(2000);
                 //remove feedback and switch to next question
-                GetNewQuestionAnyMatch();
+                if (currentAttempt >= 4 || correct)
+                {
+                    //set given answer
+                    givenAnswers.Add(choice.id);
+                    NextQuestion();
+                }
+                else
+                {
+                    answered = false;
+                }
+                UpdateQuiz();
                 feedbackFrame.SetActive(false);
                 img.color = controller.currentPalette.QuestionBackground;
             }
         }
         
+    }
+
+    protected override void ViewAppearing()
+    {
+        base.ViewAppearing();
+        StopBtn.gameObject.SetActive(true);
+    }
+
+    protected override void ViewDisappearing()
+    {
+        base.ViewDisappearing();
+        StopBtn.gameObject.SetActive(false);
+    }
+
+    public void ExitQuiz()
+    {
+        UpdateQuiz();
+        page.GotoView(page.views.Find((v) => v.GetType() == typeof(QuizSelect)));
     }
 
     public override void ColorsChanged(ColorPaletteChangedEventArgs args)

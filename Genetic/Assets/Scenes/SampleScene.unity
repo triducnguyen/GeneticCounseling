@@ -644,6 +644,7 @@ MonoBehaviour:
   - {fileID: 539127904}
   ScrollViewBackground:
   - {fileID: 811788529}
+  page: {fileID: 1671534723538631728}
   onActiveTogglesChanged:
     m_PersistentCalls:
       m_Calls:
@@ -659,7 +660,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  page: {fileID: 1671534723538631728}
   qmaster: {fileID: 1639591175}
   quizList: {fileID: 1331339565}
   quizItem: {fileID: 4535273205052138217, guid: 1486630bf73e74a43928e793924a3473, type: 3}
@@ -667,6 +667,7 @@ MonoBehaviour:
   - {fileID: 1032381710}
   - {fileID: 947531363}
   - {fileID: 341720062}
+  startBtnTxt: {fileID: 516328870}
   group: {fileID: 102260602}
 --- !u!1 &114671192
 GameObject:
@@ -2278,7 +2279,7 @@ MonoBehaviour:
   viewContainer: {fileID: 1671534723596839179}
   background: {fileID: 1671534724549386227}
   views:
-  - {fileID: 1510247153}
+  - {fileID: 1510247155}
   flashCardPrefab: {fileID: 2377956141843874712, guid: 5bf215b2f1a77284a83270a928b3daaf, type: 3}
   contentView: {fileID: 1551480433}
   inputSearch: {fileID: 742143489}
@@ -5700,6 +5701,7 @@ MonoBehaviour:
   - {fileID: 1724906346}
   ScrollViewBackground:
   - {fileID: 1278296183}
+  page: {fileID: 1671534723538631728}
   onActiveTogglesChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5715,7 +5717,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  page: {fileID: 1671534723538631728}
   quizSelect: {fileID: 102260600}
   tagList: {fileID: 1830162028}
   tagItem: {fileID: 8710254511226299204, guid: cc67883f99963714d9ff3a670065f115, type: 3}
@@ -7159,8 +7160,7 @@ MonoBehaviour:
   currentView: {fileID: 0}
   viewContainer: {fileID: 413596151}
   background: {fileID: 1130467087}
-  views:
-  - {fileID: 1645129466}
+  views: []
 --- !u!222 &1280295911
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7352,12 +7352,12 @@ GameObject:
   - component: {fileID: 1318763443}
   - component: {fileID: 1318763442}
   m_Layer: 5
-  m_Name: NextThemeButton (1)
+  m_Name: StopSessionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1318763441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7422,9 +7422,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 179612228}
-        m_TargetAssemblyTypeName: PaletteController, Assembly-CSharp
-        m_MethodName: NextPalette
+      - m_Target: {fileID: 1639591175}
+        m_TargetAssemblyTypeName: QuizMaster, Assembly-CSharp
+        m_MethodName: ExitQuiz
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8724,6 +8724,7 @@ MonoBehaviour:
   Buttons: []
   ScrollBars: []
   ScrollViewBackground: []
+  page: {fileID: 0}
 --- !u!1 &1551480433
 GameObject:
   m_ObjectHideFlags: 0
@@ -9223,6 +9224,7 @@ MonoBehaviour:
   ScrollBars:
   - {fileID: 1496501392}
   ScrollViewBackground: []
+  page: {fileID: 1671534723538631728}
   questionText: {fileID: 254867219}
   QuestionBackground: {fileID: 393403929}
   buttonTexts:
@@ -9235,11 +9237,9 @@ MonoBehaviour:
   - {fileID: 1625429597}
   - {fileID: 359165075}
   - {fileID: 1347134676}
+  StopBtn: {fileID: 1318763442}
   feedbackFrame: {fileID: 392326985}
   feedbackText: {fileID: 1413783113}
-  isCustomList: 0
-  useQuestionList: 0
-  questionList: 
   tagList: []
 --- !u!1 &1640912020
 GameObject:
@@ -11845,12 +11845,9 @@ MonoBehaviour:
   viewContainer: {fileID: 1671534724417914428}
   background: {fileID: 338959005}
   views:
-  - {fileID: 1639591173}
-  - {fileID: 102260600}
-  - {fileID: 882072751}
-  quizView: {fileID: 1639591175}
-  newQuizView: {fileID: 882072753}
-  quizSelectView: {fileID: 102260603}
+  - {fileID: 1639591175}
+  - {fileID: 102260603}
+  - {fileID: 882072753}
 --- !u!224 &1671534723596839172
 RectTransform:
   m_ObjectHideFlags: 0

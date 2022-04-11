@@ -7,23 +7,17 @@ public class QuizPage : PageController
 {
     static DBManager manager { get => DBManager.instance; }
 
-    public View quizView;
-    public View newQuizView;
-    public View quizSelectView;
-
-    
-
     private void Awake()
     {
         if (manager.GetAll<SavedQuiz>().Count > 0)
         {
             //make start view quiz select
-            startView = quizSelectView;
+            startView = views.Find((v) => v.GetType()==typeof(QuizSelect));
         }
         else
         {
             //make start view new quiz
-            startView = newQuizView;
+            startView = views.Find((v) => v.GetType() == typeof(NewQuiz));
         }
         base.Awake();
     }

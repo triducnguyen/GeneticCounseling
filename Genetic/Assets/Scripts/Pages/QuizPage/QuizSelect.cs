@@ -14,14 +14,13 @@ public class QuizSelect : View
 
     DBManager manager => AppController.instance.manager;
 
-    public QuizPage page;
     public QuizMaster qmaster;
 
     public GameObject quizList;
     public GameObject quizItem;
 
     public List<Button> buttons;
-
+    public Text startBtnTxt;
     public SavedQuiz selected => GetSelecetedQuiz();
 
     public ToggleGroup group;
@@ -96,7 +95,10 @@ public class QuizSelect : View
 
     void UnregisterToggle(Toggle toggle)
     {
-        toggle.onValueChanged.RemoveListener(HandleToggleValueChanged);
+        if (toggle.onValueChanged != null)
+        {
+            toggle.onValueChanged.RemoveListener(HandleToggleValueChanged);
+        }
         toggle.group = null;
     }
 
@@ -142,26 +144,35 @@ public class QuizSelect : View
         if (selected != null)
         {
             //set up quiz master
-            qmaster.NewQuiz(selected);
+            qmaster.StartQuiz(selected);
             //start selected quiz
-            page.GotoView(page.quizView);
+            page.GotoView(page.views.Find((v) => v.GetType() == typeof(QuizMaster)));
         }
     }
 
     public void NewQuiz()
     {
-        page.GotoView(page.newQuizView);
+        page.GotoView(page.views.Find((v) => v.GetType() == typeof(NewQuiz)));
     }
 
     public void Select()
     {
-        page.GotoView(page.quizSelectView);
+        page.GotoView(page.views.Find((v) => v == this));
     }
     
     public void OnSelectedChanged()
     {
         if (selected != null)
         {
+            if (selected.inProgress)
+            {
+                //change button text
+                startBtnTxt.text = "Resume Set";
+            }
+            else
+            {
+                startBtnTxt.text = "Start Set";
+            }
             //enable buttons
             foreach (var b in buttons)
             {

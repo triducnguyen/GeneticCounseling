@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class View : StyleHandler
-{
+{  
+    //page this view is within
+    public PageController page;
     public Action OnAppearing { get => () => ViewAppearing(); }
 
     public Action OnDisappearing { get => () => ViewDisappearing(); }

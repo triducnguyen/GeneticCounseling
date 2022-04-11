@@ -33,14 +33,21 @@ public class PageController : PageStyleHandler
 
     public GameObject viewContainer;
     public GameObject background;
-    public List<GameObject> views;
+    public List<View> views;
+    public List<GameObject> viewObjects
+    {
+        get
+        {
+            return views.Select((v) => v.gameObject).ToList();
+        }
+    }
     
 
     protected virtual void Awake()
     {
         base.Awake();
         //ensure all views are disabled
-        foreach (var v in views)
+        foreach (var v in viewObjects)
         {
             v.SetActive(false);
         }
@@ -53,7 +60,33 @@ public class PageController : PageStyleHandler
 
     
 
-    public void GotoView(GameObject view)
+    public void GotoView(GameObject viewObject)
+    {
+        //only execute if the view given is in this page
+        if (viewObjects.Contains(viewObject)) {
+
+            View viewComponent = viewObject.GetComponent<View>();
+            //disable all views except given
+            foreach (var v in views)
+            {
+                if (v == viewComponent) continue;
+                if (v.gameObject.activeInHierarchy)
+                {
+                    //let the view know it is disappearing
+                    ViewDisappearing(v);
+                    //deactivate view
+                    v.gameObject.SetActive(false);
+                }
+            }
+            //let view know it is about to appear
+            ViewAppearing(viewComponent);
+            //enable selected view
+            viewObject.SetActive(true);
+            //set view as current view
+            currentView = viewComponent;
+        }
+    }
+    public void GotoView(View view)
     {
         //only execute if the view given is in this page
         if (views.Contains(view))
@@ -61,36 +94,11 @@ public class PageController : PageStyleHandler
             //disable all views except given
             foreach (var v in views)
             {
-                if (v == view) continue;
-                if (v.activeInHierarchy)
-                {
-                    //let the view know it is disappearing
-                    ViewDisappearing(v);
-                    //deactivate view
-                    v.SetActive(false);
-                }
-            }
-            //let view know it is about to appear
-            ViewAppearing(view);
-            //enable selected view
-            view.SetActive(true);
-            //set view as current view
-            currentView = view.GetComponent<View>();
-        }
-    }
-    public void GotoView(View view)
-    {
-        //only execute if the view given is in this page
-        if (views.Contains(view.gameObject))
-        {
-            //disable all views except given
-            foreach (var v in views)
-            {
                 if (v == view.gameObject) continue;
-                if (v.activeInHierarchy)
+                if (v.gameObject.activeInHierarchy)
                 {
                     ViewDisappearing(v);
-                    v.SetActive(false);
+                    v.gameObject.SetActive(false);
                 }
             }
             //let view know it is about to appear
@@ -126,7 +134,7 @@ public class PageController : PageStyleHandler
     protected virtual void ViewAppearing(GameObject view)
     {
         //check if view is in this page
-        if (views.Contains(view))
+        if (viewObjects.Contains(view))
         {
             View viewComponent = view.GetComponent<View>();
             //run view specific code
@@ -137,7 +145,7 @@ public class PageController : PageStyleHandler
     protected virtual void ViewAppearing(View view)
     {
         //check if view is in this page
-        if (views.Contains(view.gameObject))
+        if (viewObjects.Contains(view.gameObject))
         {
             //run view specific code
             view.OnAppearing();
@@ -147,7 +155,7 @@ public class PageController : PageStyleHandler
     protected virtual void ViewDisappearing(GameObject view)
     {
         //check if view is in this page
-        if (views.Contains(view))
+        if (viewObjects.Contains(view))
         {
             View viewComponent = view.GetComponent<View>();
             viewComponent.OnDisappearing();
@@ -157,7 +165,7 @@ public class PageController : PageStyleHandler
     protected virtual void ViewDisappearing(View view)
     {
         //check if view is in this page
-        if (views.Contains(view.gameObject))
+        if (viewObjects.Contains(view.gameObject))
         {
             view.OnDisappearing();
         }
