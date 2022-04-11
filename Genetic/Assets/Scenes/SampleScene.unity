@@ -256,44 +256,44 @@ MonoBehaviour:
   FlyoutFooterBackground: {r: 0.6745098, g: 0.62352943, b: 0.73333335, a: 1}
   PageBackground: {r: 0.8666667, g: 0.7411765, b: 0.8352941, a: 1}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
-  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
-  Title: {r: 1, g: 1, b: 1, a: 1}
-  Header: {r: 0, g: 0, b: 0, a: 1}
-  Span: {r: 0, g: 0, b: 0, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 0}
+  Title: {r: 1, g: 1, b: 1, a: 0}
+  Header: {r: 1, g: 1, b: 1, a: 1}
+  Span: {r: 1, g: 1, b: 1, a: 1}
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
-  ItemBase: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
-  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
-  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
-  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
-  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
-  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
-  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
-  ButtonText: {r: 0, g: 0, b: 0, a: 0}
-  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionText: {r: 0, g: 0, b: 0, a: 0}
-  AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
-  AnswerText: {r: 0, g: 0, b: 0, a: 0}
+  ItemBase: {r: 1, g: 1, b: 1, a: 1}
+  ItemNormal: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  ItemSelected: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
+  ItemText: {r: 0, g: 0, b: 0, a: 1}
+  CheckboxBackground: {r: 1, g: 1, b: 1, a: 1}
+  CheckColor: {r: 0, g: 0, b: 0, a: 1}
+  ButtonBase: {r: 1, g: 1, b: 1, a: 1}
+  ButtonNormal: {r: 1, g: 1, b: 1, a: 1}
+  ButtonDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  ButtonHover: {r: 1, g: 1, b: 1, a: 1}
+  ButtonPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  ButtonSelected: {r: 1, g: 1, b: 1, a: 1}
+  ButtonText: {r: 0, g: 0, b: 0, a: 1}
+  scrollViewBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarBase: {r: 0.2823959, g: 0.2823959, b: 0.3584906, a: 1}
+  scrollBarNormal: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarHover: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  scrollBarSelected: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  QuestionBackground: {r: 0.19607843, g: 0.19607843, b: 0.24705882, a: 1}
+  QuestionText: {r: 1, g: 1, b: 1, a: 1}
+  AnswerBackground: {r: 0.19607843, g: 0.19607843, b: 0.24705882, a: 1}
+  AnswerText: {r: 1, g: 1, b: 1, a: 1}
   AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardText: {r: 0, g: 0, b: 0, a: 0}
+  FlashcardBackground: {r: 0.19607843, g: 0.19607843, b: 0.24705882, a: 1}
+  FlashcardText: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &14043043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,37 +1231,37 @@ MonoBehaviour:
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
-  ItemBase: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
-  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
-  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
-  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
-  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
-  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
-  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
-  ButtonText: {r: 0, g: 0, b: 0, a: 0}
-  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionText: {r: 0, g: 0, b: 0, a: 0}
-  AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
-  AnswerText: {r: 0, g: 0, b: 0, a: 0}
+  ItemBase: {r: 1, g: 1, b: 1, a: 1}
+  ItemNormal: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  ItemSelected: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
+  ItemText: {r: 0, g: 0, b: 0, a: 1}
+  CheckboxBackground: {r: 1, g: 1, b: 1, a: 1}
+  CheckColor: {r: 0, g: 0, b: 0, a: 1}
+  ButtonBase: {r: 1, g: 1, b: 1, a: 1}
+  ButtonNormal: {r: 1, g: 1, b: 1, a: 1}
+  ButtonDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  ButtonHover: {r: 1, g: 1, b: 1, a: 1}
+  ButtonPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  ButtonSelected: {r: 1, g: 1, b: 1, a: 1}
+  ButtonText: {r: 0, g: 0, b: 0, a: 1}
+  scrollViewBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarBase: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  scrollBarNormal: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarDisabled: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 0.5019608}
+  scrollBarHover: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarPressed: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  scrollBarSelected: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarBackground: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 0.5019608}
+  QuestionBackground: {r: 1, g: 1, b: 1, a: 1}
+  QuestionText: {r: 0, g: 0, b: 0, a: 1}
+  AnswerBackground: {r: 1, g: 1, b: 1, a: 1}
+  AnswerText: {r: 0, g: 0, b: 0, a: 1}
   AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardText: {r: 0, g: 0, b: 0, a: 0}
+  FlashcardBackground: {r: 1, g: 1, b: 1, a: 1}
+  FlashcardText: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &180698817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3805,44 +3805,44 @@ MonoBehaviour:
   FlyoutFooterBackground: {r: 0.40784314, g: 0.53333336, b: 0.4862745, a: 1}
   PageBackground: {r: 0.5372549, g: 0.7137255, b: 0.64705884, a: 1}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
-  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
-  Title: {r: 1, g: 1, b: 1, a: 1}
-  Header: {r: 0, g: 0, b: 0, a: 1}
-  Span: {r: 0, g: 0, b: 0, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 0}
+  Title: {r: 1, g: 1, b: 1, a: 0}
+  Header: {r: 1, g: 1, b: 1, a: 1}
+  Span: {r: 1, g: 1, b: 1, a: 1}
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
-  ItemBase: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
-  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
-  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
-  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
-  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
-  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
-  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
-  ButtonText: {r: 0, g: 0, b: 0, a: 0}
-  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionText: {r: 0, g: 0, b: 0, a: 0}
-  AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
-  AnswerText: {r: 0, g: 0, b: 0, a: 0}
+  ItemBase: {r: 1, g: 1, b: 1, a: 1}
+  ItemNormal: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  ItemSelected: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
+  ItemText: {r: 0, g: 0, b: 0, a: 1}
+  CheckboxBackground: {r: 1, g: 1, b: 1, a: 1}
+  CheckColor: {r: 0, g: 0, b: 0, a: 1}
+  ButtonBase: {r: 1, g: 1, b: 1, a: 1}
+  ButtonNormal: {r: 1, g: 1, b: 1, a: 1}
+  ButtonDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  ButtonHover: {r: 1, g: 1, b: 1, a: 1}
+  ButtonPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  ButtonSelected: {r: 1, g: 1, b: 1, a: 1}
+  ButtonText: {r: 0, g: 0, b: 0, a: 1}
+  scrollViewBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarBase: {r: 0.52222764, g: 0.4311143, b: 0.5283019, a: 1}
+  scrollBarNormal: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarHover: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  scrollBarSelected: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  QuestionBackground: {r: 0.36078432, g: 0.3019608, b: 0.3647059, a: 1}
+  QuestionText: {r: 1, g: 1, b: 1, a: 1}
+  AnswerBackground: {r: 0.36078432, g: 0.3019608, b: 0.3647059, a: 1}
+  AnswerText: {r: 1, g: 1, b: 1, a: 1}
   AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardText: {r: 0, g: 0, b: 0, a: 0}
+  FlashcardBackground: {r: 0.36078432, g: 0.3019608, b: 0.3647059, a: 1}
+  FlashcardText: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &539127902
 GameObject:
   m_ObjectHideFlags: 0
@@ -8459,44 +8459,44 @@ MonoBehaviour:
   FlyoutFooterBackground: {r: 0.10980392, g: 0.654902, b: 0.64705884, a: 1}
   PageBackground: {r: 0, g: 0.5283019, b: 0.5213959, a: 1}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
-  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
-  Title: {r: 1, g: 1, b: 1, a: 1}
-  Header: {r: 0, g: 0, b: 0, a: 1}
-  Span: {r: 0, g: 0, b: 0, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 0}
+  Title: {r: 1, g: 1, b: 1, a: 0}
+  Header: {r: 1, g: 1, b: 1, a: 1}
+  Span: {r: 1, g: 1, b: 1, a: 1}
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
-  ItemBase: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
-  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
-  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
-  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
-  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
-  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
-  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
-  ButtonText: {r: 0, g: 0, b: 0, a: 0}
-  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackground: {r: 1, g: 0, b: 0, a: 0}
-  QuestionText: {r: 0, g: 0, b: 0, a: 0}
-  AnswerBackground: {r: 1, g: 0, b: 0, a: 0}
-  AnswerText: {r: 0, g: 0, b: 0, a: 0}
+  ItemBase: {r: 1, g: 1, b: 1, a: 1}
+  ItemNormal: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  ItemSelected: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
+  ItemText: {r: 0, g: 0, b: 0, a: 1}
+  CheckboxBackground: {r: 1, g: 1, b: 1, a: 1}
+  CheckColor: {r: 0, g: 0, b: 0, a: 1}
+  ButtonBase: {r: 1, g: 1, b: 1, a: 1}
+  ButtonNormal: {r: 1, g: 1, b: 1, a: 1}
+  ButtonDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  ButtonHover: {r: 1, g: 1, b: 1, a: 1}
+  ButtonPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  ButtonSelected: {r: 1, g: 1, b: 1, a: 1}
+  ButtonText: {r: 0, g: 0, b: 0, a: 1}
+  scrollViewBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarBase: {r: 0.5503293, g: 0.7830189, b: 0.7783651, a: 1}
+  scrollBarNormal: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarHover: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  scrollBarSelected: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  QuestionBackground: {r: 0.24705882, g: 0.28627452, b: 0.8, a: 1}
+  QuestionText: {r: 1, g: 1, b: 1, a: 1}
+  AnswerBackground: {r: 0.24705882, g: 0.28627452, b: 0.8, a: 1}
+  AnswerText: {r: 1, g: 1, b: 1, a: 1}
   AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardText: {r: 0, g: 0, b: 0, a: 0}
+  FlashcardBackground: {r: 0.24705882, g: 0.28627452, b: 0.8, a: 1}
+  FlashcardText: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1496501390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11635,44 +11635,44 @@ MonoBehaviour:
   FlyoutFooterBackground: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   PageBackground: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   PrimaryText: {r: 1, g: 1, b: 1, a: 1}
-  SecondaryText: {r: 1, g: 1, b: 1, a: 1}
-  Title: {r: 1, g: 1, b: 1, a: 1}
-  Header: {r: 0, g: 0, b: 0, a: 1}
-  Span: {r: 0, g: 0, b: 0, a: 1}
+  SecondaryText: {r: 1, g: 1, b: 1, a: 0}
+  Title: {r: 1, g: 1, b: 1, a: 0}
+  Header: {r: 1, g: 0.9764151, b: 0.9764151, a: 1}
+  Span: {r: 1, g: 1, b: 1, a: 1}
   Caption: {r: 0, g: 0, b: 0, a: 1}
   Subtitle: {r: 0, g: 0, b: 0, a: 1}
   Hint: {r: 0, g: 0, b: 0, a: 1}
-  ItemBase: {r: 0, g: 0, b: 0, a: 0}
-  ItemNormal: {r: 0, g: 0, b: 0, a: 0}
-  ItemSelected: {r: 0, g: 0, b: 0, a: 0}
-  ItemText: {r: 0, g: 0, b: 0, a: 0}
-  CheckboxBackground: {r: 0, g: 0, b: 0, a: 0}
-  CheckColor: {r: 0, g: 0, b: 0, a: 0}
-  ButtonBase: {r: 0, g: 0, b: 0, a: 0}
-  ButtonNormal: {r: 0, g: 0, b: 0, a: 0}
-  ButtonDisabled: {r: 0, g: 0, b: 0, a: 0}
-  ButtonHover: {r: 0, g: 0, b: 0, a: 0}
-  ButtonPressed: {r: 0, g: 0, b: 0, a: 0}
-  ButtonSelected: {r: 0, g: 0, b: 0, a: 0}
-  ButtonText: {r: 0, g: 0, b: 0, a: 0}
-  scrollViewBackground: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBase: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarNormal: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarDisabled: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarHover: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarPressed: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarSelected: {r: 0, g: 0, b: 0, a: 0}
-  scrollBarBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionBackground: {r: 0, g: 0, b: 0, a: 0}
-  QuestionText: {r: 0, g: 0, b: 0, a: 0}
-  AnswerBackground: {r: 0, g: 0, b: 0, a: 0}
-  AnswerText: {r: 0, g: 0, b: 0, a: 0}
+  ItemBase: {r: 1, g: 1, b: 1, a: 1}
+  ItemNormal: {r: 0.8980392, g: 0.8980392, b: 0.8980392, a: 1}
+  ItemSelected: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
+  ItemText: {r: 0, g: 0, b: 0, a: 1}
+  CheckboxBackground: {r: 1, g: 1, b: 1, a: 1}
+  CheckColor: {r: 0, g: 0, b: 0, a: 1}
+  ButtonBase: {r: 1, g: 1, b: 1, a: 1}
+  ButtonNormal: {r: 1, g: 1, b: 1, a: 1}
+  ButtonDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  ButtonHover: {r: 1, g: 1, b: 1, a: 1}
+  ButtonPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  ButtonSelected: {r: 1, g: 1, b: 1, a: 1}
+  ButtonText: {r: 0, g: 0, b: 0, a: 1}
+  scrollViewBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarBase: {r: 0.1981132, g: 0.1971787, b: 0.1971787, a: 1}
+  scrollBarNormal: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarDisabled: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  scrollBarHover: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarPressed: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  scrollBarSelected: {r: 1, g: 1, b: 1, a: 1}
+  scrollBarBackground: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+  QuestionBackground: {r: 0, g: 0, b: 0, a: 1}
+  QuestionText: {r: 1, g: 1, b: 1, a: 1}
+  AnswerBackground: {r: 0, g: 0, b: 0, a: 1}
+  AnswerText: {r: 1, g: 1, b: 1, a: 1}
   AnswerBackgroundCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextCorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerBackgroundIncorrect: {r: 0, g: 0, b: 0, a: 0}
   AnswerTextIncorrect: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardBackground: {r: 0, g: 0, b: 0, a: 0}
-  FlashcardText: {r: 0, g: 0, b: 0, a: 0}
+  FlashcardBackground: {r: 0, g: 0, b: 0, a: 1}
+  FlashcardText: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2145323772
 GameObject:
   m_ObjectHideFlags: 0
