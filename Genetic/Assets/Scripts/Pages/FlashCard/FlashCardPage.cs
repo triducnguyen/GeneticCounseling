@@ -26,11 +26,7 @@ public class FlashCardPage : PageController
         flashcardTag_list = new List<FlashcardTag>();
         searchTree = new Trie();
         ExpandContenView(10);
-        foreach(Tag fl in manager.GetAll<Tag>())
-        {
-            searchTree.insert(fl.tag);
-        }
-        Tester();
+        InitializeFlashCards();
         inputSearch.onValueChanged.AddListener(delegate { SuggestedTags(); });
     }
 
@@ -43,11 +39,13 @@ public class FlashCardPage : PageController
         }
     }
 
-    public void Tester()
+    public void InitializeFlashCards()
     {
         List<Flashcard> cards = manager.GetAll<Flashcard>();
         foreach(var card in cards)
         {
+            //if(card.text != null)
+            //    searchTree.insert(card.text.ToLower());
             SetNewFlashCard(card.text, card.definition);
         }
         ExpandContenView(cards.Count);
