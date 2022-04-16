@@ -33,7 +33,7 @@ public class CSVIngress : Singleton<CSVIngress>
                     answers = new List<Answer>();
                     tags = new List<Tag>();
                     //set question
-                    question = new Question() { text = q.Question };
+                    question = new Question() { text = q.Question, imageURL = q.ImageURL};
                     //get all answers to this question
                     answers = new List<string>
                     {

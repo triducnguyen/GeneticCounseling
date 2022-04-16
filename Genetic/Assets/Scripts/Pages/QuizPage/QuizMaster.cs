@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class QuizMaster : View
@@ -11,7 +12,9 @@ public class QuizMaster : View
     static DBManager manager { get => DBManager.instance; }
 
     public SavedQuiz currentQuiz;
+    public ImageDownloader downloader;
 
+    public RawImage questionImage;
     public Text questionText;
     public Image QuestionBackground;
     public Text[] buttonTexts;
@@ -42,6 +45,14 @@ public class QuizMaster : View
             _question = value;
             //set question text
             questionText.text = value.text;
+            if (value.imageURL != null && value.imageURL != "")
+            {
+                downloader.GetImage(value.imageURL, questionImage);
+            }
+            else
+            {
+                questionImage.gameObject.SetActive(false);
+            }
             answers = GetAnswers();
             //Update button text
             for (int i = 0; i < buttonTexts.Length; i++)
@@ -78,55 +89,6 @@ public class QuizMaster : View
 
     int currentAttempt = 0;
 
-    //Finds a random question
-    //public bool GetNewQuestion(int lastPressed = -1)
-    //{
-    //    if (lastPressed != -1)
-    //    {
-    //        var img = buttons[lastPressed].GetComponent<Image>();
-
-    //    }
-    //    int count = manager.db.Table<Question>().Count();
-    //    int id = UnityEngine.Random.Range(1, count + 1);
-    //    currentQuestion = manager.GetItem<Question>(q => q.id == id);
-    //    answered = false;
-    //    return currentQuestion == null ? false : true;
-    //}
-
-    //Finds a random question that has any of the tags provided. Returns true if successful, false if not.
-    //public bool GetNewQuestionAnyMatch()
-    //{
-    //    //get all tags in list
-    //    var tags = manager.GetItems<Tag>(t => tagList.Contains(t.tag));
-    //    //get ids of tags
-    //    var ids = tags.Select(t => t.id);
-    //    //get all questions that have this tag id
-    //    var qtRelations = manager.GetItems<QuestionTag>(qt => ids.Contains(qt.tagID));
-    //    //replace tag ids with question ids that have this tag
-    //    ids = qtRelations.Select(qtr => qtr.questionID);
-    //    //get all questions with given ids
-    //    var questions = manager.GetItems<Question>(q => ids.Contains(q.id));
-    //    if (questions != null && questions.Count > 0)
-    //    {
-    //        //select random question if there are any
-    //        currentQuestion = questions[UnityEngine.Random.Range(0, questions.Count)];
-    //        answered = false;
-    //        return true;
-    //    }
-    //    else
-    //    {
-    //        return false;
-    //    }
-    //}
-    //Finds a random question that has all of the tags provided. Returns true if successful, false if not.
-    //public bool GetNewQuestionAllMatch(List<string> tags)
-    //{
-
-    //}
-    //Finds a random question that has only the tags provided. Returns true if succesful, false if not.
-
-
-
     public void SetQuestion(int id)
     {
         currentQuestion = manager.GetItem<Question>(q => q.id == id);
@@ -135,6 +97,10 @@ public class QuizMaster : View
     public void NextQuestion()
     {
         questionIndex++;
+        if (questionIndex >= QuestionOrder.Count)
+        {
+            questionIndex =  questionIndex % QuestionOrder.Count;
+        }
         currentAttempt = 0;
         var nextQuestion = QuestionOrder[questionIndex];
         currentQuestion = manager.GetItem<Question>(q => q.id == nextQuestion);
@@ -221,8 +187,15 @@ public class QuizMaster : View
         QuestionOrder = order == null ? new List<int>() : order;
         answered = false;
         questionIndex = quiz.currentQuestion;
-        int question = QuestionOrder[quiz.currentQuestion];
-        currentQuestion = manager.GetItem<Question>((q) => q.id == question);
+        if (QuestionOrder.Count > 0)
+        {
+            int question = QuestionOrder[quiz.currentQuestion];
+            currentQuestion = manager.GetItem<Question>((q) => q.id == question);
+        }
+        else
+        {
+            GenerateQuestionOrder();
+        }
         currentAttempt = quiz.currentAttempt;
         List<int> given = JsonHandler.Deserialize<List<int>>(quiz.givenAnswers);
         givenAnswers = given == null ? new List<int>() : given;
