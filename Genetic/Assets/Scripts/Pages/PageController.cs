@@ -15,7 +15,7 @@ public class PageController : PageStyleHandler
     public string pageTitle = "";
     public string pageName = "";
     public Sprite icon;
-    public Action flyoutTapped { get => () => navigation.GotoPage(this); }
+    public virtual Action flyoutTapped { get => () => navigation.GotoPage(this); }
 
     //event handlers
     public Action OnAppearing { get => () => PageAppearing() ; }
