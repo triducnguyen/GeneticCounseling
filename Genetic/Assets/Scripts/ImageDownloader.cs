@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -38,9 +40,20 @@ public class ImageDownloader : MonoBehaviour
 
     public static string getFinalUrl(string url)
     {
+        //check content type
+        var client = new HttpClient();
+        var response = client.GetAsync(url).Result;
+        if (response.Headers != null)
+        {
+            if (response.Content.Headers.ContentType.MediaType.StartsWith("image/"))
+            {
+                //url is an image, use raw url
+                return url;
+            }
+        }
         string id = getIdFromUrl(url);
-
         return "https://drive.google.com/uc?id=" + id;
+
     }
 
     public static string getIdFromUrl(string url)

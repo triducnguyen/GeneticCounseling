@@ -86,7 +86,9 @@ public class QuizMaster : View
     {
         get => GetAnswer();
     }
-
+    [SerializeField]
+    int maxAttempts = 4;
+    [SerializeField]
     int currentAttempt = 0;
 
     public void SetQuestion(int id)
@@ -307,7 +309,7 @@ public class QuizMaster : View
                 }
                 await Task.Delay(2000);
                 //remove feedback and switch to next question
-                if (currentAttempt >= 4 || correct)
+                if (currentAttempt >= maxAttempts || correct)
                 {
                     //set given answer
                     givenAnswers.Add(choice.id);

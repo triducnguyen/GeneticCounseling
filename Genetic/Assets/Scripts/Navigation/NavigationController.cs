@@ -154,7 +154,9 @@ public class NavigationController : Singleton<NavigationController>
         navTitle.color = palette.PrimaryText;
         navBackground.color = palette.Navbar;
         navButton.color = palette.FlyoutBtn;
-        flyoutTouchBackground.color = palette.FlyoutTouchBackground;
+        var tempBackground = palette.FlyoutTouchBackground;
+        tempBackground.a = 0.25f;
+        flyoutTouchBackground.color = tempBackground;
         flyoutHeaderBackground.color = palette.FlyoutHeaderBackground;
         flyoutBackground.color = palette.FlyoutBackground;
         flyoutFooterBackground.color = palette.FlyoutFooterBackground;
