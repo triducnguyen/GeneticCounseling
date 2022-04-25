@@ -30,9 +30,10 @@ public class ImageDownloader : MonoBehaviour
             image.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             var ratio = image.mainTexture.width / image.mainTexture.height;
             var newSize = image.GetComponent<RectTransform>();
-            newSize.sizeDelta = new Vector2(image.mainTexture.width, (newSize.sizeDelta.x * ratio));
-            var layout = image.GetComponent<LayoutElement>();
-            layout.preferredHeight = newSize.sizeDelta.x;
+            //var imgAutoScaler = image.GetComponent<ImageVericalAutoScaler>();
+            //imgAutoScaler.SetSize(new Vector2(image.mainTexture.width, (newSize.sizeDelta.x * ratio)));
+            //var layout = image.GetComponent<LayoutElement>();
+            //layout.preferredHeight = newSize.sizeDelta.x;
             Debug.Log("Set image texture from web");
             image.gameObject.SetActive(true);
         }

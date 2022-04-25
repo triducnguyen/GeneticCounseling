@@ -113,13 +113,17 @@ public class QuizSelect : View
 
     public void RemoveItem()
     {
-        var item = GetSelectedObject();
-        var toggle = GetSelectedToggle();
-        var quiz = GetSelecetedQuiz();
-        UnregisterToggle(toggle);
-        Debug.Log("Delteted quiz "+quiz.name+": "+manager.DeleteItem(quiz));
-        Destroy(item);
-        OnSelectedChanged();
+        if(selected != null)
+        {
+            var item = GetSelectedObject();
+            var toggle = GetSelectedToggle();
+            var quiz = GetSelecetedQuiz();
+            UnregisterToggle(toggle);
+            Debug.Log("Delteted quiz "+quiz.name+": "+manager.DeleteItem(quiz));
+            Destroy(item);
+            OnSelectedChanged();
+        }
+        
     }
 
     private void LoadItems()
