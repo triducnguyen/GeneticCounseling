@@ -53,17 +53,7 @@ public class DBManager : Singleton<DBManager>
         try
         {
             //ensure tables are created
-            db.CreateTable<Question>();
-            db.CreateTable<Answer>();
-            db.CreateTable<CorrectAnswer>();
-            db.CreateTable<IncorrectAnswer>();
-            db.CreateTable<Tag>();
-            db.CreateTable<QuestionTag>();
-            db.CreateTable<AnswerTag>();
-            db.CreateTable<Hint>();
-            db.CreateTable<Flashcard>();
-            db.CreateTable<FlashcardTag>();
-            db.CreateTable<SavedQuiz>();
+            //db.CreateTable<YourDBTypeHere>();
             Debug.Log("Tables Created/Present");
         }
         catch (Exception e)
