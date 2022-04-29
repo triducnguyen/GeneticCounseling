@@ -9,10 +9,16 @@ using System.Globalization;
 using System.Linq;
 using System;
 
+/// <summary>Imports CSV data into the local database.</summary>
+/// <seealso cref="DBManager" />
 public class CSVIngress : Singleton<CSVIngress>
 {
+    /// <summary>Gets the database manager.</summary>
+    /// <value>The database manager.</value>
     public static DBManager manager { get => AppController.instance.manager; }
 
+    /// <summary>Imports an answer sheet.</summary>
+    /// <param name="csvfile">The csv file.</param>
     public void ImportAnswerSheet(TextAsset csvfile)
     {
         try
@@ -166,6 +172,8 @@ public class CSVIngress : Singleton<CSVIngress>
         }
     }
 
+    /// <summary>Imports a flashcard sheet.</summary>
+    /// <param name="csvfile">The csv file.</param>
     public void ImportFlashcardSheet(TextAsset csvfile)
     {
         try
@@ -183,7 +191,7 @@ public class CSVIngress : Singleton<CSVIngress>
                 foreach (var f in flashcards)
                 {
                     //create flashcard
-                    flashcard = new Flashcard() { text = f.front, definition= f.back };
+                    flashcard = new Flashcard() { term = f.term, definition= f.definition };
                     //create tags
                     tags = f.tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
                     //remove empty tags and ensure all tags are lowercase
@@ -209,7 +217,7 @@ public class CSVIngress : Singleton<CSVIngress>
                         }
                     }
                     //check if card, definition, and tags already exist
-                    var card = manager.GetItem<Flashcard>(fc => fc.text == f.front);
+                    var card = manager.GetItem<Flashcard>(fc => fc.term == f.term);
 
                     if (card != null) 
                     {
@@ -233,7 +241,7 @@ public class CSVIngress : Singleton<CSVIngress>
                             //save new tag
                             manager.AddItem(tags[x]);
                             //create new relation
-                            manager.AddItem(new FlashcardTag() { flashCard_id = flashcard.id, tag_id = currentTag.id });
+                            manager.AddItem(new FlashcardTag() { flashcardID = flashcard.id, tagID = currentTag.id });
                         }
                     }
 

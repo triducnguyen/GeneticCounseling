@@ -3,23 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>Handles color palette changes. Add elements to list to have them automatically update when a color palette change happens.</summary>
 public class StyleHandler : MonoBehaviour
 {
+    /// <summary>Gets the app controller.</summary>
+    /// <value>The app controller.</value>
     public PaletteController controller { get => AppController.instance.controller; }
 
+    /// <summary>The image components to be recolored to the primary color of the app.</summary>
     public List<Image> PrimaryColors;
+    /// <summary>The image components to be recolored to the secondary color of the app.</summary>
     public List<Image> SecondaryColors;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> PrimaryTexts;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> SecondaryTexts;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> Titles;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> Headers;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> Spans;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> Captions;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> Subtitles;
+    /// <summary>The text components to be recolored.</summary>
     public List<Text> Hints;
-
+    /// <summary>The button components to be recolored.</summary>
     public List<Button> Buttons;
+    /// <summary>The scrollbar components to be recolored.</summary>
     public List<Scrollbar> ScrollBars;
+    /// <summary>The image components to be recolored.</summary>
     public List<Image> ScrollViewBackground;
 
     
@@ -32,11 +47,14 @@ public class StyleHandler : MonoBehaviour
         UpdateColors();
     }
 
+    /// <summary>Manually triggers a pallete color update.</summary>
     public void UpdateColors()
     {
         ColorsChanged(new ColorPaletteChangedEventArgs(controller.currentPalette));
     }
 
+    /// <summary>Event handler for when colors change.</summary>
+    /// <param name="args">The <see cref="ColorPaletteChangedEventArgs" /> instance containing the color palette data.</param>
     public virtual void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
         //set all colors

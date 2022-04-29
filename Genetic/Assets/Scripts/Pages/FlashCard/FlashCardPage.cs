@@ -46,7 +46,7 @@ public class FlashCardPage : PageController
         {
             //if(card.text != null)
             //    searchTree.insert(card.text.ToLower());
-            SetNewFlashCard(card.text, card.definition);
+            SetNewFlashCard(card.term, card.definition);
         }
         ExpandContenView(cards.Count);
     }
@@ -72,12 +72,12 @@ public class FlashCardPage : PageController
 
     public List<FlashcardTag> getFlashCardTags(Tag tag)
     {
-        return manager.GetItems<FlashcardTag>(q => q.tag_id == tag.id);
+        return manager.GetItems<FlashcardTag>(q => q.tagID == tag.id);
     }
 
     public Flashcard getFlashcard(FlashcardTag flashcardTag)
     {
-        return manager.GetItem<Flashcard>(q => q.id == flashcardTag.flashCard_id);
+        return manager.GetItem<Flashcard>(q => q.id == flashcardTag.flashcardID);
     }
     public void Search()
     {
@@ -114,7 +114,7 @@ public class FlashCardPage : PageController
             foreach(FlashcardTag flashcardTag in flashcardTag_list)
             {
                 Flashcard flashCard = getFlashcard(flashcardTag);
-                SetNewFlashCard(flashCard.text, flashCard.definition);
+                SetNewFlashCard(flashCard.term, flashCard.definition);
             }
     }
 

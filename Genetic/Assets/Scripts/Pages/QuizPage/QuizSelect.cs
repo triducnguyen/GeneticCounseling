@@ -5,46 +5,46 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+/// <summary>Controls the behavior of the QuizSelect View.</summary>
 public class QuizSelect : View
 {
-    [System.Serializable]
-    public class ToggleEvent : UnityEvent { }
+    /// <summary>Event for when a toggle's value changes.</summary>
     [SerializeField]
-    public ToggleEvent onActiveTogglesChanged;
+    public UnityEvent onActiveTogglesChanged;
 
+    /// <summary>Gets the database manager.</summary>
+    /// <value>The database manager.</value>
     DBManager manager => AppController.instance.manager;
 
+    /// <summary>The QuizMaster view.</summary>
     public QuizMaster qmaster;
 
+    /// <summary>The quiz list.</summary>
     public GameObject quizList;
+    /// <summary>The quiz item
+    /// prefab.</summary>
     public GameObject quizItem;
 
+    /// <summary>The quiz list buttons.</summary>
     public List<Button> buttons;
+    /// <summary>The start button text.</summary>
     public Text startBtnTxt;
-    public SavedQuiz selected => GetSelecetedQuiz();
+    /// <summary>Gets the selected quiz.</summary>
+    /// <value>The selected quiz.</value>
+    public SavedQuiz selected => GetSelectedQuiz();
 
+    /// <summary>A toggle group for the quiz list.</summary>
     public ToggleGroup group;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnEnable()
     {
         //reload all quiz items
-        //manager.DeleteAll<SavedQuiz>();
-
         LoadItems();
     }
-    
 
+
+    /// <summary>Gets the selected toggle.</summary>
+    /// <returns>Selected toggle.</returns>
     Toggle GetSelectedToggle()
     {
         if (group.ActiveToggles().ToList().Count == 1)
@@ -57,6 +57,8 @@ public class QuizSelect : View
         }
     }
 
+    /// <summary>Gets the selected object.</summary>
+    /// <returns>Selected object.</returns>
     GameObject GetSelectedObject()
     {
         if (group.ActiveToggles().ToList().Count == 1)
@@ -69,7 +71,9 @@ public class QuizSelect : View
         }
     }
 
-    SavedQuiz GetSelecetedQuiz()
+    /// <summary>Gets the selected quiz.</summary>
+    /// <returns>Selected quiz.</returns>
+    SavedQuiz GetSelectedQuiz()
     {
         if (group.ActiveToggles().ToList().Count == 1)
         {
@@ -82,17 +86,23 @@ public class QuizSelect : View
             return null;
         }
     }
+    /// <summary>Registers the toggle to report when its value changes.</summary>
+    /// <param name="toggle">The toggle to register.</param>
     void RegisterToggle(Toggle toggle)
     {
         toggle.group = group;
         toggle.onValueChanged.AddListener(HandleToggleValueChanged);
     }
 
+    /// <summary>Handles the toggle value changed event.</summary>
+    /// <param name="isOn">Whether the toggle is on or off.</param>
     void HandleToggleValueChanged(bool isOn)
     {
         onActiveTogglesChanged?.Invoke();
     }
 
+    /// <summary>Unregisters the toggle from reporting when its value changes.</summary>
+    /// <param name="toggle">The toggle to unregister.</param>
     void UnregisterToggle(Toggle toggle)
     {
         if (toggle.onValueChanged != null)
@@ -102,6 +112,7 @@ public class QuizSelect : View
         toggle.group = null;
     }
 
+    /// <summary>Removes all items from quiz list.</summary>
     private void RemoveItems()
     {
         foreach (Transform t in quizList.transform)
@@ -111,13 +122,14 @@ public class QuizSelect : View
         }
     }
 
+    /// <summary>Removes the currently selected item.</summary>
     public void RemoveItem()
     {
         if(selected != null)
         {
             var item = GetSelectedObject();
             var toggle = GetSelectedToggle();
-            var quiz = GetSelecetedQuiz();
+            var quiz = GetSelectedQuiz();
             UnregisterToggle(toggle);
             Debug.Log("Delteted quiz "+quiz.name+": "+manager.DeleteItem(quiz));
             Destroy(item);
@@ -126,6 +138,7 @@ public class QuizSelect : View
         
     }
 
+    /// <summary>Repopulates the quiz list.</summary>
     private void LoadItems()
     {
         //remove all items from list
@@ -142,6 +155,7 @@ public class QuizSelect : View
         }
     }
 
+    /// <summary>Starts the selected quiz.</summary>
     public void StartQuiz()
     {
         
@@ -154,16 +168,13 @@ public class QuizSelect : View
         }
     }
 
+    /// <summary>Navigates to the new quiz view.</summary>
     public void NewQuiz()
     {
         page.GotoView(page.views.Find((v) => v.GetType() == typeof(NewQuiz)));
     }
 
-    public void Select()
-    {
-        page.GotoView(page.views.Find((v) => v == this));
-    }
-    
+    /// <summary>Called when selected quiz changes.</summary>
     public void OnSelectedChanged()
     {
         if (selected != null)

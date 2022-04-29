@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -6,27 +6,40 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+/// <summary>Represents a new quiz view.</summary>
 public class NewQuiz : View
 {
-    [System.Serializable]
-    public class ToggleEvent : UnityEvent { }
+    /// <summary>An event for handling toggle value changes.</summary>
     [SerializeField]
-    public ToggleEvent onActiveTogglesChanged;
+    public UnityEvent onActiveTogglesChanged;
+    /// <summary>Gets the database manager.</summary>
+    /// <value>The database manager.</value>
     DBManager manager => AppController.instance.manager;
+    /// <summary>The gameobject containing the quiz select
+    /// view.</summary>
     public GameObject quizSelect;
 
+    /// <summary>The gameobject that will parent the tag list items.</summary>
     public GameObject tagList;
 
+    /// <summary>The tag list item prefab.</summary>
     public GameObject tagItem;
 
+    /// <summary>The quiz name.</summary>
     public InputField quizName;
-    public Text search;
 
+    /// <summary>The save button.</summary>
     public Button saveButton;
 
+    /// <summary>Gets the TagItem components from the tag list.</summary>
+    /// <value>The TagItem list.</value>
     private List<TagItem> items => tagList.GetComponentsInChildren<TagItem>().ToList();
 
+    /// <summary>Finds selected toggles from items.</summary>
+    /// <value>The selected items.</value>
     private List<TagItem> selected => items.FindAll((t) => t.toggle.isOn);
+    /// <summary>Gets the tags selected and turns them into a string.</summary>
+    /// <value>The tags as a string.</value>
     private string tags
     {
         get
@@ -48,6 +61,8 @@ public class NewQuiz : View
         }
     }
 
+    /// <summary>Gets a default name.</summary>
+    /// <value>The default name.</value>
     string defaultName
     {
         get
@@ -70,7 +85,9 @@ public class NewQuiz : View
     }
 
     //create name check regex
+    /// <summary>Regex placeholder.</summary>
     Regex r;
+    /// <summary>MatchCollection placeholder.</summary>
     MatchCollection m;
 
     // Start is called before the first frame update
@@ -89,25 +106,31 @@ public class NewQuiz : View
     {
         //clear text input only when enabled again
         quizName.text = "";
-        search.text = "";
         //load tags
         LoadTags();
     }
+    /// <summary>Registers the toggle to report value changes.</summary>
+    /// <param name="toggle">The toggle to register.</param>
     void RegisterToggle(Toggle toggle)
     {
         toggle.onValueChanged.AddListener(HandleToggleValueChanged);
     }
 
+    /// <summary>Handles the toggle value changed event.</summary>
+    /// <param name="isOn">if set to <c>true</c> [is on].</param>
     void HandleToggleValueChanged(bool isOn)
     {
         onActiveTogglesChanged?.Invoke();
     }
 
+    /// <summary>Unregisters the toggle from reporting value changes.</summary>
+    /// <param name="toggle">The toggle to unregister.</param>
     void UnregisterToggle(Toggle toggle)
     {
         toggle.onValueChanged.RemoveListener(HandleToggleValueChanged);
     }
 
+    /// <summary>Removes all tags in the tag list.</summary>
     private void RemoveTags()
     {
         foreach(Transform t in tagList.transform)
@@ -117,6 +140,7 @@ public class NewQuiz : View
         }
     }
 
+    /// <summary>Repopulates the tag list.</summary>
     private void LoadTags()
     {
         //remove all items from list
@@ -133,6 +157,7 @@ public class NewQuiz : View
         }
     }
 
+    /// <summary>Saves the quiz.</summary>
     public void SaveQuiz()
     {
         //check if quiz info is valid
@@ -146,6 +171,10 @@ public class NewQuiz : View
         }
     }
 
+    /// <summary>Validates the quiz information.</summary>
+    /// <param name="count">The number of saved sets with the same name.
+    /// Starts at 1, is used to create a default name.</param>
+    /// <returns><c>True</с> when quiz info is valid; otherwise <c>False</с></returns>
     private bool ValidateInfo(int count = 1)
     {
         //check if at least one tag is selected
@@ -182,13 +211,7 @@ public class NewQuiz : View
         return false;
     }
 
-    public bool RegexCallback(SavedQuiz q)
-    {
-        r = new Regex(@$"{q.name} (\d+)(?!.*\d)", RegexOptions.IgnoreCase);
-        m = r.Matches(q.name);
-        return m.Count > 0;
-    }
-
+    /// <summary>Called when a toggle's value has changed.</summary>
     public void OnToggleUpdate()
     {
         if(selected.Count > 0)

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>Controls the behavior of the quiz page.</summary>
 public class QuizPage : PageController
 {
+    /// <summary>Gets the database manager.</summary>
+    /// <value>The databse manager.</value>
     static DBManager manager { get => DBManager.instance; }
 
     private void Awake()

@@ -7,33 +7,51 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+/// <summary>Controls the behavior of the quiz view.</summary>
 public class QuizMaster : View
 {
+    /// <summary>Gets the database manager.</summary>
+    /// <value>The database manager.</value>
     static DBManager manager { get => DBManager.instance; }
 
+    /// <summary>The current quiz.</summary>
     public SavedQuiz currentQuiz;
+    /// <summary>The image downloader.</summary>
     public ImageDownloader downloader;
 
+    /// <summary>The question image.</summary>
     public RawImage questionImage;
+    /// <summary>The question text.</summary>
     public Text questionText;
+    /// <summary>The question background.</summary>
     public Image QuestionBackground;
+    /// <summary>The answer button texts.</summary>
     public Text[] buttonTexts;
 
     //list of buttons
+    /// <summary>The answer buttons.</summary>
     public GameObject[] buttons;
     //exit button
+    /// <summary>The exit button</summary>
     public Button StopBtn;
     //feedback for answer
+    /// <summary>The feedback frame.</summary>
     public GameObject feedbackFrame;
+    /// <summary>The feedback text.</summary>
     public Text feedbackText;
 
     //list of tags to use
+    /// <summary>The tag list
+    /// being used.</summary>
     public List<string> tagList;
 
     //keeps track of whether this question has been answered already. Prevents multiple answers from being pressed
+    /// <summary>Whether the user has given an answer yet. Becomes false after feedback is displayed.</summary>
     bool answered = false;
 
     //current question being displayed
+    /// <summary>Gets or sets the current question.</summary>
+    /// <value>The current question.</value>
     Question currentQuestion
     {
         get
@@ -69,33 +87,47 @@ public class QuizMaster : View
             }
         }
     }
+    /// <summary>The question
+    /// private value.</summary>
     Question _question;
 
     //list of shuffled questions
+    /// <summary>The question order.</summary>
     List<int> QuestionOrder = new List<int>();
     //current question in list
+    /// <summary>The current question index.</summary>
     int questionIndex = 0;
     //list of answers given by user for this question list
+    /// <summary>The answers the user has given thus far.</summary>
     List<int> givenAnswers = new List<int>();
 
     //list of shuffled answers
+    /// <summary>List of shuffled answers.</summary>
     List<Answer> answers = new List<Answer>();
 
     //the correct answer
+    /// <summary>Gets the correct answer.</summary>
+    /// <value>The correct answer.</value>
     Answer correctAnswer
     {
         get => GetAnswer();
     }
+    /// <summary>The maximum attempts
+    /// on the current question before moving to the next question.</summary>
     [SerializeField]
     int maxAttempts = 4;
+    /// <summary>The current attempt for the current question.</summary>
     [SerializeField]
     int currentAttempt = 0;
 
+    /// <summary>Sets the current question.</summary>
+    /// <param name="id">The question identifier.</param>
     public void SetQuestion(int id)
     {
         currentQuestion = manager.GetItem<Question>(q => q.id == id);
     }
 
+    /// <summary>Goes to the next question.</summary>
     public void NextQuestion()
     {
         questionIndex++;
@@ -109,6 +141,8 @@ public class QuizMaster : View
         answered = false;
     }
 
+    /// <summary>Gets the answer to current question.</summary>
+    /// <returns>Answer to current question.</returns>
     Answer GetAnswer()
     {
         if (currentQuestion == null)
@@ -123,6 +157,8 @@ public class QuizMaster : View
     }
 
     //retuns a list of all answers shuffled up
+    /// <summary>Gets a shuffled list of all possible answers to current question, correct and incorrect.</summary>
+    /// <returns>Shuffled list of answers to the current question.</returns>
     List<Answer> GetAnswers()
     {
         if (currentQuestion == null)
@@ -138,6 +174,8 @@ public class QuizMaster : View
     }
 
     //returns a list of 3 random incorrect answers
+    /// <summary>Gets the incorrect answers for the current question.</summary>
+    /// <returns>Incorrect answers for current question.</returns>
     List<Answer> GetIncorrectAnswers()
     {
         if (currentQuestion == null)
@@ -168,6 +206,8 @@ public class QuizMaster : View
         }
     }
 
+    /// <summary>Starts the given saved quiz.</summary>
+    /// <param name="quiz">The saved quiz to start.</param>
     public void StartQuiz(SavedQuiz quiz)
     {
         currentQuiz = quiz;
@@ -183,6 +223,8 @@ public class QuizMaster : View
         }
     }
 
+    /// <summary>Loads the given saved quiz.</summary>
+    /// <param name="quiz">The saved quiz to load.</param>
     void LoadQuiz(SavedQuiz quiz)
     {
         List<int> order = JsonHandler.Deserialize<List<int>>(quiz.questionOrder);
@@ -203,6 +245,7 @@ public class QuizMaster : View
         givenAnswers = given == null ? new List<int>() : given;
     }
 
+    /// <summary>Generates the question order.</summary>
     void GenerateQuestionOrder()
     {
         
@@ -237,6 +280,7 @@ public class QuizMaster : View
         manager.UpdateItem(currentQuiz);
     }
 
+    /// <summary>Updates the current quiz in the database.</summary>
     void UpdateQuiz()
     {
         currentQuiz.questionOrder = JsonHandler.Serialize(QuestionOrder);
@@ -246,30 +290,36 @@ public class QuizMaster : View
         manager.UpdateItem(currentQuiz);
     }
 
+    /// <summary>Checks answer 1.</summary>
     public void Answer1()
     {
         //user chose answer 1, check if it is correct
         CheckAnswer(0);
     }
 
+    /// <summary>Checks answer 2.</summary>
     public void Answer2()
     {
         //user chose answer 2, check if it is correct
         CheckAnswer(1);
     }
 
+    /// <summary>Checks answer 3.</summary>
     public void Answer3()
     {
         //user chose answer 3, check if it is correct
         CheckAnswer(2);
     }
 
+    /// <summary>Checks answer 4.</summary>
     public void Answer4()
     {
         //user chose answer 4, check if it is correct
         CheckAnswer(3);
     }
 
+    /// <summary>Checks the given answer.</summary>
+    /// <param name="answer">The answer given.</param>
     public async void CheckAnswer(int answer)
     {
         if (answer <= answers.Count-1)
@@ -327,24 +377,29 @@ public class QuizMaster : View
         
     }
 
+    /// <summary>Called by default when the view appears.</summary>
     protected override void ViewAppearing()
     {
         base.ViewAppearing();
         StopBtn.gameObject.SetActive(true);
     }
 
+    /// <summary>Called by default when the view disappears.</summary>
     protected override void ViewDisappearing()
     {
         base.ViewDisappearing();
         StopBtn.gameObject.SetActive(false);
     }
 
+    /// <summary>Exits the quiz.</summary>
     public void ExitQuiz()
     {
         UpdateQuiz();
         page.GotoView(page.views.Find((v) => v.GetType() == typeof(QuizSelect)));
     }
 
+    /// <summary>Event handler for when colors change.</summary>
+    /// <param name="args">The <see cref="ColorPaletteChangedEventArgs" /> instance containing the color palette data.</param>
     public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
         base.ColorsChanged(args);

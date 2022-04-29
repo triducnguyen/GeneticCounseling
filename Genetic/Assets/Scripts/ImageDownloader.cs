@@ -7,14 +7,23 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+/// <summary>A script for downloading images from google drive share links or direct png links.</summary>
 public class ImageDownloader : MonoBehaviour
 {
+    /// <summary>Gets an image from a url and loads it into the RawImage.
+    /// Valid URLs can be of google drive share links and direct png links.</summary>
+    /// <param name="url">The image URL.</param>
+    /// <param name="image">The image component to display the URL image.</param>
     public void GetImage(string url, RawImage image)
     {
         var finalUrl = getFinalUrl(url);
         StartCoroutine(SetImage(finalUrl, image));
     }
 
+    /// <summary>Sets the RawImage component's texture to be the image loaded from the provided URL.</summary>
+    /// <param name="url">The image URL to load.</param>
+    /// <param name="image">The RawImage component to display the URL image.</param>
+    /// <returns>Returns when complete.</returns>
     IEnumerator SetImage(string url, RawImage image)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
@@ -39,6 +48,9 @@ public class ImageDownloader : MonoBehaviour
         }
     }
 
+    /// <summary>Gets the final URL after resolving to the proper URL.</summary>
+    /// <param name="url">The URL to resolve.</param>
+    /// <returns>Resolved URL. Unchanged if the URL already points to a raw image.</returns>
     public static string getFinalUrl(string url)
     {
         //check content type
@@ -53,10 +65,14 @@ public class ImageDownloader : MonoBehaviour
             }
         }
         string id = getIdFromUrl(url);
+        //create final url from image id
         return "https://drive.google.com/uc?id=" + id;
 
     }
 
+    /// <summary>Gets the image identifier from google drive share URL.</summary>
+    /// <param name="url">The URL.</param>
+    /// <returns>An image ID of a shared google drive image.</returns>
     public static string getIdFromUrl(string url)
     {
         Regex r = new Regex(@"\/d\/(.+)\/", RegexOptions.IgnoreCase);

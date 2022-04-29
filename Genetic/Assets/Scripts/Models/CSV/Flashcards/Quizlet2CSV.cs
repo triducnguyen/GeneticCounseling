@@ -7,10 +7,12 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>A class for importing quizlet flashcard sets. Be sure to use '%*%' as the card separator, and '%!%' as the front/back separator.</summary>
 public class Quizlet2CSV : MonoBehaviour
 {
     public TextAsset quizlet_formatted_flashcards;
 
+    /// <summary>Generates a CSV file from quizlet flashcard set.</summary>
     void CSVfromQuizlet()
     {
         List<FlashcardCSV> cards = new List<FlashcardCSV>();
@@ -27,12 +29,14 @@ public class Quizlet2CSV : MonoBehaviour
             }
             else
             {
-                cards.Add(new FlashcardCSV() { front = wordDefinition[0], back = wordDefinition[1] });
+                cards.Add(new FlashcardCSV() { term = wordDefinition[0], definition = wordDefinition[1] });
             }
         }
         ExportCSV(cards);
     }
 
+    /// <summary>Exports the CSV file.</summary>
+    /// <param name="cards">The cards to export.</param>
     void ExportCSV(List<FlashcardCSV> cards)
     {
         var path = new Uri(Path.Combine(Application.persistentDataPath, "exported_cards.csv"));

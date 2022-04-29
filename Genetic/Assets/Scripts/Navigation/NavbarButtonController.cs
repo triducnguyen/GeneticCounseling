@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>Controls the flyout button and flyout menu animation.</summary>
 public class NavbarButtonController : MonoBehaviour
 {
     public FlyoutController flyout;
@@ -14,6 +15,7 @@ public class NavbarButtonController : MonoBehaviour
         animator.Play("RotateBack", -1, 1);
     }
 
+    /// <summary>Called when the nav bar button is pressed.</summary>
     public void Tapped()
     {
         var animInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -31,6 +33,7 @@ public class NavbarButtonController : MonoBehaviour
         flyout.FlyoutTapped();
     }
 
+    /// <summary>Opens the flyout menu if it isn't already.</summary>
     public void Open()
     {
         if (!flyout.visible)
@@ -38,7 +41,7 @@ public class NavbarButtonController : MonoBehaviour
             Tapped();
         }
     }
-
+    /// <summary>Closes the flyout menu if it isn't already.</summary>
     public void Close()
     {
         if (flyout.visible)

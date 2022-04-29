@@ -7,33 +7,47 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
+/// <summary>The base class of a page. Controls all base functions of a class, such as navigation and palette changes.</summary>
 public class PageController : PageStyleHandler
 {
+    /// <summary>Gets the navigation controller.</summary>
+    /// <value>The navigation controller.</value>
     public NavigationController navigation { get => NavigationController.instance; }
-    
-    public Image swipeImage { get => GetComponent<Image>(); }
+
+    /// <summary>The display title for the page.</summary>
     public string pageTitle = "";
+    /// <summary>The page name. Should be unique because it is used to identify pages.</summary>
     public string pageName = "";
+    /// <summary>The icon
+    /// to represent this page in the flyout menu.</summary>
     public Sprite icon;
+    /// <summary>The action to perform when this page's flyout item is tapped.
+    /// Change this if you want alter the behavior of the button.</summary>
+    /// <value>The action to perform.</value>
     public virtual Action flyoutTapped { get => () => navigation.GotoPage(this); }
 
     //event handlers
-    public Action OnAppearing { get => () => PageAppearing() ; }
-    public Action OnDisappearing { get => () => PageDisappearing(); }
-
-    public Action<GameObject> OnViewAppearing { get => (GameObject view) => ViewAppearing(view); }
-    public Action<GameObject> OnViewDisappearing { get => (GameObject view) => ViewDisappearing(view); }
+    /// <summary>The action to perform when the page appears. Default is just to call 'PageAppearing'.</summary>
+    /// <value>The action to perform.</value>
+    public virtual Action OnAppearing { get => () => PageAppearing() ; }
+    /// <summary>The action to perform when the page disappears.</summary>
+    /// <value>The action to perform.</value>
+    public virtual Action OnDisappearing { get => () => PageDisappearing(); }
 
     //subnavigation
     //tells page which view it should start on
+    /// <summary>The view to switch to when the page is first navigated to.</summary>
     public View startView;
     //tells page which view is currently visible
+    /// <summary>The current view
+    /// the page is displaying.</summary>
     public View currentView;
 
-
-    public GameObject viewContainer;
-    public GameObject background;
+    /// <summary>The views
+    /// in this page.</summary>
     public List<View> views;
+    /// <summary>Gets a list of all of the views' gameobjects.</summary>
+    /// <value>The view gameobjects.</value>
     public List<GameObject> viewObjects
     {
         get
@@ -58,8 +72,10 @@ public class PageController : PageStyleHandler
         }
     }
 
-    
 
+
+    /// <summary>Goes to the gameobject's view if it is in this page's view list.</summary>
+    /// <param name="viewObject">The view object to go to.</param>
     public void GotoView(GameObject viewObject)
     {
         //only execute if the view given is in this page
@@ -86,6 +102,8 @@ public class PageController : PageStyleHandler
             currentView = viewComponent;
         }
     }
+    /// <summary>Goes to the given view.</summary>
+    /// <param name="view">The view to go to.</param>
     public void GotoView(View view)
     {
         //only execute if the view given is in this page
@@ -110,7 +128,8 @@ public class PageController : PageStyleHandler
         }
     }
 
-    //executed when this page is going to appear, or is going to disappear (navigated to or away from)
+    //executed when this page is going to appear
+    /// <summary>Executed when this page is going to appear, which is when it is navigated to.</summary>
     protected virtual void PageAppearing()
     {
         //tell current view it is about to appear if it exists
@@ -120,6 +139,7 @@ public class PageController : PageStyleHandler
         }
     }
 
+    /// <summary>Executed when this page is going to disappear, which is when it is navigated away from.</summary>
     protected virtual void PageDisappearing()
     {
         //tell current view it is about to disappear if it exists
@@ -131,6 +151,8 @@ public class PageController : PageStyleHandler
 
     //executed when a view in this page is going to appear or dissapear (navigating away or to view, or navigating away or to a page)
 
+    /// <summary>Invoke the 'OnAppearing' function on a view component in the given gameobject if it is a child of this page.</summary>
+    /// <param name="view">The gameobject who's view is about to appear.</param>
     protected virtual void ViewAppearing(GameObject view)
     {
         //check if view is in this page
@@ -142,6 +164,8 @@ public class PageController : PageStyleHandler
         }
     }
 
+    /// <summary>Invokes the 'OnAppearing' function on in the given view if it is a child of this page.</summary>
+    /// <param name="view">The view that is about to appear.</param>
     protected virtual void ViewAppearing(View view)
     {
         //check if view is in this page
@@ -151,7 +175,8 @@ public class PageController : PageStyleHandler
             view.OnAppearing();
         }
     }
-
+    /// <summary>Invoke the 'OnDisappearing' function on a view component in the given gameobject if it is a child of this page.</summary>
+    /// <param name="view">The gameobject who's view is about to disappear.</param>
     protected virtual void ViewDisappearing(GameObject view)
     {
         //check if view is in this page
@@ -161,7 +186,8 @@ public class PageController : PageStyleHandler
             viewComponent.OnDisappearing();
         }
     }
-
+    /// <summary>Invokes the 'OnDisappearing' function on in the given view if it is a child of this page.</summary>
+    /// <param name="view">The view that is about to disappear.</param>
     protected virtual void ViewDisappearing(View view)
     {
         //check if view is in this page

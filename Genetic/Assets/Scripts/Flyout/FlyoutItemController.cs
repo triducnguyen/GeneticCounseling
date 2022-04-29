@@ -4,32 +4,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlyoutItemController : MonoBehaviour
+/// <summary>A navigation item to be displayed in the flyout item list.</summary>
+public class FlyoutItemController : StyleHandler
 {
+    /// <summary>The page name.</summary>
     public string pageName = "";
+    /// <summary>The item title.</summary>
     public Text title;
+    /// <summary>The item icon.</summary>
     public Image icon;
+    /// <summary>The item background.</summary>
     public Image background;
+    /// <summary>The item button component.</summary>
     public Button button;
+    /// <summary>The item action
+    /// to perform when tapped.</summary>
     public Action action;
 
-    PaletteController controller { get =>  AppController.instance.controller;}
-
-    public void Start()
-    {
-        controller.ColorsChanged += ColorsChanged;
-        ColorsChanged(new ColorPaletteChangedEventArgs(controller.currentPalette));
-    }
-
-
+    /// <summary>Called when item is tapped.</summary>
     public void OnTap()
     {
         action.Invoke();
     }
-    public void ColorsChanged(ColorPaletteChangedEventArgs args)
+    public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
         title.color = args.palette.FlyoutText;
         icon.color = args.palette.FlyoutIcon;
         background.color = args.palette.FlyoutItemBackground;
+        base.ColorsChanged(args);
     }
 }

@@ -4,21 +4,29 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FlyoutController : MonoBehaviour
+/// <summary>Manages the flyout menu.</summary>
+public class FlyoutController : StyleHandler
 {
+    /// <summary>The animator
+    /// component that animates the flyout menu.</summary>
     public Animator animator;
+    /// <summary>The list of flyout page items.</summary>
     public GameObject itemList;
+    /// <summary>The touch background
+    /// of they flyout menu.</summary>
     public Image touchBackground;
-    public PaletteController controller { get => AppController.instance.controller; }
+    /// <summary>The alpha
+    /// of the touch background.</summary>
     public float alpha;
+    /// <summary>If the flyout is visible or not.</summary>
     public bool visible = false;
+    /// <summary>If the animator component is playing.</summary>
     public bool playing = false;
 
-    private void Awake()
+    protected override void Awake()
     {
         animator.Play("FlyoutClose", -1, 1);
-        controller.ColorsChanged += ColorsChanged;
-        ColorsChanged(new ColorPaletteChangedEventArgs(controller.currentPalette));
+        base.Awake();
     }
 
     private void Update()
@@ -30,6 +38,7 @@ public class FlyoutController : MonoBehaviour
         }
     }
 
+    /// <summary>Called when the flyout button is tapped.</summary>
     public void FlyoutTapped()
     {
         
@@ -40,7 +49,8 @@ public class FlyoutController : MonoBehaviour
         if (!visible)
         {
             animator.Play("FlyoutOpen", -1, newNorm);
-            SelectCurrent();        }
+            SelectCurrent();
+        }
         else
         {
             animator.Play("FlyoutClose", -1, newNorm);
@@ -48,6 +58,7 @@ public class FlyoutController : MonoBehaviour
         visible = !visible;
     }
 
+    /// <summary>Selects the currently open page.</summary>
     void SelectCurrent()
     {
         //select currently open page
@@ -60,8 +71,11 @@ public class FlyoutController : MonoBehaviour
         }
     }
 
-    public void ColorsChanged(ColorPaletteChangedEventArgs args)
+    /// <summary>An event handler for when the colors change.</summary>
+    /// <param name="args">The <see cref="ColorPaletteChangedEventArgs" /> instance containing the color palette data.</param>
+    public override void ColorsChanged(ColorPaletteChangedEventArgs args)
     {
         touchBackground.color = args.palette.FlyoutTouchBackground;
+        base.ColorsChanged(args);
     }
 }
