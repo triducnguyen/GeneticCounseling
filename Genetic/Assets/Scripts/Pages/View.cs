@@ -1,7 +1,11 @@
+using App.Themes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+namespace App.Pages
+{
 
 /// <summary>A visual element within a page.</summary>
 public class View : StyleHandler
@@ -28,4 +32,6 @@ public class View : StyleHandler
     {
 
     }
+}
+
 }

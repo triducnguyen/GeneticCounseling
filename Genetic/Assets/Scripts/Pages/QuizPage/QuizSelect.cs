@@ -1,3 +1,7 @@
+using App;
+using App.Models.DataBase;
+using App.Pages;
+using App.Pages.QuizPage;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +9,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+namespace App.Pages.QuizPage
+{
 /// <summary>Controls the behavior of the QuizSelect View.</summary>
 public class QuizSelect : View
 {
@@ -204,3 +210,6 @@ public class QuizSelect : View
         }
     }
 }
+
+}
+

@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using App;
+using App.Models.DataBase;
+using App.Pages;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -6,6 +9,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+namespace App.Pages.QuizPage
+{
 /// <summary>Represents a new quiz view.</summary>
 public class NewQuiz : View
 {
@@ -226,3 +231,6 @@ public class NewQuiz : View
         }
     }
 }
+
+}
+

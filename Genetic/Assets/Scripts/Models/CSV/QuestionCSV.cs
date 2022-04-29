@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>Represents a question in a question bank CSV table.</summary>
+namespace App.Models.CSV
+{
+    /// <summary>Represents a question in a question bank CSV table.</summary>
 public class QuestionCSV
 {
     /// <summary>Gets or sets the identifier.</summary>
@@ -38,4 +40,7 @@ public class QuestionCSV
     /// <summary>Gets or sets the tags.</summary>
     /// <value>The tags associated with this question.</value>
     public string Tags { get; set; } 
+}
+
+
 }

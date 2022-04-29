@@ -1,3 +1,6 @@
+using App.Navigation;
+using App.Pages;
+using App.Themes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +9,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-
+namespace App.Pages
+{
 /// <summary>The base class of a page. Controls all base functions of a class, such as navigation and palette changes.</summary>
 public class PageController : PageStyleHandler
 {
@@ -57,7 +61,7 @@ public class PageController : PageStyleHandler
     }
     
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
         base.Awake();
         //ensure all views are disabled
@@ -197,3 +201,6 @@ public class PageController : PageStyleHandler
         }
     }
 }
+
+}
+

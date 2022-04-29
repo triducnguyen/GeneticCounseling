@@ -1,8 +1,16 @@
+using App;
+using App.Flyout;
+using App.Navigation;
+using App.Pages;
+using App.Themes;
+using App.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Navigation
+{
 /// <summary>The object that controls the app's navigation. Only one should exist.</summary>
 public class NavigationController : Singleton<NavigationController>
 {
@@ -213,3 +221,6 @@ public class NavigationController : Singleton<NavigationController>
         }
     }
 }
+
+}
+

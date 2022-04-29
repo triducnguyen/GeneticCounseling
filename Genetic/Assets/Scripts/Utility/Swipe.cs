@@ -1,7 +1,11 @@
+using App.Navigation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+
+namespace App.Utility
+{
 
 /// <summary>Detects a simple swipe.</summary>
 public class Swipe : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
@@ -49,4 +53,6 @@ public class Swipe : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         //Debug.Log("Dragging");
         //throw new System.NotImplementedException();
     }
+}
+
 }

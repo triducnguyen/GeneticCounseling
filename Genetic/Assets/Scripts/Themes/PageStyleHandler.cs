@@ -1,8 +1,11 @@
+using App.Themes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Themes
+{
 /// <summary>A StyleHandler for app pages.</summary>
 public class PageStyleHandler : StyleHandler
 {
@@ -16,3 +19,6 @@ public class PageStyleHandler : StyleHandler
         backgroundImage.color = args.palette.PageBackground;
     }
 }
+
+}
+

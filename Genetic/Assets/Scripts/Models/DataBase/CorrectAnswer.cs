@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>A table of all the correct answers. Describes the relation between a questionID and an answerID.</summary>
 public class CorrectAnswer 
 {
@@ -18,5 +20,7 @@ public class CorrectAnswer
     /// <value>The answer identifier.</value>
     [Indexed]
     public int answerID { get; set; }
+
+}
 
 }

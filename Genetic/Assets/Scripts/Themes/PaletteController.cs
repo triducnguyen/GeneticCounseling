@@ -1,7 +1,11 @@
+using App.Themes;
+using App.Utility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Themes
+{
 /// <summary>Controls the current theme / color pallette.</summary>
 public class PaletteController : Singleton<PaletteController>
 {
@@ -32,9 +36,10 @@ public class PaletteController : Singleton<PaletteController>
     ColorPalette _palette;
 
     /// <summary>Called when the object is instantiated.</summary>
-    private void Awake()
+    protected override void Awake()
     {
         currentPalette = palettes[0];
+        base.Awake();
     }
 
     /// <summary>Advances to the next color palette.</summary>
@@ -67,3 +72,6 @@ public class PaletteController : Singleton<PaletteController>
         currentPalette = palettes[palette];
     }
 }
+
+}
+

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Themes
+{
 /// <summary>Defines a color palette.</summary>
 public class ColorPalette : MonoBehaviour
 {
@@ -243,3 +245,6 @@ public class ColorPaletteChangedEventArgs : EventArgs
         _palette = p;
     }
 }
+
+}
+

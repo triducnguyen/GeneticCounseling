@@ -8,10 +8,14 @@ using CsvHelper;
 using System.Globalization;
 using System.Linq;
 using System;
+using App.Utility;
+using App.Models.DataBase;
 
+namespace App.Models.CSV
+{
 /// <summary>Imports CSV data into the local database.</summary>
 /// <seealso cref="DBManager" />
-public class CSVIngress : Singleton<CSVIngress>
+public class CSVIngress : App.Utility.Singleton<CSVIngress>
 {
     /// <summary>Gets the database manager.</summary>
     /// <value>The database manager.</value>
@@ -179,78 +183,86 @@ public class CSVIngress : Singleton<CSVIngress>
         try
         {
             List<FlashcardCSV> flashcards;
-            Flashcard flashcard;
-            List<Tag> tags;
-
-
             using (var reader = new StringReader(csvfile.text))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 flashcards = csv.GetRecords<FlashcardCSV>().ToList();
-                //convert csv into db entries
-                foreach (var f in flashcards)
-                {
-                    //create flashcard
-                    flashcard = new Flashcard() { term = f.term, definition= f.definition };
-                    //create tags
-                    tags = f.tags.Split(',').Select(t => new Tag() { tag = t }).ToList();
-                    //remove empty tags and ensure all tags are lowercase
-                    for (int i = tags.Count - 1; i > -1; i--)
-                    {
-                        if (tags[i].tag == "")
-                        {
-                            tags.RemoveAt(i);
-                        }
-                        else if (tags[i].tag == "untagged")
-                        {
-                            tags.RemoveAt(i);
-                        }
-                        else
-                        {
-                            var tagtxt = tags[i].tag;
-                            //make sure only first letter is capitalized
-                            tagtxt = tagtxt.ToLower();
-                            char firstChar = Char.ToUpper(tagtxt[0]);
-                            tagtxt = firstChar + tagtxt.Substring(1);
-                            //update tag's text
-                            tags[i].tag = tagtxt;
-                        }
-                    }
-                    //check if card, definition, and tags already exist
-                    var card = manager.GetItem<Flashcard>(fc => fc.term == f.term);
-
-                    if (card != null) 
-                    {
-                        flashcard = card;
-                        //update flashcard
-                        manager.UpdateItem(flashcard);
-                    }
-                    else
-                    {
-                        //save new flashcard
-                        manager.AddItem(flashcard);
-                    }
-
-                    for (int x = 0; x < tags.Count; x++)
-                    {
-                        var currentTag = tags[x];
-                        currentTag.tag = tag.ToLower();
-                        var tg = manager.GetItem<Tag>(t => t.tag == currentTag.tag);
-                        if (tg == null)
-                        {
-                            //save new tag
-                            manager.AddItem(tags[x]);
-                            //create new relation
-                            manager.AddItem(new FlashcardTag() { flashcardID = flashcard.id, tagID = currentTag.id });
-                        }
-                    }
-
-                }
+                
             }
+                //convert csv into db entries
+                ImportFlashcards(flashcards);
         }
         catch (Exception e)
         {
             Debug.Log($"{e.Message}\nStackTrace:\n{e.StackTrace}\nInncerException:\n{e.InnerException}");
         }
     }
+        /// <summary>
+        /// Imports a list of flashcards.
+        /// </summary>
+        /// <param name="cards">The cards to import.</param>
+        public void ImportFlashcards(List<FlashcardCSV> cards)
+        {
+            Flashcard flashcard;
+            List<Tag> tags = new List<Tag>();
+            foreach (var f in cards)
+            {
+                //create flashcard
+                flashcard = new Flashcard() { term = f.term, definition = f.definition };
+                //create tags
+                tags = !string.IsNullOrEmpty(f.tags) ? f.tags.Split(',').Select(t => new Tag() { tag = t }).ToList() : new List<Tag>();
+                //remove empty tags and ensure all tags are lowercase
+                for (int i = tags.Count - 1; i > -1; i--)
+                {
+                    if (tags[i].tag == "")
+                    {
+                        tags.RemoveAt(i);
+                    }
+                    else if (tags[i].tag == "untagged")
+                    {
+                        tags.RemoveAt(i);
+                    }
+                    else
+                    {
+                        var tagtxt = tags[i].tag;
+                        //make sure only first letter is capitalized
+                        tagtxt = tagtxt.ToLower();
+                        char firstChar = Char.ToUpper(tagtxt[0]);
+                        tagtxt = firstChar + tagtxt.Substring(1);
+                        //update tag's text
+                        tags[i].tag = tagtxt;
+                    }
+                }
+                //check if card, definition, and tags already exist
+                var card = manager.GetItem<Flashcard>(fc => fc.term == f.term);
+
+                if (card != null)
+                {
+                    flashcard = card;
+                    //update flashcard
+                    manager.UpdateItem(flashcard);
+                }
+                else
+                {
+                    //save new flashcard
+                    manager.AddItem(flashcard);
+                }
+
+                for (int x = 0; x < tags.Count; x++)
+                {
+                    var currentTag = tags[x];
+                    currentTag.tag = tag.ToLower();
+                    var tg = manager.GetItem<Tag>(t => t.tag == currentTag.tag);
+                    if (tg == null)
+                    {
+                        //save new tag
+                        manager.AddItem(tags[x]);
+                        //create new relation
+                        manager.AddItem(new FlashcardTag() { flashcardID = flashcard.id, tagID = currentTag.id });
+                    }
+                }
+
+            }
+        }
+}
 }

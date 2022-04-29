@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>A table that defines a relation between a question and an answer.</summary>
 public class IncorrectAnswer
 {
@@ -19,3 +21,6 @@ public class IncorrectAnswer
     [Indexed]
     public int answerID { get; set; }
 }
+
+}
+

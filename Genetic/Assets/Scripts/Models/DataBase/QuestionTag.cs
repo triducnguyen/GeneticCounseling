@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>A table that defines a relation between a question and a tag.</summary>
 public class QuestionTag
 {
@@ -18,3 +20,6 @@ public class QuestionTag
     /// <value>The tag identifier.</value>
     public int tagID { get; set; }
 }
+
+}
+

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.CSV
+{
 /// <summary>A class used for holding data from a CSV and writing it to the local database.</summary>
 public class FlashcardCSV
 {
@@ -21,3 +23,6 @@ public class FlashcardCSV
     /// <value>The tags associated with this flashcard.</value>
     public string tags { get; set; }
 }
+
+}
+

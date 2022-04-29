@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>Represents a table of different tags.</summary>
 public class Tag
 {
@@ -15,3 +17,6 @@ public class Tag
     [Unique]
     public string tag { get; set; }
 }
+
+}
+

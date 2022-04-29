@@ -1,3 +1,8 @@
+using App.Models.DataBase;
+using App.Models.Json;
+using App.Pages;
+using App.Themes;
+using App.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +12,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
+namespace App.Pages.QuizPage
+{
 /// <summary>Controls the behavior of the quiz view.</summary>
 public class QuizMaster : View
 {
@@ -413,3 +420,6 @@ public class QuizMaster : View
 
     }
 }
+
+}
+

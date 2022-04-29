@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using App.Themes;
 
+namespace App.Themes
+{
+/// <summary>Class for changing the visual appearance of values in the inspector. Used to group colors into categories. If you want to add more categories, here is where you do it.</summary>
 [CustomEditor(typeof(ColorPalette))]
 public class ThemeEditor : Editor
 {
@@ -280,4 +284,6 @@ public class ThemeEditor : Editor
 
         serializedObject.ApplyModifiedProperties();
     }
+}
+
 }

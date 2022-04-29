@@ -1,8 +1,12 @@
+using App.Models.DataBase;
+using App.Pages;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Pages.QuizPage
+{
 /// <summary>Controls the behavior of the quiz page.</summary>
 public class QuizPage : PageController
 {
@@ -10,7 +14,7 @@ public class QuizPage : PageController
     /// <value>The databse manager.</value>
     static DBManager manager { get => DBManager.instance; }
 
-    private void Awake()
+    protected override void Awake()
     {
         if (manager.GetAll<SavedQuiz>().Count > 0)
         {
@@ -25,3 +29,6 @@ public class QuizPage : PageController
         base.Awake();
     }
 }
+
+}
+

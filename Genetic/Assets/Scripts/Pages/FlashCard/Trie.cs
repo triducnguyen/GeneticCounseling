@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+namespace App.Pages.FlashCard
+{
 public class Trie
 {
     class Node
@@ -66,4 +69,6 @@ public class Trie
         DFSWithPrefix(curr, prefix);
         return resultBuffer;
     }
+}
+
 }

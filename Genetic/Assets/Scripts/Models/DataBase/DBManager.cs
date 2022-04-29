@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App.Utility;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq.Expressions;
@@ -7,6 +8,8 @@ using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>Manages the local database.</summary>
 public class DBManager : Singleton<DBManager>
 {
@@ -194,3 +197,6 @@ public class DBManager : Singleton<DBManager>
         return success >= items.Count;
     }
 }
+
+}
+

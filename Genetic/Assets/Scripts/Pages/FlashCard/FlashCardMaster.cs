@@ -1,9 +1,12 @@
+using App.Models.DataBase;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Pages.FlashCard
+{
 public class FlashCardMaster : MonoBehaviour
 {
     static DBManager manager { get => DBManager.instance; }
@@ -50,5 +53,7 @@ public class FlashCardMaster : MonoBehaviour
         title.text = new_title;
         isReveal = !isReveal;
     }
+
+}
 
 }

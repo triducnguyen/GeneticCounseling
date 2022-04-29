@@ -4,7 +4,12 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 using UnityEngine.UI;
+using App.Pages;
+using App.Pages.FlashCard;
+using App.Models.DataBase;
 
+namespace App.Pages.FlashCard
+{
 public class FlashCardPage : PageController
 {
     static DBManager manager { get => DBManager.instance; }
@@ -159,4 +164,6 @@ public class FlashCardPage : PageController
      
     }
      
+}
+
 }

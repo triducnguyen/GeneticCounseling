@@ -2,7 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using App.Utility;
+using App.Models.CSV;
+using App.Themes;
+using App.Models.DataBase;
 
+/// <summary>
+/// Application namespace
+/// </summary>
+namespace App
+{
 /// <summary>A singleton object that controls core aspects of the app such as theme, database, and startup.</summary>
 public class AppController : Singleton<AppController>
 {
@@ -16,7 +25,8 @@ public class AppController : Singleton<AppController>
     public TextAsset[] flashcard_bank;
     /// <summary>Writes data from CSV spreadsheets into the database.</summary>
     public CSVIngress csvIngress;
-
+        /// <summary>The quizlet converter.</summary>
+        public Quizlet2CSV quizletConverter;
     /// <summary>Controls current theme and list of themes.</summary>
     public PaletteController controller;
     /// <summary>Called after object instantiation.</summary>
@@ -30,10 +40,7 @@ public class AppController : Singleton<AppController>
         {
             csvIngress.ImportAnswerSheet(csv);
         }
-        foreach(var csv in flashcard_bank)
-        {
-            csvIngress.ImportFlashcardSheet(csv);
-        }
+            quizletConverter.CSVfromQuizlet();
     }
 
     protected override void OnApplicationQuit()
@@ -44,3 +51,6 @@ public class AppController : Singleton<AppController>
         base.OnApplicationQuit();
     }
 }
+}
+
+

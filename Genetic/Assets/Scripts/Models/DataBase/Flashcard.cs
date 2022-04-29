@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SQLite;
+
+namespace App.Models.DataBase
+{
 /// <summary>A table that defines a flashcard.</summary>
 public class Flashcard 
 {
@@ -17,3 +20,6 @@ public class Flashcard
     public string definition { get; set; }
     
 }
+
+}
+

@@ -1,8 +1,11 @@
+using App.Themes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Pages.QuizPage
+{
 /// <summary>Represents a tag/category.</summary>
 public class TagItem : StyleHandler
 {
@@ -41,3 +44,6 @@ public class TagItem : StyleHandler
     }
 
 }
+
+}
+

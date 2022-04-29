@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Pages
+{
+
 /// <summary>Controls the behavior of the ThemePage.</summary>
 public class ThemePage : PageController
 {
@@ -10,3 +13,5 @@ public class ThemePage : PageController
     /// <value>The action to perform.</value>
     public override Action flyoutTapped => controller.NextPalette;
 }
+}
+

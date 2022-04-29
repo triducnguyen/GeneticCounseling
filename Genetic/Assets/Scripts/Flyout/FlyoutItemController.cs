@@ -1,9 +1,12 @@
+using App.Themes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Flyout
+{
 /// <summary>A navigation item to be displayed in the flyout item list.</summary>
 public class FlyoutItemController : StyleHandler
 {
@@ -34,3 +37,6 @@ public class FlyoutItemController : StyleHandler
         base.ColorsChanged(args);
     }
 }
+
+}
+

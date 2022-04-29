@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>A table that represents different questions.</summary>
 public class Question
 {
@@ -18,3 +20,6 @@ public class Question
     /// <value>The image URL.</value>
     public string imageURL { get; set; }
 }
+
+}
+

@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using App.Flyout;
 
+namespace App.Navigation
+{
 /// <summary>Controls the flyout button and flyout menu animation.</summary>
 public class NavbarButtonController : MonoBehaviour
 {
@@ -50,3 +53,6 @@ public class NavbarButtonController : MonoBehaviour
         }
     }
 }
+
+}
+

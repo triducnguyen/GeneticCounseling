@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.DataBase
+{
 /// <summary>A table that defines a saved/in-progress question set.</summary>
 public class SavedQuiz
 {
@@ -35,3 +37,6 @@ public class SavedQuiz
     /// <value>The current attempt.</value>
     public int currentAttempt { get; set; }
 }
+
+}
+

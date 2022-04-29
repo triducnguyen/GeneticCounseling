@@ -1,8 +1,12 @@
+using App;
+using App.Themes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Themes
+{
 /// <summary>Handles color palette changes. Add elements to list to have them automatically update when a color palette change happens.</summary>
 public class StyleHandler : MonoBehaviour
 {
@@ -137,3 +141,6 @@ public class StyleHandler : MonoBehaviour
         }
     }
 }
+}
+
+

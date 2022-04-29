@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Layout
+{
 [ExecuteInEditMode]
 [RequireComponent(typeof(GridLayoutGroup))]
-
 public class StretchyGridLayout : MonoBehaviour
 {
     public enum Axis { X, Y };
@@ -78,3 +79,5 @@ public class StretchyGridLayout : MonoBehaviour
         
     }
 }
+}
+

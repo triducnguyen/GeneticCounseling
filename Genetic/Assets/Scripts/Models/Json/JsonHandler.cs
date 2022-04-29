@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace App.Models.Json
+{
 /// <summary>Handles JSON Serialization and Deserialization.</summary>
 public static class JsonHandler
 {
@@ -22,4 +24,7 @@ public static class JsonHandler
     {
         return JsonConvert.DeserializeObject<T>(json);
     }
+
+}
+
 }

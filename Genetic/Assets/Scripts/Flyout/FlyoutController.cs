@@ -1,9 +1,13 @@
+using App.Navigation;
+using App.Themes;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace App.Flyout
+{
 /// <summary>Manages the flyout menu.</summary>
 public class FlyoutController : StyleHandler
 {
@@ -79,3 +83,6 @@ public class FlyoutController : StyleHandler
         base.ColorsChanged(args);
     }
 }
+
+}
+

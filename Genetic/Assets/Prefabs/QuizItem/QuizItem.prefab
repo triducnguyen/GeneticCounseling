@@ -73,7 +73,7 @@ MonoBehaviour:
   Buttons: []
   ScrollBars: []
   ScrollViewBackground: []
-  name: {fileID: 1922902441516436802}
+  qname: {fileID: 1922902441516436802}
   toggle: {fileID: 8662990172026828087}
   image: {fileID: 7726439953982855813}
 --- !u!114 &7726439953982855813
