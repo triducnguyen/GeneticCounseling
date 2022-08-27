@@ -28,7 +28,7 @@ public class DBManager : Singleton<DBManager>
         {
             var path = new Uri(Path.Combine(Application.persistentDataPath, dbName));
             Debug.Log(path);
-            return path.AbsolutePath;
+            return path.LocalPath;
         }
     }
 
